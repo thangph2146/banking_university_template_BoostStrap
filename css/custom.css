@@ -20,15 +20,17 @@ body {
     background-color: var(--hub-gray); /* Slightly off-white background */
 }
 
+/* Add top padding to main content to prevent overlap with fixed navbar */
+main {
+    padding-top: 80px; /* Adjust this value if navbar height changes */
+} 
+
+
 /* --- Navbar --- */
 .hub-navbar-bg {
     background-color: var(--hub-red);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-/* .navbar-brand img { */
-    /* Height set in HTML */
-/* } */
 
 .navbar-dark .navbar-nav .nav-link {
     font-weight: 500;
@@ -184,27 +186,19 @@ footer .btn-hub-secondary:hover {
 }
 
 .carousel-indicators-container button {
-    /* width: 12px; */
     width: 30px; /* Chiều rộng nút */
-    /* height: 12px; */
     height: 8px;  /* Chiều cao nút */
-    /* background-color: rgba(255, 255, 255, 0.5); */ /* Màu trắng mờ */
     background-color: var(--hub-light);
-    /* border-radius: 50%; */
     border-radius: 4px; /* Bo góc nhẹ */
     border: none; /* Bỏ border */
     margin: 0; /* Reset margin */
     cursor: pointer;
     padding: 0;
-    /* transition: all 0.3s ease; */
     opacity: 0.7; /* Độ mờ mặc định */
     transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .carousel-indicators-container button.active {
-    /* background-color: white; */ /* Active màu trắng rõ */
-    /* width: 14px; */ /* To hơn chút khi active */
-    /* height: 14px; */
     width: 30px; /* Giữ nguyên kích thước khi active */
     height: 8px;
     background-color: var(--hub-light);
@@ -222,21 +216,8 @@ footer .btn-hub-secondary:hover {
     font-size: 1.1rem; /* Giảm cỡ chữ heading */
     font-weight: 600;
     margin-bottom: 1.5rem; /* Tăng khoảng cách dưới */
-    /* position: relative; */ /* Bỏ gạch chân */
-    /* padding-bottom: 10px; */
     color: var(--hub-light); /* Đảm bảo màu trắng */
 }
-
-/* Bỏ gạch chân */
-/* .footer-heading:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 2px;
-    background-color: var(--hub-red);
-} */
 
 .footer-links {
     list-style: none;
@@ -269,12 +250,10 @@ footer .btn-hub-secondary:hover {
     color: rgba(var(--hub-light), 0.75); /* Màu trắng mờ hơn */
     margin-bottom: 1rem; /* Tăng khoảng cách */
     display: flex;
-    /* align-items: center; */ /* Để icon và text thẳng hàng từ trên */
     align-items: flex-start;
 }
 
 .footer-contact li i {
-    /* color: var(--hub-red); */ /* Icon màu trắng mờ cùng text */
     color: rgba(var(--hub-light), 0.75);
     margin-right: 10px; /* Khoảng cách icon và text */
     margin-top: 4px; /* Chỉnh vị trí icon */
@@ -297,9 +276,8 @@ footer .btn-hub-secondary:hover {
 
 /* Newsletter style giống screenshot */
 .newsletter input {
-    /* border-radius: 50px 0 0 50px; */
     border-radius: 4px 0 0 4px; /* Góc vuông hơn */
-    border: none;
+    border: 1px solid var(--hub-light);
     background-color: rgba(var(--hub-light), 0.1); /* Nền tối hơn */
     color: var(--hub-light);
     padding: 10px 15px;
@@ -343,31 +321,23 @@ footer .btn-hub-secondary:hover {
 
 /* --- Events Section V2 (Sự kiện nổi bật) --- */
 #events {
-    /* background-color: var(--hub-grey); */ /* Bỏ màu nền xám */
     background-color: var(--hub-light); /* Nền trắng như screenshot */
 }
 
 #events h2 {
-    /* color: var(--hub-text-dark); */
-    /* text-align: center; */
-    /* margin-bottom: 0.5rem; */
     font-weight: 700; /* Đậm hơn */
     margin-bottom: 15px;
     color: var(--hub-text-dark);
-    /* font-weight: bold; */ /* Đã có */
 }
 
 #events .text-secondary { /* Subtitle */
-    /* font-size: 1rem; */
      color: var(--hub-text-secondary) !important;
 }
 
 /* Card style giống screenshot */
 .event-card-v2 {
-    /* border-radius: 10px; */
     border-radius: 8px; /* Bo góc nhẹ hơn */
     overflow: hidden;
-    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Shadow nhẹ hơn */
     transition: all 0.3s ease;
     height: 100%;
@@ -401,32 +371,25 @@ footer .btn-hub-secondary:hover {
 /* Date badge ở góc phải */
 .event-date-badge {
     position: absolute;
-    /* top: 15px; */
-    /* left: 15px; */
     top: 15px;
     right: 15px; /* Sang phải */
     background-color: var(--hub-red);
     color: var(--hub-light);
-    /* border-radius: 5px; */
     border-radius: 6px; /* Bo góc nhẹ */
     padding: 8px 12px; /* Padding khác */
     text-align: center;
     font-weight: 700; /* Đậm hơn */
     display: flex;
     flex-direction: column;
-    /* min-width: 50px; */
     line-height: 1; /* Sát nhau hơn */
 }
 
 .event-date-badge .day {
-    /* font-size: 1.2rem; */
     font-size: 1.5rem; /* To hơn */
     font-weight: 700; /* Đã có */
-    /* line-height: 1; */
 }
 
 .event-date-badge .month {
-    /* font-size: 0.8rem; */
     font-size: 0.85rem; /* To hơn chút */
     text-transform: uppercase;
 }
@@ -440,25 +403,18 @@ footer .btn-hub-secondary:hover {
 
 .event-category {
     display: inline-block;
-    /* background-color: #f0f0f0; */
     background-color: var(--hub-gray); /* Màu xám sáng */
     color: var(--hub-dark);
-    /* padding: 4px 10px; */
     padding: 4px 10px;
-    /* border-radius: 20px; */
     border-radius: 4px; /* Bo góc nhẹ */
     font-size: 0.8rem;
     font-weight: 600; /* Đậm hơn */
-    /* margin-bottom: 10px; */
     margin-bottom: 0.8rem;
 }
 
 .event-title {
-    /* font-size: 1.25rem; */
     font-size: 1.1rem; /* Nhỏ hơn chút */
     font-weight: 600;
-    /* margin-bottom: 10px; */
-    /* color: var(--hub-dark); */
     color: var(--hub-text-dark);
     margin-bottom: 10px;
     line-height: 1.4;
@@ -466,7 +422,6 @@ footer .btn-hub-secondary:hover {
 
 .event-description {
     color: var(--hub-text-secondary);
-    /* font-size: 0.95rem; */
     font-size: 0.9rem; /* Nhỏ hơn */
     margin-bottom: 15px;
     flex-grow: 1;
@@ -536,15 +491,11 @@ footer .btn-hub-secondary:hover {
 
 /* --- How It Works Section --- */
 #how-it-works {
-    /* background-color: var(--hub-light); */
     background-color: var(--hub-light); /* Nền trắng */
-    /* padding: 50px 0; */
     padding: 60px 0; /* Padding lớn hơn */
 }
 
 #how-it-works h2 {
-    /* color: var(--hub-dark); */
-    /* margin-bottom: 15px; */
     font-weight: 700; /* Đậm */
     margin-bottom: 15px;
     color: var(--hub-text-dark);
@@ -555,7 +506,6 @@ footer .btn-hub-secondary:hover {
 
 
 .how-it-works-col {
-    /* padding: 15px; */
     padding: 30px 20px; /* Padding lớn hơn */
     transition: all 0.3s ease;
 }
@@ -574,27 +524,13 @@ footer .btn-hub-secondary:hover {
 
 /* Style icon giống screenshot: Hình tròn lớn chứa icon, số nhỏ ở góc */
 .icon-circle {
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 0; */
-    /* width: 40px; */
-    /* height: 40px; */
     width: 120px; /* Kích thước lớn */
     height: 120px;
-    /* background-color: var(--hub-red); */
     background-color: var(--hub-gray); /* Nền xám nhạt */
-    /* color: white; */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* font-size: 12px; */
-    /* font-weight: bold; */
-    /* position: absolute; */ /* Bỏ absolute */
-    /* top: 0; */
-    /* right: 50%; */
-    /* transform: translateX(40px); */
-    /* z-index: 2; */
     margin: 0 auto; /* Căn giữa */
     position: relative; /* Để định vị số */
     transition: all 0.3s ease;
@@ -619,21 +555,11 @@ footer .btn-hub-secondary:hover {
 
 
 .icon-image { /* Icon chính giữa hình tròn */
-    /* width: 50px; */
-    /* height: 50px; */
-    /* margin: 0 auto; */
-    /* display: block; */
-    /* font-size: 3rem; */
     color: var(--hub-red); /* Màu đỏ */
     font-size: 2.5rem; /* Kích thước icon */
-    /* Không cần position absolute */
 }
 
 .how-it-works-title {
-    /* font-size: 1.2rem; */
-    /* font-weight: bold; */
-    /* color: var(--hub-text-dark); */
-    /* margin-bottom: 15px; */
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -641,32 +567,17 @@ footer .btn-hub-secondary:hover {
 }
 
 .how-it-works-text {
-    /* color: #666; */
-    /* font-size: 0.95rem; */
-    /* max-width: 300px; */
-    /* margin: 0 auto; */
     color: var(--hub-text-secondary);
     font-size: 0.95rem;
 }
 
-/* Bỏ hiệu ứng hover cũ */
-/* .how-it-works-col:hover .icon-circle {
-    transform: translateX(40px) scale(1.1);
-    transition: transform 0.3s ease;
-} */
-
 /* --- Upcoming Events Section --- */
 #upcoming-events {
-    /* background-color: var(--hub-grey); */
     background-color: var(--hub-gray); /* Màu nền như body */
-    /* padding-top: 3rem; */
-    /* padding-bottom: 3rem; */
     padding: 60px 0; /* Padding lớn */
 }
 
 #upcoming-events h2 {
-    /* color: var(--hub-text-dark); */
-    /* margin-bottom: 0.5rem; */
     font-weight: 700; /* Đậm */
     margin-bottom: 15px;
     color: var(--hub-text-dark);
@@ -678,12 +589,6 @@ footer .btn-hub-secondary:hover {
 
 /* Layout card sự kiện sắp tới giống screenshot */
 .upcoming-events-container {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* gap: 1.5rem; */
-    /* max-width: 900px; */
-    /* margin: 0 auto; */
-    /* padding: 1rem; */
     display: grid; /* Dùng grid để dễ căn chỉnh */
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive */
     gap: 30px; /* Khoảng cách giữa các card */
@@ -691,10 +596,8 @@ footer .btn-hub-secondary:hover {
 }
 
 .upcoming-event-card {
-    /* flex: 1 1 400px; */
     background-color: var(--hub-light);
     border-radius: 8px;
-    /* box-shadow: 0 4px 10px rgba(0,0,0,0.08); */
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); /* Shadow nhẹ */
     padding: 25px; /* Padding lớn hơn */
     position: relative;
@@ -705,58 +608,41 @@ footer .btn-hub-secondary:hover {
 
 .upcoming-event-card:hover {
     transform: translateY(-5px);
-    /* box-shadow: 0 6px 15px rgba(0,0,0,0.12); */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Shadow rõ hơn */
 }
 
 /* Date badge style giống screenshot */
 .event-date {
-    /* position: absolute; */
-    /* top: 1.5rem; */
-    /* left: 1.5rem; */
     display: inline-flex; /* Để không chiếm cả dòng */
     flex-direction: column;
     background-color: var(--hub-red);
     color: var(--hub-light);
-    /* padding: 0.4rem 0.5rem; */
     padding: 8px 15px; /* Padding lớn hơn */
-    /* border-radius: 4px; */
     border-radius: 6px; /* Bo góc nhẹ */
     text-align: center;
     line-height: 1.2; /* Giảm khoảng cách dòng */
-    /* margin-bottom: 15px; */ /* Bỏ margin bottom vì có div flex chứa */
-    /* min-width: 50px; */
 }
 
 .event-day {
-    /* font-size: 1.2rem; */
     font-size: 1.5rem; /* To hơn */
     font-weight: 700; /* Đậm */
-    /* line-height: 1; */
 }
 
 .event-month, .event-year {
-    /* font-size: 0.7rem; */
     font-size: 0.8rem; /* To hơn chút */
     text-transform: uppercase;
-    /* line-height: 1.2; */
 }
 
 /* Event type ở góc phải trên */
 .event-type {
     display: inline-block;
-    /* background-color: #eee; */
     background-color: var(--hub-gray); /* Xám nhạt */
     color: var(--hub-dark);
-    /* padding: 0.25rem 0.75rem; */
     padding: 4px 10px;
-    /* border-radius: 4px; */
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600; /* Đậm hơn */
     text-transform: uppercase;
-    /* margin-left: 5rem; */
-    /* margin-bottom: 0.75rem; */
     position: absolute;
     top: 25px;
     right: 25px;
@@ -764,13 +650,8 @@ footer .btn-hub-secondary:hover {
 
 /* Title của upcoming event */
 .upcoming-event-card .event-title {
-    /* font-weight: bold; */
-    /* color: var(--hub-text-dark); */
-    /* font-size: 1.1rem; */
     font-size: 1.2rem; /* To hơn */
-    /* margin-bottom: 1rem; */
     margin-bottom: 20px; /* Tăng khoảng cách */
-    /* line-height: 1.4; */
     font-weight: 600;
     color: var(--hub-text-dark);
 }
@@ -797,9 +678,6 @@ footer .btn-hub-secondary:hover {
 
 /* Nút đăng ký */
 .btn-register {
-    /* display: inline-block; */
-    /* padding: 0.5rem 1.25rem; */
-    /* Kế thừa style .btn-hub-primary */
     margin-top: auto; /* Đẩy nút xuống cuối card */
     width: 100%; /* Chiếm hết chiều rộng */
 }
@@ -808,16 +686,13 @@ footer .btn-hub-secondary:hover {
 #cta {
     background-color: var(--hub-red);
     color: var(--hub-light); /* Text màu trắng */
-    /* padding: 4rem 0; */
 }
 
 #cta h2 {
-    /* margin-bottom: 1rem; */
     font-weight: 700; /* Đậm */
 }
 
 .cta-buttons {
-    /* margin-top: 1.5rem; */
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -938,4 +813,108 @@ a:hover .bi-arrow-right { /* Hiệu ứng chung cho mũi tên */
         text-align: center !important;
         margin-bottom: 5px;
     }
+} 
+
+
+/* --- Pagination Customization --- */
+.pagination {
+    --bs-pagination-color: var(--hub-red); /* Màu chữ số trang */
+    --bs-pagination-hover-color: var(--hub-red-darker); /* Màu chữ khi hover */
+    --bs-pagination-active-bg: var(--hub-red); /* Màu nền trang active */
+    --bs-pagination-active-border-color: var(--hub-red); /* Màu viền trang active */
+    --bs-pagination-disabled-color: var(--hub-text-secondary); /* Màu chữ trang disabled */
+    --bs-pagination-disabled-bg: var(--hub-gray); /* Màu nền trang disabled */
+    --bs-pagination-disabled-border-color: #dee2e6; /* Màu viền trang disabled */
+}
+
+/* Đảm bảo màu chữ trang active là trắng */
+.pagination .page-item.active .page-link {
+    color: var(--hub-light);
+}
+
+/* Thêm hiệu ứng nhẹ khi hover các page-link không active/disabled */
+.pagination .page-item:not(.active):not(.disabled) .page-link:hover {
+    background-color: rgba(var(--hub-red-rgb), 0.1); /* Nền đỏ nhạt khi hover */
+}
+
+/* --- Event Detail Page Specific Styles --- */
+.event-detail-header {
+    padding: 4rem 0;
+    background-color: var(--hub-gray); /* Màu nền xám nhạt */
+}
+.event-detail-image-container {
+    position: relative; /* Needed for absolute positioning of fallback icon */
+    width: 100%;
+    max-height: 500px;
+    min-height: 300px; /* Ensure container has height even if image fails */
+    background-color: var(--hub-gray); /* Fallback background */
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex; /* For centering fallback content */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keep image/icon within bounds */
+}
+/* Fallback Icon using Bootstrap Icons font */
+.event-detail-image-container::before {
+    content: '\F4F3'; /* Bootstrap Icons code for bi-image-alt */
+    font-family: 'bootstrap-icons';
+    font-size: 4rem;
+    color: var(--hub-text-secondary);
+    opacity: 0.5;
+    position: absolute;
+    z-index: 0; /* Behind the image */
+}
+
+.event-detail-image {
+    display: block; /* Or inline-block if needed */
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    /* margin-bottom and box-shadow moved to container */
+    position: relative; /* Needed for z-index */
+    z-index: 1; /* Ensure image covers the ::before pseudo-element */
+    background-color: transparent; /* Ensure image background doesn't hide container */
+}
+.event-info-box {
+    background-color: var(--hub-light);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+.event-info-item {
+    display: flex;
+    align-items: flex-start; /* Căn lề trên cho icon và text */
+    margin-bottom: 1rem;
+    color: var(--hub-text-secondary);
+}
+.event-info-item i {
+    color: var(--hub-red);
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-top: 2px; /* Chỉnh nhẹ vị trí icon */
+    width: 20px; /* Đảm bảo icon chiếm không gian cố định */
+}
+ .event-info-item strong {
+    color: var(--hub-text-dark);
+    margin-right: 5px;
+}
+.event-description h3 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--hub-text-dark);
+}
+.event-description p {
+    line-height: 1.7;
+    color: var(--hub-text-secondary);
+}
+.register-button-section {
+     margin-top: 2rem;
+     padding-top: 2rem;
+     border-top: 1px solid #eee;
+     text-align: center;
 } 
