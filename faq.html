@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giải đáp các câu hỏi thường gặp về hệ thống quản lý sự kiện của Đại học Ngân hàng TP.HCM.">
+    <title>Đại học Ngân hàng TP.HCM - Câu hỏi thường gặp (FAQ)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <style>
+         /* Styles needed for Accordion and Page Header (can be moved to custom.css) */
+         .page-header {
+            background-color: var(--hub-red);
+            padding: 3rem 0; 
+            margin-bottom: 3rem;
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 2.5rem; 
+             margin-bottom: 0.5rem; 
+        }
+         .accordion-button:not(.collapsed) {
+            color: var(--hub-red); 
+            background-color: var(--hub-red-light);
+         }
+         .accordion-button:focus {
+             box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
+             border-color: rgba(var(--hub-red-rgb), 0.5);
+         }
+          .accordion-item {
+             margin-bottom: 0.5rem; /* Add space between accordion items */
+          }
+          .faq-icon {
+              width: 20px; /* Ensure consistent icon width */
+              text-align: center;
+          }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Sự kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-hub-secondary me-2">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-hub-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+         <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h1 class="fw-bold">Câu hỏi thường gặp (FAQ)</h1>
+                        <p class="lead">Tìm câu trả lời cho những thắc mắc phổ biến về hệ thống sự kiện.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- FAQ Section Content -->
+        <section id="faq-content" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        
+                        <!-- Optional: Intro text -->
+                        <p class="text-center text-secondary mb-5">Bạn có câu hỏi về cách đăng ký tài khoản, tìm kiếm sự kiện hay quản lý hồ sơ? Hãy xem qua các câu trả lời dưới đây.</p>
+
+                        <div class="accordion" id="faqAccordion">
+                            <!-- FAQ 1 - Search -->
+                            <div class="accordion-item" data-aos="fade-up">
+                                <h2 class="accordion-header" id="headingFaq1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq1" aria-expanded="false" aria-controls="collapseFaq1">
+                                        <i class="bi bi-search faq-icon me-2"></i> Làm thế nào để tìm kiếm sự kiện hiệu quả nhất?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq1" class="accordion-collapse collapse" aria-labelledby="headingFaq1" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Tại trang <a href="events.html" class="link-hub-red">Sự kiện</a>, hãy sử dụng <strong class="text-primary">Bộ lọc sự kiện</strong>:
+                                        <ul>
+                                            <li><strong>Ô tìm kiếm:</strong> Nhập từ khóa liên quan đến tên hoặc mô tả sự kiện.</li>
+                                            <li><strong>Loại sự kiện:</strong> Chọn từ danh sách thả xuống (Hội thảo, Workshop...).</li>
+                                            <li><strong>Ngày:</strong> Chọn ngày cụ thể bạn muốn xem sự kiện.</li>
+                                        </ul>
+                                        Kết quả sẽ tự động lọc và hiển thị các sự kiện phù hợp. 
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 2 - Registration Success -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="50">
+                                <h2 class="accordion-header" id="headingFaq2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq2" aria-expanded="false" aria-controls="collapseFaq2">
+                                        <i class="bi bi-check-circle-fill faq-icon me-2"></i> Làm sao biết tôi đã đăng ký thành công?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq2" class="accordion-collapse collapse" aria-labelledby="headingFaq2" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                       Trên trang chi tiết sự kiện, sau khi nhấn nút "Đăng ký tham gia ngay":
+                                       <ul>
+                                           <li>Bạn sẽ thấy thông báo <span class="badge bg-success">Đăng ký thành công!</span> xuất hiện.</li>
+                                           <li>Trạng thái đăng ký sẽ đổi thành <span class="badge bg-secondary">Bạn đã đăng ký sự kiện này</span>.</li>
+                                           <li>Bạn cũng có thể kiểm tra lại trong mục <a href="profile.html#registered-events" class="link-hub-red">Sự kiện đã đăng ký</a> trên trang Hồ sơ cá nhân.</li>
+                                       </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 3 - Cannot Register -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                                <h2 class="accordion-header" id="headingFaq3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq3" aria-expanded="false" aria-controls="collapseFaq3">
+                                        <i class="bi bi-x-octagon-fill faq-icon me-2"></i> Tại sao tôi không thể đăng ký sự kiện?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq3" class="accordion-collapse collapse" aria-labelledby="headingFaq3" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Hãy kiểm tra trạng thái đăng ký trên trang chi tiết sự kiện:
+                                        <ul>
+                                            <li><strong><span class="badge bg-info text-dark">Sắp mở</span>:</strong> Chưa đến thời gian đăng ký.</li>
+                                            <li><strong><span class="badge bg-warning text-dark">Đã đóng</span>:</strong> Đã hết hạn đăng ký.</li>
+                                            <li><strong><span class="badge bg-secondary">Đã đăng ký</span>:</strong> Bạn đã đăng ký rồi.</li>
+                                            <li><strong><span class="badge bg-danger">Không đủ điều kiện</span>:</strong> Sự kiện có thể giới hạn đối tượng tham gia (VD: theo Khoa, năm học...). Đọc kỹ mô tả sự kiện để biết thêm chi tiết.</li>
+                                            <li><strong>Chưa đăng nhập:</strong> Một số sự kiện yêu cầu bạn phải <a href="login.html" class="link-hub-red">Đăng nhập</a> trước khi đăng ký.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 4 - Manage Registered Events -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+                                <h2 class="accordion-header" id="headingFaq4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq4" aria-expanded="false" aria-controls="collapseFaq4">
+                                        <i class="bi bi-list-check faq-icon me-2"></i> Làm cách nào để xem lại các sự kiện tôi đã đăng ký?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq4" class="accordion-collapse collapse" aria-labelledby="headingFaq4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Sau khi <a href="login.html" class="link-hub-red">Đăng nhập</a>, hãy truy cập trang <a href="profile.html" class="link-hub-red">Hồ sơ cá nhân</a> của bạn. Chuyển đến tab "<i class="bi bi-calendar2-check-fill"></i> Sự kiện đã đăng ký" để xem danh sách tất cả các sự kiện bạn đã đăng ký thành công. Bạn có thể nhấp vào "Xem chi tiết" để xem lại thông tin sự kiện.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 5 - Cancel Registration -->
+                            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                                <h2 class="accordion-header" id="headingFaq5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq5" aria-expanded="false" aria-controls="collapseFaq5">
+                                       <i class="bi bi-calendar-x-fill faq-icon me-2"></i> Tôi muốn hủy đăng ký sự kiện thì phải làm sao?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq5" class="accordion-collapse collapse" aria-labelledby="headingFaq5" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                       Hiện tại hệ thống chưa hỗ trợ hủy đăng ký tự động. Nếu bạn không thể tham dự, vui lòng tìm thông tin liên hệ của Ban Tổ Chức (thường có trong mô tả chi tiết sự kiện hoặc poster) để thông báo trực tiếp. Nếu không có, bạn có thể sử dụng trang <a href="contact.html" class="link-hub-red">Liên hệ</a> của hệ thống.
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 6 - Edit Profile Info -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+                                <h2 class="accordion-header" id="headingFaq6">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq6" aria-expanded="false" aria-controls="collapseFaq6">
+                                       <i class="bi bi-pencil-square faq-icon me-2"></i> Làm sao để thay đổi thông tin Khoa hoặc Số điện thoại?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq6" class="accordion-collapse collapse" aria-labelledby="headingFaq6" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Bạn có thể cập nhật thông tin Khoa và Số điện thoại của mình tại trang <a href="profile.html" class="link-hub-red">Hồ sơ cá nhân</a>. Trong tab "<i class="bi bi-person-vcard-fill"></i> Thông tin cá nhân", nhấn nút "<i class="bi bi-pencil-fill"></i> Chỉnh sửa", điền thông tin mới và nhấn "Lưu thay đổi". Lưu ý: Họ tên, Email và MSSV không thể thay đổi.
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 7 - Password Reset -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                                <h2 class="accordion-header" id="headingFaq7">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq7" aria-expanded="false" aria-controls="collapseFaq7">
+                                       <i class="bi bi-key-fill faq-icon me-2"></i> Tôi quên mật khẩu thì làm thế nào?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq7" class="accordion-collapse collapse" aria-labelledby="headingFaq7" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Tại trang <a href="login.html" class="link-hub-red">Đăng nhập</a>, nhấp vào liên kết "<a href="forgot-password.html" class="link-hub-red">Quên mật khẩu?</a>". Nhập địa chỉ email trường (<span class="text-danger">@hub.edu.vn</span>) đã đăng ký. Nếu chức năng khôi phục mật khẩu được kích hoạt, hệ thống sẽ gửi email hướng dẫn tạo mật khẩu mới (kiểm tra cả Hộp thư đến và Spam). <br><i>(Chức năng này có thể đang trong giai đoạn phát triển).</i>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- FAQ 8 - Technical Issues -->
+                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+                                <h2 class="accordion-header" id="headingFaq8">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq8" aria-expanded="false" aria-controls="collapseFaq8">
+                                       <i class="bi bi-wrench-adjustable-circle-fill faq-icon me-2"></i> Trang web bị lỗi hoặc tải chậm, tôi nên làm gì?
+                                    </button>
+                                </h2>
+                                <div id="collapseFaq8" class="accordion-collapse collapse" aria-labelledby="headingFaq8" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                       Nếu bạn gặp sự cố kỹ thuật, hãy thử:
+                                       <ul>
+                                            <li><strong>Tải lại trang</strong> (F5 hoặc nút Refresh).</li>
+                                            <li><strong>Xóa cache & cookie</strong> của trình duyệt.</li>
+                                            <li><strong>Thử trình duyệt khác</strong> (Chrome, Firefox, Edge...).</li>
+                                            <li><strong>Kiểm tra kết nối mạng</strong> của bạn.</li>
+                                            <li>Nếu vẫn bị lỗi, vui lòng <a href="contact.html" class="link-hub-red">Liên hệ</a> bộ phận hỗ trợ, mô tả rõ lỗi bạn gặp.</li>
+                                       </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Link to Contact -->
+                        <div class="text-center mt-5 pt-4 border-top">
+                             <p class="lead text-secondary">Không tìm thấy câu trả lời bạn cần?</p>
+                             <a href="contact.html" class="btn btn-outline-hub-red"><i class="bi bi-headset me-2"></i>Liên hệ bộ phận hỗ trợ</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="hub-footer-bg text-white pt-5 pb-4 mt-auto">
+       <!-- Consistent Footer across pages -->
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <!-- Column 1 - Logo and Info -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="200" class="mb-4" loading="lazy">
+                    <p>Hệ thống Quản lý Sự kiện Đại học Ngân hàng TP.HCM - Nơi kết nối, chia sẻ và tham gia các hoạt động ngoại khóa và học thuật.</p>
+                    <div class="social-links d-inline-flex gap-2 mt-3">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2 - Quick Links -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên kết nhanh</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="events.html">Sự kiện</a></li>
+                        <li><a href="how-it-works.html">Hướng dẫn</a></li>
+                        <li><a href="profile.html">Hồ sơ cá nhân</a></li>
+                        <li><a href="faq.html">FAQ</a></li> <!-- Added FAQ link -->
+                    </ul>
+                </div>
+
+                <!-- Column 3 - Support -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Hỗ trợ</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li> <!-- Link to this page -->
+                        <li><a href="how-it-works.html">Cách tham gia</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
+                        <li><a href="contact.html">Hỗ trợ kỹ thuật</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 - Contact -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên hệ</h4>
+                    <ul class="footer-contact list-unstyled">
+                        <li><i class="bi bi-house-door-fill me-3" aria-hidden="true"></i> 36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Quận 1, TP.HCM</li>
+                        <li><i class="bi bi-telephone-fill me-3" aria-hidden="true"></i> (028) 3829 1901</li>
+                        <li><i class="bi bi-envelope-fill me-3" aria-hidden="true"></i> dhtn@hub.edu.vn</li>
+                    </ul>
+                    <h4 class="footer-heading text-uppercase mt-4 mb-3 font-weight-bold">Đăng ký nhận tin</h4>
+                    <form class="newsletter">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Nhập email của bạn" aria-label="Email của bạn">
+                            <button class="btn btn-light" type="submit" aria-label="Gửi"><i class="bi bi-send-fill" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="mb-4">
+            <div class="footer-bottom row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="mb-0 text-center text-md-start">© 2025 Đại học Ngân hàng TP.HCM. Tất cả quyền được bảo lưu. Phát triển bởi <a href="#" class="text-white">BUH DEV</a></p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-end">
+                        <!-- Optional: Add payment icons or other info here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, 
+            once: true, 
+        });
+    </script>
+</body>
+
+</html>

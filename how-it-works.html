@@ -76,12 +76,14 @@
              margin-bottom: 0.25rem;
         }
          .page-header {
-            background-color: #f8f9fa;
+            background-color: var(--hub-red);
             padding: 3rem 0; /* Increased padding */
             margin-bottom: 3rem;
+            color: white;
         }
         .page-header h1 {
             font-size: 2.5rem; /* Larger title */
+             margin-bottom: 0.5rem; /* Add margin below title */
         }
          .accordion-button:not(.collapsed) {
             color: var(--hub-red); 
@@ -108,21 +110,25 @@
              background-color: #fff;
              margin-bottom: 1rem;
              box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+             display: flex; /* Use flexbox */
+             align-items: flex-start; /* Align icon top */
          }
          .tip-card .tip-icon {
              color: var(--hub-red);
              font-size: 1.2rem;
-             margin-right: 0.5rem;
+             margin-right: 0.75rem; /* Increased margin */
+             margin-top: 0.1rem; /* Adjust icon top alignment */
          }
          .tip-card p {
              margin-bottom: 0;
+             flex-grow: 1; /* Allow text to take remaining space */
          }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark">
+    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="50">
@@ -158,9 +164,9 @@
         <section class="page-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center">
+                    <div class="col-lg-10 mx-auto text-center"> <!-- Centered column -->
                         <h1 class="fw-bold">Hướng dẫn chi tiết A-Z</h1>
-                        <p class="text-secondary lead">Mọi thứ bạn cần biết để sử dụng hệ thống sự kiện HUB hiệu quả.</p>
+                        <p class="lead">Mọi thứ bạn cần biết để sử dụng hệ thống sự kiện HUB hiệu quả.</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +186,7 @@
                     <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
-                                <i class="bi bi-person-vcard-fill icon-image"></i> <!-- Changed icon -->
+                                <i class="bi bi-person-vcard-fill icon-image"></i> 
                             </div>
                             <span class="icon-number">1</span>
                         </div>
@@ -189,34 +195,36 @@
                             <strong><i class="bi bi-dot"></i> Đăng ký (nếu là lần đầu):</strong>
                             <ul>
                                 <li>Truy cập trang <a href="register.html" class="link-hub-red">Đăng ký</a>.</li>
-                                <li>Sử dụng <strong class="text-danger">email trường cấp</strong> (đuôi @hub.edu.vn). Đây là yêu cầu bắt buộc để xác thực sinh viên.</li>
+                                <li>Sử dụng <strong class="text-danger">email trường cấp (@hub.edu.vn)</strong>. Đây là yêu cầu bắt buộc để <span class="fw-semibold">xác thực bạn là sinh viên HUB</span>.</li>
                                 <li>Điền đầy đủ họ tên, MSSV.</li>
-                                <li>Đặt mật khẩu <strong class="text-primary">ít nhất 8 ký tự</strong>. Chọn mật khẩu mạnh và <strong class="text-danger">không chia sẻ</strong> cho người khác.</li>
-                                <li>Đồng ý với điều khoản sử dụng.</li>
-                                 <li>Nhấn "Đăng ký". Hệ thống sẽ thông báo kết quả ngay trên trang.</li>
-                                 <li><i>(Trong tương lai có thể cần xác nhận email, hãy kiểm tra cả Hộp thư đến và Spam/Junk).</i></li>
+                                <li>Đặt mật khẩu <strong class="text-primary">ít nhất 8 ký tự</strong>, bảo mật và <strong class="text-danger">không chia sẻ</strong>.</li>
+                                <li>Đồng ý với điều khoản.</li>
+                                 <li>Nhấn "Đăng ký".</li>
                             </ul>
                              <strong><i class="bi bi-dot"></i> Đăng nhập (nếu đã có tài khoản):</strong>
                              <ul>
                                   <li>Truy cập trang <a href="login.html" class="link-hub-red">Đăng nhập</a>.</li>
-                                  <li>Nhập Email/MSSV và mật khẩu đã đăng ký.</li>
-                                  <li>Sử dụng tính năng "Hiện/Ẩn mật khẩu" để kiểm tra.</li>
-                                  <li>Có thể chọn "Ghi nhớ đăng nhập" (không khuyến khích trên máy tính công cộng).</li>
+                                  <li>Nhập Email/MSSV và mật khẩu.</li>
+                                  <li>Sử dụng icon con mắt <i class="bi bi-eye-fill"></i> để kiểm tra mật khẩu.</li>
+                             </ul>
+                             <strong><i class="bi bi-dot"></i> Quản lý thông tin:</strong>
+                             <ul>
+                                 <li>Sau khi đăng nhập, bạn có thể truy cập <a href="profile.html" class="link-hub-red">Hồ sơ cá nhân</a> để cập nhật thông tin như Khoa, Số điện thoại (nếu muốn).</li>
                              </ul>
                             <div class="visual-placeholder">
                                 <i class="bi bi-input-cursor-text me-1"></i> Minh họa Form Đăng ký & Đăng nhập.
                             </div>
                         </div>
                          <div class="mt-3 d-flex justify-content-center gap-2">
-                            <a href="register.html" class="btn btn-sm btn-hub-primary">Đăng ký</a>
-                            <a href="login.html" class="btn btn-sm btn-hub-secondary">Đăng nhập</a>
+                            <a href="register.html" class="btn btn-sm btn-hub-primary">Đi đến Đăng ký</a>
+                            <a href="login.html" class="btn btn-sm btn-hub-secondary">Đi đến Đăng nhập</a>
                         </div>
                     </div>
                     <!-- Step 2 -->
                     <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
-                                <i class="bi bi-binoculars-fill icon-image"></i> <!-- Changed icon -->
+                                <i class="bi bi-binoculars-fill icon-image"></i> 
                             </div>
                             <span class="icon-number">2</span>
                         </div>
@@ -224,68 +232,74 @@
                         <div class="how-it-works-text">
                             Truy cập trang <a href="events.html" class="link-hub-red">Sự kiện</a>:
                              <ul>
-                                 <li><strong class="text-primary">Carousel đầu trang:</strong> Hiển thị các sự kiện nổi bật, tự động cập nhật từ danh sách.</li>
-                                 <li><strong class="text-primary">Bộ lọc:</strong> Nằm gọn trong khung riêng.</li>
+                                 <li><strong class="text-primary">Carousel nổi bật:</strong> Các sự kiện hot nhất hiện tại.</li>
+                                 <li><strong class="text-primary">Bộ lọc tiện lợi:</strong></li>
                                      <ul class="small">
-                                         <li><strong>Tìm kiếm:</strong> Nhập từ khóa (tên, mô tả) vào ô tìm kiếm.</li>
-                                         <li><strong>Loại sự kiện:</strong> Chọn từ danh sách (Hội thảo, Workshop...).</li>
-                                         <li><strong>Ngày:</strong> Chọn ngày cụ thể từ lịch.</li>
-                                         <li><i>Ví dụ: Để tìm Workshop vào tháng 5/2025, chọn "Workshop" và chọn một ngày trong tháng 5.</i></li>
+                                         <li><strong>Tìm kiếm:</strong> Nhập từ khóa (tên sự kiện, mô tả...).</li>
+                                         <li><strong>Loại sự kiện:</strong> Chọn Hội thảo, Workshop, Cuộc thi...</li>
+                                         <li><strong>Ngày:</strong> Chọn ngày diễn ra sự kiện cụ thể.</li>
                                      </ul>
-                                 <li><strong class="text-primary">Danh sách sự kiện:</strong> Hiển thị dưới dạng thẻ (cards).</li>
+                                 <li><strong class="text-primary">Danh sách sự kiện (Thẻ):</strong></li>
                                      <ul class="small">
                                          <li>Mỗi thẻ có ảnh, tên, loại, địa điểm.</li>
-                                         <li>Góc thẻ có <span class="badge bg-danger text-white">Ngày/Tháng</span> nổi bật (<span class="fst-italic">Lưu ý:</span> Ngày này chỉ để hiển thị. Việc lọc theo ngày sẽ dựa trên dữ liệu ngày đầy đủ ẩn bên trong).</li>
-                                         <li>Ảnh được tải theo cơ chế `loading="lazy"` để tăng tốc độ trang.</li>
+                                         <li>Badge <span class="badge bg-danger text-white">Ngày/Tháng</span> ở góc thẻ giúp nhận diện nhanh.</li>
+                                         <li>Nhấn "Xem chi tiết" để tìm hiểu kỹ hơn.</li>
                                      </ul>
-                                  <li><strong class="text-primary">Thông báo "Không tìm thấy kết quả":</strong> Xuất hiện nếu bộ lọc của bạn không khớp với sự kiện nào.</li>
+                                  <li><strong class="text-primary">Không tìm thấy?</strong> Hệ thống sẽ báo nếu không có sự kiện khớp bộ lọc.</li>
                              </ul>
                              <div class="visual-placeholder">
                                 <i class="bi bi-filter-circle-fill me-1"></i> Minh họa Bộ lọc & Danh sách Thẻ sự kiện.
                             </div>
                         </div>
                          <div class="mt-3">
-                            <a href="events.html" class="btn btn-sm btn-outline-hub-red">Đi đến trang Sự kiện</a>
+                            <a href="events.html" class="btn btn-sm btn-outline-hub-red">Khám phá sự kiện ngay</a>
                         </div>
                     </div>
                     <!-- Step 3 -->
                     <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
-                                <i class="bi bi-clipboard-check-fill icon-image"></i> <!-- Changed icon -->
+                                <i class="bi bi-clipboard-check-fill icon-image"></i> 
                             </div>
                             <span class="icon-number">3</span>
                         </div>
                         <h3 class="how-it-works-title">Xem chi tiết & Đăng ký</h3>
                          <div class="how-it-works-text">
-                            Nhấn "Xem chi tiết" trên một thẻ sự kiện:
+                            Tại trang <a href="event-detail.html" class="link-hub-red">Chi tiết sự kiện</a>:
                             <ul>
-                                <li><strong class="text-primary">Đọc kỹ thông tin:</strong> Nội dung, mục tiêu, diễn giả, đơn vị tổ chức, yêu cầu (nếu có).</li>
-                                <li><strong class="text-primary">Kiểm tra thời gian, địa điểm:</strong> Đảm bảo phù hợp với lịch trình của bạn.</li>
-                                <li><strong class="text-primary">Tìm khu vực đăng ký (bên phải):</strong></li>
+                                <li><strong class="text-primary">Đọc kỹ thông tin:</strong> Nội dung, diễn giả, thời gian, địa điểm, yêu cầu (nếu có).</li>
+                                <li><strong class="text-primary">Kiểm tra trạng thái đăng ký (ô bên phải):</strong></li>
                                      <ul class="small">
-                                         <li>Xem trạng thái: <span class="badge bg-info text-dark">Sắp mở</span>, <span class="badge bg-success">Đang mở</span>, <span class="badge bg-warning text-dark">Đã đóng</span>, <span class="badge bg-secondary">Đã đăng ký</span>, <span class="badge bg-danger">Không đủ điều kiện</span> (VD: chỉ dành cho Khoa X, Năm Y).</li>
-                                         <li>Nếu là <span class="badge bg-success">Đang mở</span>, nút "Đăng ký tham gia ngay" sẽ hiện ra.</li>
+                                         <li><span class="badge bg-info text-dark">Sắp mở</span>: Chờ đến ngày mở đăng ký.</li>
+                                         <li><span class="badge bg-success">Đang mở</span>: Có nút "Đăng ký tham gia ngay".</li>
+                                         <li><span class="badge bg-warning text-dark">Đã đóng</span>: Hết hạn đăng ký.</li>
+                                         <li><span class="badge bg-secondary">Đã đăng ký</span>: Bạn đã đăng ký rồi.</li>
+                                         <li><span class="badge bg-danger">Không đủ điều kiện</span>: Sự kiện có thể giới hạn đối tượng tham gia (VD: theo Khoa, năm học...). Đọc kỹ mô tả sự kiện để biết thêm chi tiết.</li>
                                      </ul>
-                                <li><strong class="text-primary">Nhấn nút Đăng ký:</strong></li>
+                                <li><strong class="text-primary">Nhấn nút "Đăng ký tham gia ngay" (nếu có):</strong></li>
                                      <ul class="small">
-                                          <li>Nút sẽ chuyển sang trạng thái "Đang xử lý".</li>
-                                          <li>Sau vài giây (giả lập), hệ thống sẽ <strong class="text-danger">hiển thị thông báo kết quả ngay trên trang</strong> (Thành công hoặc Thất bại).</li>
-                                          <li>Nếu thành công, trạng thái sẽ cập nhật thành "Đã đăng ký".</li>
+                                          <li>Nút sẽ hiển thị trạng thái "Đang xử lý...".</li>
+                                          <li>Hệ thống sẽ <strong class="text-danger">thông báo kết quả (Thành công/Thất bại)</strong> ngay trên trang.</li>
                                      </ul>
+                                 <li><strong class="text-primary">Quản lý sự kiện đã đăng ký:</strong></li>
+                                      <ul class="small">
+                                          <li>Sau khi đăng ký thành công, sự kiện sẽ xuất hiện trong mục <a href="profile.html#registered-events" class="link-hub-red">Sự kiện đã đăng ký</a> trên trang Hồ sơ cá nhân.</li>
+                                      </ul>
                             </ul>
                              <div class="visual-placeholder">
-                                <i class="bi bi-card-checklist me-1"></i> Minh họa Trang chi tiết & Trạng thái đăng ký.
+                                <i class="bi bi-card-checklist me-1"></i> Minh họa Trang chi tiết & Các trạng thái đăng ký.
                             </div>
                         </div>
-                        
+                         <div class="mt-3">
+                             <a href="profile.html#registered-events" class="btn btn-sm btn-outline-secondary">Xem sự kiện của tôi</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
           <!-- Tips Section -->
-        <section id="tips" class="py-5 bg-white"> <!-- Changed background -->
+        <section id="tips" class="py-5 bg-white"> 
              <div class="container">
                  <div class="row text-center mb-5">
                     <div class="col-lg-8 mx-auto">
@@ -296,172 +310,41 @@
                  <div class="row justify-content-center">
                      <div class="col-lg-9">
                          <div class="tip-card" data-aos="fade-left">
-                             <p><i class="bi bi-calendar-week-fill tip-icon"></i> <strong>Kiểm tra thường xuyên:</strong> Sự kiện mới được cập nhật liên tục. Hãy ghé thăm trang <a href="events.html" class="link-hub-red">Sự kiện</a> thường xuyên để không bỏ lỡ.</p>
+                             <i class="bi bi-calendar-week-fill tip-icon"></i>
+                             <p><strong>Kiểm tra thường xuyên:</strong> Sự kiện mới được cập nhật liên tục. Ghé thăm trang <a href="events.html" class="link-hub-red">Sự kiện</a> thường xuyên.</p>
                          </div>
                           <div class="tip-card" data-aos="fade-left" data-aos-delay="50">
-                             <p><i class="bi bi-info-circle-fill tip-icon"></i> <strong>Đọc kỹ chi tiết:</strong> Trước khi đăng ký, hãy đọc hết phần mô tả, yêu cầu, thời gian, địa điểm để chắc chắn sự kiện phù hợp.</p>
+                             <i class="bi bi-info-circle-fill tip-icon"></i>
+                             <p><strong>Đọc kỹ chi tiết:</strong> Trước khi đăng ký, xem hết mô tả, yêu cầu, thời gian, địa điểm.</p>
                          </div>
                          <div class="tip-card" data-aos="fade-left" data-aos-delay="100">
-                             <p><i class="bi bi-filter-circle-fill tip-icon"></i> <strong>Sử dụng bộ lọc thông minh:</strong> Kết hợp các bộ lọc (từ khóa, loại, ngày) để nhanh chóng tìm thấy sự kiện mong muốn.</p>
+                             <i class="bi bi-filter-circle-fill tip-icon"></i>
+                             <p><strong>Sử dụng bộ lọc:</strong> Kết hợp các bộ lọc (từ khóa, loại, ngày) để nhanh chóng tìm thấy sự kiện mong muốn.</p>
                          </div>
                           <div class="tip-card" data-aos="fade-left" data-aos-delay="150">
-                             <p><i class="bi bi-person-fill-check tip-icon"></i> <strong>Đăng ký sớm:</strong> Nhiều sự kiện (đặc biệt là workshop) có giới hạn số lượng. Hãy đăng ký ngay khi có thể nếu bạn chắc chắn tham gia.</p>
+                             <i class="bi bi-person-fill-check tip-icon"></i>
+                             <p><strong>Đăng ký sớm:</strong> Nhiều sự kiện có giới hạn số lượng. Đăng ký ngay khi có thể nếu bạn chắc chắn tham gia.</p>
                          </div>
                          <div class="tip-card" data-aos="fade-left" data-aos-delay="200">
-                             <p><i class="bi bi-share-fill tip-icon"></i> <strong>Chia sẻ dễ dàng:</strong> Muốn rủ bạn bè cùng tham gia? Chỉ cần sao chép đường dẫn (URL) của trang chi tiết sự kiện và gửi cho họ.</p>
+                             <i class="bi bi-person-badge-fill tip-icon"></i>
+                             <p><strong>Kiểm tra Hồ sơ:</strong> Truy cập <a href="profile.html#registered-events" class="link-hub-red">Hồ sơ cá nhân</a> để xem lại danh sách các sự kiện bạn đã đăng ký.</p>
+                         </div>
+                          <div class="tip-card" data-aos="fade-left" data-aos-delay="250">
+                             <i class="bi bi-share-fill tip-icon"></i>
+                             <p><strong>Chia sẻ dễ dàng:</strong> Muốn rủ bạn bè? Sao chép đường dẫn (URL) của trang chi tiết sự kiện và gửi cho họ.</p>
                          </div>
                      </div>
                  </div>
              </div>
         </section>
 
-         <!-- FAQ Section -->
-        <section id="faq" class="py-5 bg-light">
-            <div class="container">
-                 <div class="row text-center mb-5">
+         <!-- FAQ Section - Simplified -->
+        <section id="faq-link" class="py-5 bg-light">            <div class="container">
+                <div class="row text-center">
                     <div class="col-lg-8 mx-auto">
-                        <h2 class="fw-bold mb-3">Giải đáp thắc mắc (FAQ)</h2>
-                        <!-- <p class="text-secondary">Những câu hỏi thường gặp khi sử dụng hệ thống.</p> -->
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                        <div class="accordion" id="faqAccordion">
-                            <!-- FAQ 1 -->
-                            <div class="accordion-item" data-aos="fade-up">
-                                <h2 class="accordion-header" id="headingFaq1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq1" aria-expanded="false" aria-controls="collapseFaq1">
-                                        <i class="bi bi-search me-2"></i> Làm thế nào để tìm kiếm sự kiện hiệu quả nhất?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq1" class="accordion-collapse collapse" aria-labelledby="headingFaq1" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Tại trang <a href="events.html" class="link-hub-red">Sự kiện</a>, hãy kết hợp các công cụ:
-                                        <ul>
-                                            <li><strong>Từ khóa:</strong> Nhập tên sự kiện, tên diễn giả, hoặc chủ đề liên quan vào ô tìm kiếm.</li>
-                                            <li><strong>Loại sự kiện:</strong> Chọn đúng danh mục bạn quan tâm (VD: chỉ xem "Cuộc thi").</li>
-                                            <li><strong>Ngày:</strong> Chọn một ngày cụ thể nếu bạn biết chính xác hoặc muốn xem lịch trong ngày đó.</li>
-                                        </ul>
-                                        Kết quả sẽ tự động cập nhật dựa trên các lựa chọn của bạn.
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- FAQ 2 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="50">
-                                <h2 class="accordion-header" id="headingFaq2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq2" aria-expanded="false" aria-controls="collapseFaq2">
-                                        <i class="bi bi-check-circle-fill me-2"></i> Làm sao biết tôi đã đăng ký thành công?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq2" class="accordion-collapse collapse" aria-labelledby="headingFaq2" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                       Sau khi nhấn nút "Đăng ký tham gia ngay" và hệ thống xử lý thành công (thường mất vài giây), bạn sẽ thấy:
-                                       <ul>
-                                           <li>Một thông báo <span class="badge bg-success">Đăng ký thành công!</span> xuất hiện ngay tại khu vực nút bấm.</li>
-                                           <li>Nút đăng ký biến mất và thay vào đó là trạng thái <span class="badge bg-secondary">Bạn đã đăng ký sự kiện này</span>.</li>
-                                       </ul>
-                                       Không có email xác nhận tự động ở phiên bản hiện tại. Hãy dựa vào thông báo trên trang.
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- FAQ 3 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
-                                <h2 class="accordion-header" id="headingFaq3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq3" aria-expanded="false" aria-controls="collapseFaq3">
-                                        <i class="bi bi-x-octagon-fill me-2"></i> Tại sao nút "Đăng ký" bị ẩn hoặc không bấm được?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq3" class="accordion-collapse collapse" aria-labelledby="headingFaq3" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Có nhiều lý do khiến bạn không thể đăng ký:
-                                        <ul>
-                                            <li><strong>Chưa mở đăng ký (<span class="badge bg-info text-dark">Sắp mở</span>):</strong> Hãy kiên nhẫn chờ đến ngày mở đăng ký.</li>
-                                            <li><strong>Đã hết hạn (<span class="badge bg-warning text-dark">Đã đóng</span>):</strong> Bạn đã bỏ lỡ cơ hội đăng ký sự kiện này.</li>
-                                            <li><strong>Đã đăng ký (<span class="badge bg-secondary">Đã đăng ký</span>):</strong> Bạn không cần đăng ký lại.</li>
-                                            <li><strong>Giới hạn đối tượng (<span class="badge bg-danger">Không đủ điều kiện</span>):</strong> Sự kiện có thể chỉ dành cho sinh viên năm nhất, hoặc thuộc một khoa cụ thể... Thông tin này thường có trong mô tả sự kiện.</li>
-                                             <li><strong>Cần đăng nhập:</strong> Một số sự kiện có thể yêu cầu bạn phải <a href="login.html" class="link-hub-red">Đăng nhập</a> trước khi đăng ký.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ 4 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
-                                <h2 class="accordion-header" id="headingFaq4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq4" aria-expanded="false" aria-controls="collapseFaq4">
-                                        <i class="bi bi-list-check me-2"></i> Làm cách nào để quản lý các sự kiện tôi đã đăng ký?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq4" class="accordion-collapse collapse" aria-labelledby="headingFaq4" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Ở phiên bản hiện tại, chưa có trang tổng hợp danh sách sự kiện bạn đã đăng ký. Để kiểm tra, bạn cần truy cập lại trang chi tiết của từng sự kiện và xem trạng thái đăng ký <span class="badge bg-secondary">Đã đăng ký</span>. Tính năng trang quản lý cá nhân đang được phát triển.
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- FAQ 5 -->
-                            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
-                                <h2 class="accordion-header" id="headingFaq5">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq5" aria-expanded="false" aria-controls="collapseFaq5">
-                                       <i class="bi bi-calendar-x-fill me-2"></i> Tôi muốn hủy đăng ký thì phải làm sao?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq5" class="accordion-collapse collapse" aria-labelledby="headingFaq5" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                       Hiện tại chưa có nút hủy đăng ký tự động. Nếu bạn không thể tham dự, hãy thể hiện sự tôn trọng Ban Tổ chức bằng cách:
-                                       <ul>
-                                           <li>Tìm thông tin liên hệ của BTC (email, số điện thoại) trong phần chi tiết sự kiện hoặc poster và thông báo trực tiếp.</li>
-                                           <li>Nếu không có thông tin cụ thể, bạn có thể gửi yêu cầu qua trang <a href="contact.html" class="link-hub-red">Liên hệ</a> của hệ thống, ghi rõ tên sự kiện và thông tin của bạn.</li>
-                                       </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ 6 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
-                                <h2 class="accordion-header" id="headingFaq6">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq6" aria-expanded="false" aria-controls="collapseFaq6">
-                                       <i class="bi bi-shield-lock-fill me-2"></i> Thông tin của tôi có an toàn không?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq6" class="accordion-collapse collapse" aria-labelledby="headingFaq6" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Chúng tôi coi trọng việc bảo mật thông tin. Dữ liệu bạn cung cấp (Họ tên, MSSV, Email) chủ yếu dùng để xác thực và quản lý việc tham gia sự kiện. Dữ liệu này được xử lý theo <a href="#" class="link-hub-red">Chính sách bảo mật</a> (placeholder link) và chỉ được chia sẻ cho Ban Tổ chức sự kiện liên quan khi cần thiết cho công tác điểm danh hoặc chuẩn bị.
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- FAQ 7 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
-                                <h2 class="accordion-header" id="headingFaq7">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq7" aria-expanded="false" aria-controls="collapseFaq7">
-                                       <i class="bi bi-key-fill me-2"></i> Tôi quên mật khẩu thì làm thế nào?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq7" class="accordion-collapse collapse" aria-labelledby="headingFaq7" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Tại trang <a href="login.html" class="link-hub-red">Đăng nhập</a>, nhấp vào liên kết "Quên mật khẩu?". Nhập địa chỉ email trường (<span class="text-danger">@hub.edu.vn</span>) mà bạn đã dùng để đăng ký. Hệ thống sẽ gửi email chứa liên kết để bạn tạo mật khẩu mới. Hãy kiểm tra cả hộp thư đến và thư mục Spam/Junk. <br><i>(Lưu ý: Chức năng này đang trong giai đoạn phát triển và có thể chưa hoạt động đầy đủ).</i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ 8 -->
-                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
-                                <h2 class="accordion-header" id="headingFaq8">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq8" aria-expanded="false" aria-controls="collapseFaq8">
-                                       <i class="bi bi-wrench-adjustable-circle-fill me-2"></i> Trang web bị lỗi hoặc tải chậm, tôi nên làm gì?
-                                    </button>
-                                </h2>
-                                <div id="collapseFaq8" class="accordion-collapse collapse" aria-labelledby="headingFaq8" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                       Nếu bạn gặp sự cố kỹ thuật, hãy thử các bước sau:
-                                       <ul>
-                                            <li><strong>Tải lại trang:</strong> Nhấn F5 hoặc nút Refresh trên trình duyệt.</li>
-                                            <li><strong>Xóa cache & cookie:</strong> Dữ liệu cũ có thể gây xung đột. Hãy tìm hướng dẫn xóa cache/cookie cho trình duyệt bạn đang dùng.</li>
-                                            <li><strong>Thử trình duyệt khác:</strong> Đôi khi lỗi chỉ xảy ra trên một trình duyệt cụ thể (Chrome, Firefox, Edge...).</li>
-                                            <li><strong>Kiểm tra kết nối mạng:</strong> Đảm bảo mạng internet của bạn ổn định.</li>
-                                            <li>Nếu các bước trên không hiệu quả, vui lòng <a href="contact.html" class="link-hub-red">Liên hệ</a> bộ phận hỗ trợ kỹ thuật, mô tả rõ lỗi bạn gặp phải.</li>
-                                       </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <h2 class="fw-bold mb-3">Giải đáp thắc mắc</h2>
+                        <p class="text-secondary mb-4">Bạn có những câu hỏi khác về cách sử dụng hệ thống? Hãy xem trang Câu hỏi thường gặp (FAQ) của chúng tôi để tìm câu trả lời chi tiết.</p>
+                        <a href="faq.html" class="btn btn-outline-hub-red"><i class="bi bi-question-circle-fill me-2"></i> Xem FAQ chi tiết</a>                    </div>
                 </div>
             </div>
         </section>
@@ -474,7 +357,7 @@
                          <i class="bi bi-question-circle-fill display-4 text-secondary mb-3"></i>
                         <h3 class="fw-bold mb-3">Vẫn còn thắc mắc?</h3>
                         <p class="lead text-secondary mb-4">Nếu bạn không tìm thấy câu trả lời trong phần hướng dẫn và FAQ, đừng ngần ngại liên hệ với chúng tôi để được hỗ trợ trực tiếp.</p>
-                        <a href="contact.html" class="btn btn-hub-primary btn-lg">Gửi yêu cầu hỗ trợ</a>
+                        <a href="contact.html" class="btn btn-hub-primary btn-lg"><i class="bi bi-headset me-2"></i>Gửi yêu cầu hỗ trợ</a>
                     </div>
                 </div>
             </div>
@@ -484,7 +367,7 @@
 
     <!-- Footer -->
     <footer id="footer" class="hub-footer-bg text-white pt-5 pb-4 mt-auto">
-       <!-- Footer content copied from contact.html -->
+       <!-- Footer content remains the same -->
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
                 <!-- Column 1 - Logo and Info -->
@@ -506,7 +389,8 @@
                         <li><a href="index.html">Trang chủ</a></li>
                         <li><a href="events.html">Sự kiện</a></li>
                         <li><a href="how-it-works.html">Hướng dẫn</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="profile.html">Hồ sơ cá nhân</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
 
@@ -514,11 +398,11 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Hỗ trợ</h4>
                     <ul class="footer-links list-unstyled">
-                        <li><a href="#">Câu hỏi thường gặp</a></li>
-                        <li><a href="#">Cách tham gia</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="how-it-works.html">Cách tham gia</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
+                        <li><a href="contact.html">Hỗ trợ kỹ thuật</a></li>
                     </ul>
                 </div>
 
