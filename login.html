@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng nhập vào hệ thống quản lý sự kiện Đại học Ngân hàng TP.HCM.">
+    <title>Đại học Ngân hàng TP.HCM - Đăng nhập</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Center the login form vertically and horizontally */
+        main {
+            display: flex;
+            min-height: calc(100vh - 120px); /* Adjust 120px based on approx navbar+footer height */
+            align-items: center;
+        }
+        .login-form-container {
+             max-width: 450px;
+             width: 100%;
+        }
+        .password-toggle-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-light"> <!-- Use light background for contrast -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Sự kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-hub-secondary me-2">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-hub-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5">
+        <div class="container login-form-container">
+            <div class="card shadow-sm" data-aos="fade-up">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="text-center mb-4">
+                         <a href="index.html">
+                            <img src="public/images/logo/logo.png" alt="HUB Logo" height="150" class="mb-3"> 
+                         </a>
+                         <h3 class="fw-bold mb-1">Chào mừng trở lại!</h3>
+                         <p class="text-muted">Đăng nhập để quản lý sự kiện của bạn.</p>
+                    </div>
+                    
+                    <form id="loginForm">
+                         <!-- Optional: Login Feedback -->
+                         <div id="login-feedback" class="mb-3"></div>
+
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email hoặc Mã số sinh viên</label>
+                            <input type="text" class="form-control" id="loginEmail" placeholder="Nhập email hoặc MSSV" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Mật khẩu</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                                <span class="input-group-text password-toggle-icon" id="togglePassword">
+                                    <i class="bi bi-eye-slash"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Ghi nhớ đăng nhập
+                                </label>
+                            </div>
+                            <a href="#" class="small text-decoration-none text-secondary">Quên mật khẩu?</a>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-hub-primary btn-lg">Đăng nhập</button>
+                        </div>
+
+                        <hr class="my-4">
+
+                         <p class="text-center text-muted mb-0">Chưa có tài khoản? 
+                            <a href="register.html" class="fw-bold text-decoration-none link-hub-red">Đăng ký ngay</a>
+                         </p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Footer is omitted for login/register pages for simplicity, or a minimal one can be added -->
+    <!-- 
+    <footer class="py-3 mt-auto bg-light text-center text-muted small">
+        © 2025 Đại học Ngân hàng TP.HCM
+    </footer> 
+    -->
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, // Slightly faster for form elements
+            once: true, 
+        });
+
+        // Password Toggle Visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('loginPassword');
+        if (togglePassword && passwordInput) {
+            togglePassword.addEventListener('click', function () {
+                // Toggle the type attribute
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Toggle the icon
+                const icon = this.querySelector('i');
+                icon.classList.toggle('bi-eye');
+                icon.classList.toggle('bi-eye-slash');
+            });
+        }
+
+        // Optional: Basic Login Form Simulation (no actual login)
+        const loginForm = document.getElementById('loginForm');
+        const loginFeedback = document.getElementById('login-feedback');
+         if (loginForm && loginFeedback) {
+            loginForm.addEventListener('submit', function(event) {
+                 event.preventDefault(); // Prevent actual form submission
+                 
+                 const email = document.getElementById('loginEmail').value;
+                 const password = document.getElementById('loginPassword').value;
+                 const submitButton = loginForm.querySelector('button[type="submit"]');
+
+                 // Simple validation example
+                 if (!email || !password) {
+                    loginFeedback.innerHTML = `<div class="alert alert-danger">Vui lòng nhập đầy đủ email/MSSV và mật khẩu.</div>`;
+                    return;
+                 }
+
+                 // Simulate login attempt
+                 loginFeedback.innerHTML = ''; // Clear previous feedback
+                 submitButton.disabled = true;
+                 submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang đăng nhập...';
+
+                 setTimeout(() => {
+                     // Simulate a login failure for demonstration
+                     loginFeedback.innerHTML = `<div class="alert alert-danger">Email/MSSV hoặc mật khẩu không đúng.</div>`;
+                     submitButton.disabled = false;
+                     submitButton.innerHTML = 'Đăng nhập';
+
+                     // On successful login, you would typically redirect:
+                     // window.location.href = 'dashboard.html'; 
+
+                 }, 1500);
+            });
+         }
+
+    </script>
+</body>
+
+</html>

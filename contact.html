@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ với Trường Đại học Ngân hàng TP.HCM để được hỗ trợ về sự kiện và các vấn đề khác.">
+    <title>Đại học Ngân hàng TP.HCM - Liên hệ</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Thêm CSS nếu cần, ví dụ cho map */
+        .map-container iframe {
+            border: 0;
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border-radius: 0.5rem;
+        }
+        .contact-info-card .card-body {
+             display: flex;
+             align-items: flex-start; /* Align icon top */
+        }
+         .contact-info-card .icon {
+            font-size: 1.5rem;
+            color: var(--hub-red);
+            margin-right: 1rem;
+            min-width: 30px; /* Ensure consistent spacing */
+         }
+         .contact-info-card .card-title {
+             margin-bottom: 0.25rem;
+             font-weight: 600;
+         }
+         .contact-info-card p {
+             margin-bottom: 0;
+             color: var(--hub-text-secondary);
+         }
+          .page-header {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Sự kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-hub-secondary me-2">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-hub-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+         <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="fw-bold">Liên hệ chúng tôi</h1>
+                        <p class="text-secondary">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-details" class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Left Column: Contact Info & Map -->
+                    <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                        <h3 class="fw-bold mb-4">Thông tin liên hệ</h3>
+                        <div class="card contact-info-card mb-3">
+                            <div class="card-body">
+                                <i class="bi bi-geo-alt-fill icon" aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="card-title">Địa chỉ</h5>
+                                    <p>36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Quận 1, TP.HCM</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="card contact-info-card mb-3">
+                            <div class="card-body">
+                                <i class="bi bi-telephone-fill icon" aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="card-title">Điện thoại</h5>
+                                    <p>(028) 3829 1901</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="card contact-info-card mb-4">
+                            <div class="card-body">
+                                <i class="bi bi-envelope-fill icon" aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="card-title">Email</h5>
+                                    <p>dhtn@hub.edu.vn (Văn phòng)</p>
+                                    <p>hotro.sukien@hub.edu.vn (Hỗ trợ sự kiện)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="fw-bold mb-3 mt-5">Vị trí trên bản đồ</h3>
+                        <div class="map-container shadow-sm">
+                           <!-- Placeholder for Google Maps iframe -->
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.521997124924!2d106.7013494153376!3d10.77127046220926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f41d656f46d%3A0x83388e541963e1f1!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOZ8OibiBow6BuZyBUcC4gSOG7kyBDaMOtIE1pbmggKENzMSk!5e0!3m2!1svi!2s!4v1678886011123!5m2!1svi!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Contact Form -->
+                    <div class="col-lg-7" data-aos="fade-left">
+                        <h3 class="fw-bold mb-4">Gửi tin nhắn cho chúng tôi</h3>
+                         <div class="card card-body">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="contactName" class="form-label">Họ và tên</label>
+                                    <input type="text" class="form-control" id="contactName" placeholder="Nhập họ tên của bạn" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactEmail" class="form-label">Địa chỉ email</label>
+                                    <input type="email" class="form-control" id="contactEmail" placeholder="email@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactSubject" class="form-label">Chủ đề</label>
+                                    <input type="text" class="form-control" id="contactSubject" placeholder="Vấn đề bạn cần hỗ trợ" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Nội dung tin nhắn</label>
+                                    <textarea class="form-control" id="contactMessage" rows="5" placeholder="Nhập nội dung chi tiết..." required></textarea>
+                                </div>
+                                 <!-- Form submission feedback (hidden initially) -->
+                                <div id="form-feedback" class="mt-3"></div>
+
+                                <button type="submit" class="btn btn-hub-primary w-100 btn-lg">Gửi tin nhắn</button>
+                            </form>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact-footer" class="hub-footer-bg text-white pt-5 pb-4 mt-5">
+         <!-- Copy footer content from index.html or other pages -->
+         <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <!-- Column 1 - Logo and Info -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="200" class="mb-4" loading="lazy">
+                    <p>Hệ thống Quản lý Sự kiện Đại học Ngân hàng TP.HCM - Nơi kết nối, chia sẻ và tham gia các hoạt động ngoại khóa và học thuật.</p>
+                    <div class="social-links d-inline-flex gap-2 mt-3">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2 - Quick Links -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên kết nhanh</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="events.html">Sự kiện</a></li>
+                        <li><a href="how-it-works.html">Hướng dẫn</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 - Support -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Hỗ trợ</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Cách tham gia</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 - Contact -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên hệ</h4>
+                    <ul class="footer-contact list-unstyled">
+                        <li><i class="bi bi-house-door-fill me-3" aria-hidden="true"></i> 36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Quận 1, TP.HCM</li>
+                        <li><i class="bi bi-telephone-fill me-3" aria-hidden="true"></i> (028) 3829 1901</li>
+                        <li><i class="bi bi-envelope-fill me-3" aria-hidden="true"></i> dhtn@hub.edu.vn</li>
+                    </ul>
+                    <h4 class="footer-heading text-uppercase mt-4 mb-3 font-weight-bold">Đăng ký nhận tin</h4>
+                    <form class="newsletter">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Nhập email của bạn" aria-label="Email của bạn">
+                            <button class="btn btn-light" type="submit" aria-label="Gửi"><i class="bi bi-send-fill" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="mb-4">
+            <div class="footer-bottom row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="mb-0 text-center text-md-start">© 2025 Đại học Ngân hàng TP.HCM. Tất cả quyền được bảo lưu. Phát triển bởi <a href="#" class="text-white">BUH DEV</a></p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-end">
+                        <!-- Optional: Add payment icons or other info here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, 
+            once: true, 
+        });
+
+         // Contact Form Submission Simulation (Optional)
+        const contactForm = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('form-feedback');
+
+        if (contactForm && formFeedback) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual form submission
+                
+                // Basic validation check (can be more sophisticated)
+                if (!contactForm.checkValidity()) {
+                     formFeedback.innerHTML = `<div class="alert alert-danger">Vui lòng điền đầy đủ thông tin bắt buộc.</div>`;
+                     contactForm.classList.add('was-validated'); // Show Bootstrap validation styles
+                    return;
+                }
+
+                // Simulate form submission
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang gửi...';
+
+                setTimeout(() => {
+                    // Simulate success
+                     formFeedback.innerHTML = `<div class="alert alert-success">Cảm ơn bạn! Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ phản hồi sớm nhất có thể.</div>`;
+                     contactForm.reset(); // Clear the form
+                     contactForm.classList.remove('was-validated'); // Reset validation state
+                     submitButton.disabled = false;
+                     submitButton.innerHTML = 'Gửi tin nhắn';
+
+                     // Optional: Hide feedback after a few seconds
+                     setTimeout(() => { formFeedback.innerHTML = ''; }, 5000);
+
+                }, 1500); // Simulate 1.5 second delay
+            });
+        }
+    </script>
+</body>
+
+</html>
