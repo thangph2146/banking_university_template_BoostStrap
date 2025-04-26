@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trường Đại học Ngân hàng TP.HCM - Trung tâm sự kiện và hoạt động sinh viên">
+    <title>Đại học Ngân hàng TP.HCM - Sự kiện</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top hub-navbar-bg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="public/images/logo.png" alt="Đại học Ngân hàng TP.HCM Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Sự kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-hub-secondary me-2">Đăng nhập</a>
+                    <a href="#" class="btn btn-hub-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="heroCarousel" class="hub-hero-section-v2 carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 (Active) -->
+                <div class="carousel-item active">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-7">
+                                <div class="hero-content-box">
+                                    <p class="text-uppercase small fw-bold mb-2" style="color: var(--hub-red);">Chào mừng sinh viên</p>
+                                    <h1 class="fw-bold mb-4">Khám Phá và Tham Gia Sự Kiện Sinh Viên</h1>
+                                    <p class="mb-4">Trải nghiệm đa dạng các hoạt động học thuật, văn hóa và hướng nghiệp. Kết nối cùng cộng đồng sinh viên Đại học Ngân hàng TP.HCM.</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="#events" class="btn btn-hub-primary me-2">Khám phá sự kiện</a>
+                                        <a href="#" class="btn btn-hub-secondary">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-8">
+                                <div class="hero-content-box">
+                                    <h1 class="fw-bold mb-4">Kết nối Cộng đồng & Mở rộng Mạng lưới</h1>
+                                    <p class="mb-4">Gặp gỡ bạn bè, giảng viên, chuyên gia và nhà tuyển dụng qua các hội thảo, workshop và ngày hội việc làm đa dạng của trường.</p>
+                                    <a href="#upcoming-events" class="btn btn-hub-primary">Xem sự kiện sắp tới</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-end text-end">
+                            <div class="col-lg-7">
+                                <div class="hero-content-box">
+                                    <h1 class="fw-bold mb-4">Phát triển Kỹ năng & Thể hiện Tài năng</h1>
+                                    <p class="mb-4">Nâng cao kỹ năng mềm, chuyên môn và thể hiện bản thân qua các cuộc thi học thuật, hoạt động CLB - Đội - Nhóm và sự kiện văn hóa sôi động.</p>
+                                    <a href="#contact" class="btn btn-hub-primary">Liên hệ Ban Tổ chức</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Indicators -->
+            <div class="carousel-indicators-container">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        </section>
+
+        <!-- Sự kiện nổi bật -->
+        <section id="events" class="py-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="fw-bold mb-3">Sự kiện nổi bật</h2>
+                        <p class="text-secondary">Khám phá những sự kiện đang được cộng đồng sinh viên và giảng viên của chúng tôi quan tâm. Các sự kiện học thuật và ngoại khóa được tổ chức thường xuyên.</p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Event 1 -->
+                    <div class="col">
+                        <div class="event-card-v2">
+                            <div class="event-image-container">
+                                <img src="public/images/event-placeholder-1.jpg" alt="Hội thảo Ngân hàng số và Tương lai Thanh toán" class="event-image img-fluid">
+                                <div class="event-date-badge">
+                                    <span class="day">15</span>
+                                    <span class="month">Th4</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <span class="event-category">Hội thảo</span>
+                                <h3 class="event-title">Hội thảo Ngân hàng số và Tương lai Thanh toán</h3>
+                                <p class="event-description">Tìm hiểu về xu hướng công nghệ mới nhất trong lĩnh vực ngân hàng và các giải pháp thanh toán tương lai.</p>
+                                <div class="event-location">
+                                    <i class="bi bi-geo-alt-fill me-1"></i> Hội trường A
+                                </div>
+                                <a href="#" class="event-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="col">
+                        <div class="event-card-v2">
+                            <div class="event-image-container">
+                                <img src="public/images/event-placeholder-2.jpg" alt="Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025" class="event-image img-fluid">
+                                <div class="event-date-badge">
+                                    <span class="day">20</span>
+                                    <span class="month">Th4</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <span class="event-category">Tuyển dụng</span>
+                                <h3 class="event-title">Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025</h3>
+                                <p class="event-description">Cơ hội gặp gỡ và phỏng vấn trực tiếp với hơn 50 doanh nghiệp hàng đầu trong lĩnh vực tài chính - ngân hàng.</p>
+                                <div class="event-location">
+                                    <i class="bi bi-geo-alt-fill me-1"></i> Sân trường
+                                </div>
+                                <a href="#" class="event-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 3 -->
+                    <div class="col">
+                        <div class="event-card-v2">
+                            <div class="event-image-container">
+                                <img src="public/images/event-placeholder-3.jpg" alt="Ngày hội Văn hóa Sinh viên Đại học Ngân hàng" class="event-image img-fluid">
+                                <div class="event-date-badge">
+                                    <span class="day">05</span>
+                                    <span class="month">Th5</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <span class="event-category">Văn hóa</span>
+                                <h3 class="event-title">Ngày hội Văn hóa Sinh viên Đại học Ngân hàng</h3>
+                                <p class="event-description">Sự kiện thường niên với nhiều hoạt động văn hóa nghệ thuật đặc sắc, giao lưu giữa các khoa và câu lạc bộ.</p>
+                                <div class="event-location">
+                                    <i class="bi bi-geo-alt-fill me-1"></i> Khu liên hợp thể thao
+                                </div>
+                                <a href="#" class="event-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="view-all-link">Xem tất cả sự kiện <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cách thức hoạt động -->
+        <section id="how-it-works" class="py-5">
+            <div class="container">
+                <div class="row text-center mb-5">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="fw-bold mb-3">Cách thức hoạt động</h2>
+                        <p class="text-secondary">Chỉ với vài bước đơn giản, bạn có thể đăng ký tham gia các sự kiện tại trường.</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center">
+                    <!-- Step 1 -->
+                    <div class="col-md-4 how-it-works-col">
+                        <div class="how-it-works-icon">
+                            <div class="icon-circle">
+                                <i class="bi bi-person-plus-fill icon-image"></i>
+                            </div>
+                            <span class="icon-number">1</span>
+                        </div>
+                        <h3 class="how-it-works-title">Đăng ký tài khoản</h3>
+                        <p class="how-it-works-text">Tạo tài khoản với email trường học của bạn để bắt đầu sử dụng hệ thống.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="col-md-4 how-it-works-col">
+                        <div class="how-it-works-icon">
+                            <div class="icon-circle">
+                                <i class="bi bi-search icon-image"></i>
+                            </div>
+                            <span class="icon-number">2</span>
+                        </div>
+                        <h3 class="how-it-works-title">Tìm kiếm sự kiện</h3>
+                        <p class="how-it-works-text">Dễ dàng tìm kiếm và khám phá các sự kiện phù hợp với sở thích và lịch trình của bạn.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="col-md-4 how-it-works-col">
+                        <div class="how-it-works-icon">
+                            <div class="icon-circle">
+                                <i class="bi bi-calendar2-check-fill icon-image"></i>
+                            </div>
+                            <span class="icon-number">3</span>
+                        </div>
+                        <h3 class="how-it-works-title">Đăng ký tham gia</h3>
+                        <p class="how-it-works-text">Đăng ký tham gia sự kiện và nhận thông báo và quản lý lịch trình của bạn.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-hub-primary">Bắt đầu ngay</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sự kiện sắp diễn ra -->
+        <section id="upcoming-events" class="py-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="fw-bold mb-3">Sự kiện sắp diễn ra</h2>
+                        <p class="text-secondary">Đừng bỏ lỡ những sự kiện hấp dẫn sắp diễn ra tại trường</p>
+                    </div>
+                </div>
+                <div class="upcoming-events-container">
+                    <!-- Upcoming Event 1 -->
+                    <div class="upcoming-event-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="event-date">
+                                <span class="event-day">25</span>
+                                <span class="event-month">Th4</span>
+                                <span class="event-year">2025</span>
+                            </div>
+                            <span class="event-type">Workshop</span>
+                        </div>
+                        <h3 class="event-title">Workshop Đầu tư Chứng khoán cho Người mới bắt đầu</h3>
+                        <div class="event-info mb-3">
+                            <div class="event-time">
+                                <i class="bi bi-clock-fill"></i> 14:00 - 17:00
+                            </div>
+                            <div class="event-location">
+                                <i class="bi bi-geo-alt-fill"></i> Hội trường A
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-hub-primary btn-register mt-auto">Đăng ký ngay</a>
+                    </div>
+                    <!-- Upcoming Event 2 -->
+                    <div class="upcoming-event-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="event-date">
+                                <span class="event-day">06</span>
+                                <span class="event-month">Th5</span>
+                                <span class="event-year">2025</span>
+                            </div>
+                            <span class="event-type">Cuộc thi</span>
+                        </div>
+                        <h3 class="event-title">Cuộc thi Ý tưởng Fintech Innovation 2025</h3>
+                        <div class="event-info mb-3">
+                            <div class="event-time">
+                                <i class="bi bi-clock-fill"></i> 08:00 - 17:00
+                            </div>
+                            <div class="event-location">
+                                <i class="bi bi-geo-alt-fill"></i> Khu công nghệ cao
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-hub-primary btn-register mt-auto">Đăng ký ngay</a>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="view-all-link">Xem tất cả sự kiện sắp diễn ra <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-5">
+            <div class="container">
+                <div class="row text-center py-3">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="fw-bold mb-3">Chào mừng bạn tham gia cùng cộng đồng sinh viên!</h2>
+                        <p class="mb-4">Đăng ký tài khoản ngay hôm nay để trải nghiệm các sự kiện đặc sắc, tham gia hoạt động thú vị và kết nối với cộng đồng tại Đại học Ngân hàng TP.HCM.</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-light me-2">Đăng ký ngay</a>
+                            <a href="#" class="btn btn-outline-light">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="hub-footer-bg text-white pt-5 pb-4">
+            <div class="container text-center text-md-start">
+                <div class="row text-center text-md-start">
+                    <!-- Column 1 - Logo and Info -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="200" class="mb-4">
+                        <p>Hệ thống Quản lý Sự kiện Đại học Ngân hàng TP.HCM - Nơi kết nối, chia sẻ và tham gia các hoạt động ngoại khóa và học thuật.</p>
+                        <div class="social-links d-inline-flex gap-2 mt-3">
+                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 - Quick Links -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên kết nhanh</h4>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#events">Sự kiện</a></li>
+                            <li><a href="#how-it-works">Hướng dẫn</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3 - Support -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Hỗ trợ</h4>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Cách tham gia</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4 - Contact -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên hệ</h4>
+                        <ul class="footer-contact list-unstyled">
+                            <li><i class="bi bi-house-door-fill me-3"></i> 36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Quận 1, TP.HCM</li>
+                            <li><i class="bi bi-telephone-fill me-3"></i> (028) 3829 1901</li>
+                            <li><i class="bi bi-envelope-fill me-3"></i> dhtn@hub.edu.vn</li>
+                        </ul>
+                        <h4 class="footer-heading text-uppercase mt-4 mb-3 font-weight-bold">Đăng ký nhận tin</h4>
+                        <form class="newsletter">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Nhập email của bạn" aria-label="Email của bạn">
+                                <button class="btn btn-light" type="submit"><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom -->
+                <hr class="mb-4">
+                <div class="footer-bottom row align-items-center">
+                    <div class="col-md-7 col-lg-8">
+                        <p class="mb-0 text-center text-md-start">© 2025 Đại học Ngân hàng TP.HCM. Tất cả quyền được bảo lưu. Phát triển bởi <a href="#" class="text-white">BUH DEV</a></p>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="text-center text-md-end">
+                            <!-- Optional: Add payment icons or other info here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/custom.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+</body>
+
+</html>

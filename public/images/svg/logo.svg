@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 80" width="150" height="80">
+  <style>
+    .logo-text { font-family: 'Arial', sans-serif; font-weight: bold; }
+    .small-text { font-family: 'Arial', sans-serif; font-size: 10px; }
+    .hub-red { fill: #b30000; }
+    .white-text { fill: white; }
+  </style>
+  
+  <!-- Biểu tượng ngân hàng -->
+  <rect x="30" y="15" width="90" height="50" rx="4" class="hub-red" />
+  
+  <!-- Cột ngân hàng -->
+  <rect x="40" y="25" width="10" height="30" fill="white" />
+  <rect x="60" y="25" width="10" height="30" fill="white" />
+  <rect x="80" y="25" width="10" height="30" fill="white" />
+  <rect x="100" y="25" width="10" height="30" fill="white" />
+  
+  <!-- Mái ngân hàng -->
+  <polygon points="25,15 125,15 110,5 40,5" class="hub-red" />
+  
+  <!-- Chữ HUB -->
+  <text x="75" y="70" text-anchor="middle" class="logo-text white-text">HUB</text>
+  <text x="75" y="78" text-anchor="middle" class="small-text white-text">NGÂN HÀNG TP.HCM</text>
+</svg> 
