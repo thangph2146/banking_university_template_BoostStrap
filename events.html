@@ -52,9 +52,9 @@
     <main>
         <!-- Hero Section Carousel for Events -->
         <section id="heroCarouselEvents" class="hub-hero-section-v2 carousel slide mb-5" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner h-100">
                 <!-- Slide 1: Event Highlight 1 -->
-                <div class="carousel-item active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-1.jpg'); background-size: cover; background-position: center;">
+                <div class="carousel-item h-100 active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-1.jpg'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-center text-center">
                             <div class="col-lg-8">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <!-- Slide 2: Event Highlight 2 -->
-                <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-2.jpg'); background-size: cover; background-position: center;">
+                <div class="carousel-item h-100" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-2.jpg'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-center text-center">
                             <div class="col-lg-8">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <!-- Slide 3: General Announcement/Category -->
-                <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-3.jpg'); background-size: cover; background-position: center;">
+                <div class="carousel-item h-100" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-3.jpg'); background-size: cover; background-position: center;">
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-center text-center">
                             <div class="col-lg-8">
@@ -442,6 +442,54 @@
             const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             })
+
+            // --- Populate Carousel from Event List --- 
+            const eventListCards = eventCardContainer.querySelectorAll('.col:not(#no-results-message) .event-card-v2'); // Select the actual cards
+            const carouselItems = document.querySelectorAll('#heroCarouselEvents .carousel-item');
+            const numSlidesToPopulate = Math.min(eventListCards.length, carouselItems.length, 3); // Populate up to 3 slides
+
+            for (let i = 0; i < numSlidesToPopulate; i++) {
+                const card = eventListCards[i];
+                const slide = carouselItems[i];
+
+                // Extract data from the event card
+                const imgSrc = card.querySelector('.event-image')?.src || '';
+                const category = card.querySelector('.event-category')?.textContent || 'Sự kiện';
+                const title = card.querySelector('.event-title')?.textContent || 'Tiêu đề sự kiện';
+                const description = card.querySelector('.event-description')?.textContent || 'Mô tả sự kiện...';
+                const detailLink = card.querySelector('.event-link')?.href || '#';
+
+                // Update the carousel slide
+                if (imgSrc) {
+                    slide.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgSrc}')`;
+                }
+                
+                const slideCategory = slide.querySelector('.hero-content-box .small');
+                if (slideCategory) slideCategory.textContent = category;
+
+                const slideTitle = slide.querySelector('.hero-content-box h1');
+                if (slideTitle) slideTitle.textContent = title;
+
+                const slideDescription = slide.querySelector('.hero-content-box p:not(.small)');
+                if (slideDescription) slideDescription.textContent = description;
+
+                // Update buttons (Example: update the primary button link)
+                const slidePrimaryButton = slide.querySelector('.hero-content-box .btn-hub-primary');
+                if (slidePrimaryButton) {
+                    slidePrimaryButton.href = detailLink;
+                     slidePrimaryButton.textContent = 'Xem chi tiết'; // Ensure consistent text
+                }
+                // Optionally hide or update the secondary button if it exists
+                 const slideSecondaryButton = slide.querySelector('.hero-content-box .btn-hub-secondary');
+                 if(slideSecondaryButton) {
+                     // Example: Hide secondary button if not needed for all slides
+                      slideSecondaryButton.style.display = 'none'; 
+                      // Or update its link/text
+                      // slideSecondaryButton.href = detailLink + '#register'; 
+                      // slideSecondaryButton.textContent = 'Đăng ký';
+                 }
+
+            }
         });
     </script>
 </body>
