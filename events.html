@@ -50,45 +50,104 @@
     </nav>
 
     <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h1 class="fw-bold">Danh sách Sự kiện</h1>
-                        <p class="text-secondary">Khám phá tất cả các sự kiện học thuật và ngoại khóa tại HUB.</p>
+        <!-- Hero Section Carousel for Events -->
+        <section id="heroCarouselEvents" class="hub-hero-section-v2 carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1: Event Highlight 1 -->
+                <div class="carousel-item active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-1.jpg'); background-size: cover; background-position: center;">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-8">
+                                <div class="hero-content-box">
+                                    <p class="text-uppercase small fw-bold mb-2">Sự kiện nổi bật</p>
+                                    <h1 class="fw-bold mb-4">Hội thảo Ngân hàng số và Tương lai Thanh toán</h1>
+                                    <p class="mb-4">Tìm hiểu về xu hướng công nghệ mới nhất trong lĩnh vực ngân hàng và các giải pháp thanh toán tương lai.</p>
+                                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                        <a href="event-detail.html" class="btn btn-hub-primary me-2">Xem chi tiết</a>
+                                        <a href="event-detail.html#event-registration-section" class="btn btn-hub-secondary">Đăng ký ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Event Highlight 2 -->
+                <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-2.jpg'); background-size: cover; background-position: center;">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-8">
+                                <div class="hero-content-box">
+                                     <p class="text-uppercase small fw-bold mb-2">Sự kiện sắp diễn ra</p>
+                                    <h1 class="fw-bold mb-4">Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025</h1>
+                                    <p class="mb-4">Cơ hội gặp gỡ và phỏng vấn trực tiếp với hơn 50 doanh nghiệp hàng đầu.</p>
+                                    <a href="event-detail.html" class="btn btn-hub-primary">Tìm hiểu thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3: General Announcement/Category -->
+                <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/event-placeholder-3.jpg'); background-size: cover; background-position: center;">
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-8">
+                                <div class="hero-content-box">
+                                    <h1 class="fw-bold mb-4">Khám phá các Cuộc thi & Workshop</h1>
+                                    <p class="mb-4">Nâng cao kỹ năng, thể hiện tài năng và nhận những giải thưởng hấp dẫn.</p>
+                                    <a href="#event-list" class="btn btn-hub-primary">Xem các sự kiện</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarouselEvents" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarouselEvents" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </section>
 
         <!-- Event Listing Section -->
         <section id="event-list" class="py-5">
             <div class="container">
-                <!-- Filter/Search Bar (Optional - Placeholder) -->
-                <div class="row mb-4">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm sự kiện...">
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <select class="form-select">
-                            <option selected>Loại sự kiện</option>
-                            <option value="1">Hội thảo</option>
-                            <option value="2">Tuyển dụng</option>
-                            <option value="3">Văn hóa</option>
-                            <option value="4">Workshop</option>
-                            <option value="5">Cuộc thi</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                         <input type="date" class="form-control">
+                <!-- Filter/Search Bar -->
+                 <div class="card card-body bg-light mb-4 p-3">
+                     <h5 class="mb-3 fw-bold">Bộ lọc sự kiện</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm sự kiện..." id="event-search-input">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <select class="form-select" id="event-type-select">
+                                <option selected value="">Loại sự kiện</option>
+                                <option value="Hội thảo">Hội thảo</option>
+                                <option value="Tuyển dụng">Tuyển dụng</option>
+                                <option value="Văn hóa">Văn hóa</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Cuộc thi">Cuộc thi</option>
+                                <option value="Talkshow">Talkshow</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                             <input type="date" class="form-control" id="event-date-input">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Event Cards -->
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="event-card-container">
+                    <!-- No Results Message (Hidden by default) -->
+                    <div class="col-12 text-center py-5 d-none" id="no-results-message">
+                        <i class="bi bi-search display-4 text-muted mb-3"></i>
+                        <p class="lead text-muted">Không tìm thấy sự kiện nào phù hợp với tiêu chí của bạn.</p>
+                    </div>
+                    
                     <!-- Event 1 -->
-                    <div class="col" data-aos="fade-up">
+                    <div class="col" data-aos="fade-up" data-category="Hội thảo" data-date="2025-04-15">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-1.jpg" alt="Hội thảo Ngân hàng số và Tương lai Thanh toán" class="event-image img-fluid" loading="lazy">
@@ -102,14 +161,14 @@
                                 <h3 class="event-title">Hội thảo Ngân hàng số và Tương lai Thanh toán</h3>
                                 <p class="event-description">Tìm hiểu về xu hướng công nghệ mới nhất trong lĩnh vực ngân hàng và các giải pháp thanh toán tương lai.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Hội trường A
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Hội trường A"></i> Hội trường A
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                     <!-- Event 2 -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col" data-aos="fade-up" data-aos-delay="100" data-category="Tuyển dụng" data-date="2025-04-20">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-2.jpg" alt="Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025" class="event-image img-fluid" loading="lazy">
@@ -123,14 +182,14 @@
                                 <h3 class="event-title">Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025</h3>
                                 <p class="event-description">Cơ hội gặp gỡ và phỏng vấn trực tiếp với hơn 50 doanh nghiệp hàng đầu trong lĩnh vực tài chính - ngân hàng.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Sân trường
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Sân trường"></i> Sân trường
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                     <!-- Event 3 -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col" data-aos="fade-up" data-aos-delay="200" data-category="Văn hóa" data-date="2025-05-05">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-3.jpg" alt="Ngày hội Văn hóa Sinh viên Đại học Ngân hàng" class="event-image img-fluid" loading="lazy">
@@ -144,14 +203,14 @@
                                 <h3 class="event-title">Ngày hội Văn hóa Sinh viên Đại học Ngân hàng</h3>
                                 <p class="event-description">Sự kiện thường niên với nhiều hoạt động văn hóa nghệ thuật đặc sắc, giao lưu giữa các khoa và câu lạc bộ.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Khu liên hợp thể thao
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Khu liên hợp thể thao"></i> Khu liên hợp thể thao
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                      <!-- Event 4 (Placeholder) -->
-                    <div class="col" data-aos="fade-up">
+                    <div class="col" data-aos="fade-up" data-category="Workshop" data-date="2025-05-10">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-4.jpg" alt="Workshop Kỹ năng mềm" class="event-image img-fluid" loading="lazy">
@@ -165,14 +224,14 @@
                                 <h3 class="event-title">Workshop Kỹ năng Thuyết trình Hiệu quả</h3>
                                 <p class="event-description">Nâng cao kỹ năng trình bày ý tưởng và thuyết phục đám đông.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Phòng B.201
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Phòng B.201"></i> Phòng B.201
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                      <!-- Event 5 (Placeholder) -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col" data-aos="fade-up" data-aos-delay="100" data-category="Cuộc thi" data-date="2025-05-15">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-5.jpg" alt="Cuộc thi học thuật" class="event-image img-fluid" loading="lazy">
@@ -186,14 +245,14 @@
                                 <h3 class="event-title">Cuộc thi Olympic Tin học Sinh viên</h3>
                                 <p class="event-description">Thể hiện tài năng lập trình và giải quyết vấn đề.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Phòng Lab Khoa CNTT
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Phòng Lab Khoa CNTT"></i> Phòng Lab Khoa CNTT
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                      <!-- Event 6 (Placeholder) -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col" data-aos="fade-up" data-aos-delay="200" data-category="Talkshow" data-date="2025-05-22">
                         <div class="event-card-v2">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-6.jpg" alt="Talkshow Khởi nghiệp" class="event-image img-fluid" loading="lazy">
@@ -207,7 +266,7 @@
                                 <h3 class="event-title">Talkshow: Từ Giảng đường đến Startup Triệu đô</h3>
                                 <p class="event-description">Lắng nghe chia sẻ kinh nghiệm từ các cựu sinh viên thành công.</p>
                                 <div class="event-location">
-                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Hội trường Lớn
+                                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true" data-bs-toggle="tooltip" title="Hội trường Lớn"></i> Hội trường Lớn
                                 </div>
                                 <a href="event-detail.html" class="event-link">Xem chi tiết <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                             </div>
@@ -310,6 +369,79 @@
         AOS.init({
             duration: 800, // values from 0 to 3000, with step 50ms
             once: true, // whether animation should happen only once - while scrolling down
+        });
+    </script>
+    <!-- Event Filtering Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('event-search-input');
+            const typeSelect = document.getElementById('event-type-select');
+            const dateInput = document.getElementById('event-date-input');
+            const eventCardContainer = document.getElementById('event-card-container');
+            const eventCards = eventCardContainer.querySelectorAll('.col:not(#no-results-message)'); // Select only event card columns
+            const noResultsMessage = document.getElementById('no-results-message');
+
+            function filterEvents() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const selectedType = typeSelect.value;
+                const selectedDate = dateInput.value;
+
+                let visibleCount = 0; // Counter for visible cards
+
+                eventCards.forEach(cardCol => {
+                    const card = cardCol.querySelector('.event-card-v2');
+                    if (!card) return; // Skip if card element not found
+
+                    const title = card.querySelector('.event-title')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('.event-description')?.textContent.toLowerCase() || '';
+                    const category = cardCol.dataset.category || ''; // Get category from data-attribute on the column
+                    const eventDate = cardCol.dataset.date || ''; // Get date from data-attribute
+
+                    // Check search term match (in title or description)
+                    const searchMatch = searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm);
+
+                    // Check type match
+                    const typeMatch = selectedType === '' || category === selectedType;
+
+                    // Check date match
+                    const dateMatch = selectedDate === '' || eventDate === selectedDate;
+
+                    // Show or hide the column based on matches
+                    if (searchMatch && typeMatch && dateMatch) {
+                        cardCol.style.display = ''; // Show
+                        visibleCount++; // Increment counter
+                    } else {
+                        cardCol.style.display = 'none'; // Hide
+                    }
+                });
+
+                // Show/hide the "no results" message
+                if (visibleCount === 0) {
+                    noResultsMessage.classList.remove('d-none');
+                } else {
+                    noResultsMessage.classList.add('d-none');
+                }
+            }
+
+            // Add event listeners to filters
+            if (searchInput) {
+                searchInput.addEventListener('input', filterEvents);
+            }
+            if (typeSelect) {
+                typeSelect.addEventListener('change', filterEvents);
+            }
+            if (dateInput) {
+                dateInput.addEventListener('change', filterEvents);
+            } 
+
+            // Initial filter on page load (optional)
+            // filterEvents(); 
+
+            // Initialize Bootstrap Tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
         });
     </script>
 </body>

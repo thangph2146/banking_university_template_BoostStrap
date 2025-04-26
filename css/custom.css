@@ -22,7 +22,7 @@ body {
 
 /* Add top padding to main content to prevent overlap with fixed navbar */
 main {
-    padding-top: 80px; /* Adjust this value if navbar height changes */
+    padding-top: 14px; /* Adjust this value if navbar height changes */
 } 
 
 
