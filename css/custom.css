@@ -1,13 +1,15 @@
 /* Định nghĩa các biến màu từ logo */
 :root {
-    /* --hub-blue: #1a2f6c; */ /* Màu xanh dương trong logo gốc */
-    /* --hub-red: #cd3341; */ /* Màu đỏ tươi ban đầu */
     --hub-red: #A52A2A; /* Màu đỏ nâu như trong screenshot */
     --hub-dark: #343a40; /* Màu tối chuẩn Bootstrap */
     --hub-gray: #f8f9fa; /* Màu xám sáng chuẩn Bootstrap */
     --hub-light: #ffffff; /* Màu trắng */
     --hub-text-dark: #333;
     --hub-text-light: #ffffff;
+    --hub-text-secondary: #6c757d; /* Màu text phụ chuẩn Bootstrap */
+    --hub-red-darker: #8B0000; /* Đỏ sẫm hơn cho hover */
+    --hub-red-rgb: 165, 42, 42; /* Giá trị RGB của --hub-red */
+    --hub-dark-rgb: 52, 58, 64; /* Giá trị RGB của --hub-dark */
     --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Font giống hệ thống hơn */
 }
 
@@ -15,12 +17,11 @@
 body {
     font-family: var(--font-family);
     padding-top: 62px; /* Adjust based on final navbar height */
-    background-color: #f9f9f9; /* Slightly off-white background */
+    background-color: var(--hub-gray); /* Slightly off-white background */
 }
 
 /* --- Navbar --- */
 .hub-navbar-bg {
-    /* background-color: var(--hub-red) !important; */ /* Dùng màu từ screenshot */
     background-color: var(--hub-red);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,8 +31,6 @@ body {
 /* } */
 
 .navbar-dark .navbar-nav .nav-link {
-    /* color: var(--hub-text-light) !important; */
-    color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
     padding: 0.7rem 1rem;
     transition: color 0.3s ease;
@@ -39,9 +38,7 @@ body {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    /* color: var(--hub-text-light) !important; */
-    /* opacity: 0.8; */
-    color: white;
+    color: var(--hub-light);
 }
 
 /* Style cho nút Navbar giống screenshot */
@@ -55,79 +52,59 @@ body {
 /* Nút Đăng nhập (Secondary) - Viền trắng chữ trắng */
 .navbar .btn-hub-secondary {
     background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--hub-light);
+    color: var(--hub-light);
     /* Kế thừa từ .navbar .btn */
 }
 .navbar .btn-hub-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Hiệu ứng sáng nhẹ */
-    color: white;
+    background-color: rgba(var(--hub-light), 0.1); /* Hiệu ứng sáng nhẹ */
+    color: var(--hub-light);
 }
 
 /* Nút Đăng ký (Primary) - Nền trắng chữ đỏ */
 .navbar .btn-hub-primary {
-    background-color: white;
-    border: 2px solid white; /* Border trắng để giữ kích thước */
+    background-color: var(--hub-light);
+    border: 2px solid var(--hub-light); /* Border trắng để giữ kích thước */
     color: var(--hub-red);
-     /* Kế thừa từ .navbar .btn */
 }
 
 .navbar .btn-hub-primary:hover {
-    background-color: #f8f9fa; /* Sáng hơn chút khi hover */
-    border-color: #f8f9fa;
+    background-color: var(--hub-gray); /* Sáng hơn chút khi hover */
+    border-color: var(--hub-gray);
     color: var(--hub-red);
 }
 
 
 /* --- Hero Section V2 --- */
 .hub-hero-section-v2 {
-    /* background: var(--hub-red) url("../public/images/hero-background-placeholder.jpg") no-repeat center center; */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/hero-background-placeholder.jpg'); /* Thêm lớp phủ đen mờ */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* height: 600px; */
     height: 550px; /* Giảm chiều cao 1 chút */
     position: relative;
-    /* color: var(--hub-text-dark); */ /* Chuyển text sang màu trắng */
-    color: white;
+    color: var(--hub-light);
     display: flex;
     align-items: center;
-    /* z-index: 1; */ /* Bỏ z-index để lớp phủ hoạt động */
 }
 
-/* Bỏ lớp phủ màu đỏ */
-/* .hub-hero-section-v2::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(205, 51, 65, 0.7);
-    z-index: -1;
-} */
 
 .hero-content-box {
-    /* padding: 30px; */
-    /* background-color: rgba(33, 37, 41, 0.75); */
-    /* border-radius: 10px; */
-    /* backdrop-filter: blur(5px); */
-    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng mờ như screenshot */
+    background-color: rgba(var(--hub-dark-rgb), 0.5); /* Nền xám đậm mờ */
     padding: 2.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    color: var(--hub-text-dark); /* Text bên trong màu tối */
+    color: var(--hub-light); /* Chữ màu trắng */
 }
 
 .hero-content-box h1 {
-     /* Kế thừa màu từ .hero-content-box */
      font-size: 2.5rem; /* Cỡ chữ lớn hơn */
      font-weight: 700;
      margin-bottom: 1rem;
 }
 
 .hero-content-box p {
+    color: var(--hub-light); /* Chữ màu trắng */
     font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.9;
@@ -138,7 +115,7 @@ body {
 .btn-hub-primary {
     background-color: var(--hub-red);
     border: 2px solid var(--hub-red);
-    color: white;
+    color: var(--hub-light);
     border-radius: 4px; /* Góc vuông hơn */
     padding: 0.6rem 1.5rem; /* To hơn một chút */
     font-weight: 500;
@@ -148,11 +125,11 @@ body {
 .btn-hub-primary:hover {
     /* background-color: transparent; */
     /* color: var(--hub-red); */
-    background-color: #8B0000; /* Đỏ sẫm hơn khi hover */
-    border-color: #8B0000;
-    color: white;
+    background-color: var(--hub-red-darker); /* Sử dụng biến đỏ sẫm hơn */
+    border-color: var(--hub-red-darker);
+    color: var(--hub-light);
     transform: translateY(-2px); /* Hiệu ứng nhấc lên */
-    box-shadow: 0 4px 8px rgba(165, 42, 42, 0.2); /* Đổ bóng nhẹ */
+    box-shadow: 0 4px 8px rgba(var(--hub-red-rgb), 0.2); /* Sử dụng biến RGB */
 }
 
 /* Nút Secondary trong content (Viền đỏ chữ đỏ) */
@@ -171,15 +148,15 @@ footer .btn-hub-secondary {
 main .btn-hub-secondary:hover, 
 footer .btn-hub-secondary:hover {
     background-color: var(--hub-red);
-    color: white;
+    color: var(--hub-light);
     transform: translateY(-2px); /* Hiệu ứng nhấc lên */
 }
 
 /* Riêng nút Secondary trong Hero (Viền trắng chữ trắng) */
 .hub-hero-section-v2 .btn-hub-secondary {
     background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    color: var(--hub-light);
+    border: 2px solid var(--hub-light);
     /* Kế thừa padding, font-weight, transition từ .btn-hub-secondary chung nếu có */
     border-radius: 4px;
     padding: 0.6rem 1.5rem;
@@ -188,8 +165,8 @@ footer .btn-hub-secondary:hover {
 }
 
 .hub-hero-section-v2 .btn-hub-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    background-color: rgba(var(--hub-light), 0.1); /* Hiệu ứng nền đỏ rất nhạt */
+    color: var(--hub-light);
     transform: translateY(-2px);
 }
 
@@ -212,7 +189,7 @@ footer .btn-hub-secondary:hover {
     /* height: 12px; */
     height: 8px;  /* Chiều cao nút */
     /* background-color: rgba(255, 255, 255, 0.5); */ /* Màu trắng mờ */
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--hub-light);
     /* border-radius: 50%; */
     border-radius: 4px; /* Bo góc nhẹ */
     border: none; /* Bỏ border */
@@ -230,7 +207,7 @@ footer .btn-hub-secondary:hover {
     /* height: 14px; */
     width: 30px; /* Giữ nguyên kích thước khi active */
     height: 8px;
-    background-color: white;
+    background-color: var(--hub-light);
     opacity: 1; /* Rõ hoàn toàn */
     transform: none; /* Bỏ hiệu ứng scale nếu có */
 }
@@ -238,7 +215,7 @@ footer .btn-hub-secondary:hover {
 /* --- Footer --- */
 .hub-footer-bg {
     background-color: var(--hub-red); /* Màu đỏ nâu như screenshot */
-    color: white; /* Chữ màu trắng */
+    color: var(--hub-light); /* Chữ màu trắng */
 }
 
 .footer-heading {
@@ -247,7 +224,7 @@ footer .btn-hub-secondary:hover {
     margin-bottom: 1.5rem; /* Tăng khoảng cách dưới */
     /* position: relative; */ /* Bỏ gạch chân */
     /* padding-bottom: 10px; */
-    color: white; /* Đảm bảo màu trắng */
+    color: var(--hub-light); /* Đảm bảo màu trắng */
 }
 
 /* Bỏ gạch chân */
@@ -272,13 +249,13 @@ footer .btn-hub-secondary:hover {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.75); /* Màu trắng mờ hơn */
+    color: rgba(var(--hub-light), 0.75); /* Màu trắng mờ hơn */
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: white;
+    color: var(--hub-light);
     padding-left: 5px; /* Hiệu ứng thụt vào */
 }
 
@@ -289,7 +266,7 @@ footer .btn-hub-secondary:hover {
 }
 
 .footer-contact li {
-    color: rgba(255, 255, 255, 0.75); /* Màu trắng mờ hơn */
+    color: rgba(var(--hub-light), 0.75); /* Màu trắng mờ hơn */
     margin-bottom: 1rem; /* Tăng khoảng cách */
     display: flex;
     /* align-items: center; */ /* Để icon và text thẳng hàng từ trên */
@@ -298,7 +275,7 @@ footer .btn-hub-secondary:hover {
 
 .footer-contact li i {
     /* color: var(--hub-red); */ /* Icon màu trắng mờ cùng text */
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(var(--hub-light), 0.75);
     margin-right: 10px; /* Khoảng cách icon và text */
     margin-top: 4px; /* Chỉnh vị trí icon */
 }
@@ -308,13 +285,13 @@ footer .btn-hub-secondary:hover {
 }
 
 .social-link {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(var(--hub-light), 0.75);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    color: white;
+    color: var(--hub-light);
     transform: translateY(-3px); /* Hiệu ứng nhấc lên */
 }
 
@@ -323,19 +300,17 @@ footer .btn-hub-secondary:hover {
     /* border-radius: 50px 0 0 50px; */
     border-radius: 4px 0 0 4px; /* Góc vuông hơn */
     border: none;
-    background-color: rgba(255, 255, 255, 0.1); /* Nền tối hơn */
-    color: white;
+    background-color: rgba(var(--hub-light), 0.1); /* Nền tối hơn */
+    color: var(--hub-light);
     padding: 10px 15px;
 }
 .newsletter input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(var(--hub-light), 0.5);
 }
 
 .newsletter button {
-    /* border-radius: 0 50px 50px 0; */
     border-radius: 0 4px 4px 0; /* Góc vuông hơn */
-    /* background-color: var(--hub-red); */
-    background-color: white; /* Nút màu trắng */
+    background-color: var(--hub-light); /* Nút màu trắng */
     color: var(--hub-red); /* Chữ/Icon màu đỏ */
     border: none;
     font-weight: 500;
@@ -349,16 +324,16 @@ footer .btn-hub-secondary:hover {
 }
 
 .newsletter button:hover {
-    background-color: #f8f9fa;
+    background-color: var(--hub-gray);
 }
 
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6); /* Chữ mờ hơn */
+    border-top: 1px solid rgba(var(--hub-light), 0.1);
+    color: rgba(var(--hub-light), 0.6); /* Chữ mờ hơn */
 }
 .footer-bottom a {
-    color: white; /* Link màu trắng rõ hơn */
+    color: var(--hub-light); /* Link màu trắng rõ hơn */
     text-decoration: none;
 }
 .footer-bottom a:hover {
@@ -369,7 +344,7 @@ footer .btn-hub-secondary:hover {
 /* --- Events Section V2 (Sự kiện nổi bật) --- */
 #events {
     /* background-color: var(--hub-grey); */ /* Bỏ màu nền xám */
-    background-color: white; /* Nền trắng như screenshot */
+    background-color: var(--hub-light); /* Nền trắng như screenshot */
 }
 
 #events h2 {
@@ -378,13 +353,13 @@ footer .btn-hub-secondary:hover {
     /* margin-bottom: 0.5rem; */
     font-weight: 700; /* Đậm hơn */
     margin-bottom: 15px;
-    color: #333;
+    color: var(--hub-text-dark);
     /* font-weight: bold; */ /* Đã có */
 }
 
 #events .text-secondary { /* Subtitle */
     /* font-size: 1rem; */
-     color: #6c757d !important; /* Màu xám chuẩn */
+     color: var(--hub-text-secondary) !important;
 }
 
 /* Card style giống screenshot */
@@ -398,7 +373,7 @@ footer .btn-hub-secondary:hover {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: var(--hub-light);
 }
 
 .event-card-v2:hover {
@@ -431,7 +406,7 @@ footer .btn-hub-secondary:hover {
     top: 15px;
     right: 15px; /* Sang phải */
     background-color: var(--hub-red);
-    color: white;
+    color: var(--hub-light);
     /* border-radius: 5px; */
     border-radius: 6px; /* Bo góc nhẹ */
     padding: 8px 12px; /* Padding khác */
@@ -466,7 +441,7 @@ footer .btn-hub-secondary:hover {
 .event-category {
     display: inline-block;
     /* background-color: #f0f0f0; */
-    background-color: #f8f9fa; /* Màu xám sáng */
+    background-color: var(--hub-gray); /* Màu xám sáng */
     color: var(--hub-dark);
     /* padding: 4px 10px; */
     padding: 4px 10px;
@@ -484,13 +459,13 @@ footer .btn-hub-secondary:hover {
     font-weight: 600;
     /* margin-bottom: 10px; */
     /* color: var(--hub-dark); */
-    color: #333;
+    color: var(--hub-text-dark);
     margin-bottom: 10px;
     line-height: 1.4;
 }
 
 .event-description {
-    color: #6c757d;
+    color: var(--hub-text-secondary);
     /* font-size: 0.95rem; */
     font-size: 0.9rem; /* Nhỏ hơn */
     margin-bottom: 15px;
@@ -499,7 +474,7 @@ footer .btn-hub-secondary:hover {
 
 .event-location {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: var(--hub-text-secondary);
     margin-bottom: 15px;
 }
 /* Icon location màu đỏ */
@@ -526,7 +501,7 @@ footer .btn-hub-secondary:hover {
 }
 
 .event-link:hover {
-    color: #8B0000; /* Đỏ sẫm hơn */
+    color: var(--hub-red-darker); /* Đỏ sẫm hơn */
     /* text-decoration: underline; */ /* Bỏ gạch chân */
 }
 
@@ -552,7 +527,7 @@ footer .btn-hub-secondary:hover {
 
 .view-all-link:hover {
     /* color: #a52a33; */
-    color: #8B0000; /* Đỏ sẫm hơn */
+    color: var(--hub-red-darker); /* Đỏ sẫm hơn */
 }
 
 .view-all-link:hover i {
@@ -562,7 +537,7 @@ footer .btn-hub-secondary:hover {
 /* --- How It Works Section --- */
 #how-it-works {
     /* background-color: var(--hub-light); */
-    background-color: white; /* Nền trắng */
+    background-color: var(--hub-light); /* Nền trắng */
     /* padding: 50px 0; */
     padding: 60px 0; /* Padding lớn hơn */
 }
@@ -572,10 +547,10 @@ footer .btn-hub-secondary:hover {
     /* margin-bottom: 15px; */
     font-weight: 700; /* Đậm */
     margin-bottom: 15px;
-    color: #333;
+    color: var(--hub-text-dark);
 }
 #how-it-works .text-secondary { /* Subtitle */
-     color: #6c757d !important; /* Màu xám chuẩn */
+     color: var(--hub-text-secondary) !important;
 }
 
 
@@ -607,7 +582,7 @@ footer .btn-hub-secondary:hover {
     width: 120px; /* Kích thước lớn */
     height: 120px;
     /* background-color: var(--hub-red); */
-    background-color: #f8f9fa; /* Nền xám nhạt */
+    background-color: var(--hub-gray); /* Nền xám nhạt */
     /* color: white; */
     border-radius: 50%;
     display: flex;
@@ -631,7 +606,7 @@ footer .btn-hub-secondary:hover {
     top: 0; /* Góc trên phải */
     right: 0;
     background-color: var(--hub-red);
-    color: white;
+    color: var(--hub-light);
     width: 28px; /* Kích thước nhỏ */
     height: 28px;
     border-radius: 50%;
@@ -662,7 +637,7 @@ footer .btn-hub-secondary:hover {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--hub-text-dark);
 }
 
 .how-it-works-text {
@@ -670,7 +645,7 @@ footer .btn-hub-secondary:hover {
     /* font-size: 0.95rem; */
     /* max-width: 300px; */
     /* margin: 0 auto; */
-    color: #6c757d;
+    color: var(--hub-text-secondary);
     font-size: 0.95rem;
 }
 
@@ -683,7 +658,7 @@ footer .btn-hub-secondary:hover {
 /* --- Upcoming Events Section --- */
 #upcoming-events {
     /* background-color: var(--hub-grey); */
-    background-color: #f9f9f9; /* Màu nền như body */
+    background-color: var(--hub-gray); /* Màu nền như body */
     /* padding-top: 3rem; */
     /* padding-bottom: 3rem; */
     padding: 60px 0; /* Padding lớn */
@@ -694,10 +669,10 @@ footer .btn-hub-secondary:hover {
     /* margin-bottom: 0.5rem; */
     font-weight: 700; /* Đậm */
     margin-bottom: 15px;
-    color: #333;
+    color: var(--hub-text-dark);
 }
 #upcoming-events .text-secondary { /* Subtitle */
-     color: #6c757d !important; /* Màu xám chuẩn */
+     color: var(--hub-text-secondary) !important;
 }
 
 
@@ -717,7 +692,7 @@ footer .btn-hub-secondary:hover {
 
 .upcoming-event-card {
     /* flex: 1 1 400px; */
-    background-color: white;
+    background-color: var(--hub-light);
     border-radius: 8px;
     /* box-shadow: 0 4px 10px rgba(0,0,0,0.08); */
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); /* Shadow nhẹ */
@@ -742,7 +717,7 @@ footer .btn-hub-secondary:hover {
     display: inline-flex; /* Để không chiếm cả dòng */
     flex-direction: column;
     background-color: var(--hub-red);
-    color: white;
+    color: var(--hub-light);
     /* padding: 0.4rem 0.5rem; */
     padding: 8px 15px; /* Padding lớn hơn */
     /* border-radius: 4px; */
@@ -771,7 +746,7 @@ footer .btn-hub-secondary:hover {
 .event-type {
     display: inline-block;
     /* background-color: #eee; */
-    background-color: #f8f9fa; /* Xám nhạt */
+    background-color: var(--hub-gray); /* Xám nhạt */
     color: var(--hub-dark);
     /* padding: 0.25rem 0.75rem; */
     padding: 4px 10px;
@@ -797,7 +772,7 @@ footer .btn-hub-secondary:hover {
     margin-bottom: 20px; /* Tăng khoảng cách */
     /* line-height: 1.4; */
     font-weight: 600;
-    color: #333;
+    color: var(--hub-text-dark);
 }
 
 .event-info {
@@ -805,7 +780,7 @@ footer .btn-hub-secondary:hover {
     flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
     gap: 15px; /* Khoảng cách giữa time và location */
     margin-bottom: 20px; /* Tăng khoảng cách */
-    color: #6c757d;
+    color: var(--hub-text-secondary);
     font-size: 0.9rem;
 }
 
@@ -832,7 +807,7 @@ footer .btn-hub-secondary:hover {
 /* --- CTA Section --- */
 #cta {
     background-color: var(--hub-red);
-    color: white; /* Text màu trắng */
+    color: var(--hub-light); /* Text màu trắng */
     /* padding: 4rem 0; */
 }
 
@@ -859,19 +834,19 @@ footer .btn-hub-secondary:hover {
     border-radius: 4px;
     padding: 0.6rem 1.5rem;
     transition: all 0.3s ease;
-    background-color: white;
-    border: 2px solid white;
+    background-color: var(--hub-light);
+    border: 2px solid var(--hub-light);
 }
 
 #cta .btn-light:hover {
-    background-color: #f8f9fa;
-    border-color: #f8f9fa;
+    background-color: var(--hub-gray);
+    border-color: var(--hub-gray);
     transform: translateY(-2px);
 }
 
 #cta .btn-outline-light { /* Nút Tìm hiểu thêm */
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--hub-light);
+    color: var(--hub-light);
     transition: all 0.3s ease;
     padding: 0.6rem 1.5rem;
     border-radius: 4px;
@@ -879,7 +854,7 @@ footer .btn-hub-secondary:hover {
 }
 
 #cta .btn-outline-light:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(var(--hub-light), 0.1);
     transform: translateY(-2px);
 }
 
