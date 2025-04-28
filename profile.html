@@ -591,10 +591,62 @@
                 AOS.refresh(); // Refresh AOS for newly shown content
             }
 
-            // Show default section on load
-            if (defaultTargetId) {
-                showTargetSection(defaultTargetId);
+            // Function to activate a pill based on hash fragment
+            function activatePillFromHash() {
+                let hash = window.location.hash;
+                if (hash) {
+                    // Support both #tab-name and #tab-name-content formats
+                    // Remove '-content' suffix if present in the URL but not in the tab IDs
+                    if (hash.endsWith('-content')) {
+                        hash = hash.replace('-content', '');
+                    }
+                    
+                    // Find the pill that matches the hash or targets the content with this hash
+                    const matchingPill = Array.from(pills).find(pill => {
+                        const href = pill.getAttribute('href');
+                        const target = pill.getAttribute('data-bs-target');
+                        return href === hash || target === hash + '-content' || target === hash;
+                    });
+
+                    if (matchingPill) {
+                        // Manually trigger the pill
+                        const bsTab = new bootstrap.Tab(matchingPill);
+                        bsTab.show();
+                        
+                        // Also manually update classes because sometimes the Bootstrap Tab doesn't trigger shown.bs.tab event
+                        pills.forEach(p => p.classList.remove('active'));
+                        matchingPill.classList.add('active');
+                        
+                        const targetId = matchingPill.getAttribute('data-bs-target');
+                        if (targetId) {
+                            showTargetSection(targetId);
+                        }
+
+                        // Scroll to the section after a short delay to ensure DOM is updated
+                        setTimeout(() => {
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                const headerOffset = 100; // Adjust based on your fixed header height
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }, 100);
+                    }
+                } else if (defaultTargetId) {
+                    // No hash, show default section
+                    showTargetSection(defaultTargetId);
+                }
             }
+
+            // Show initial section based on URL hash or default
+            activatePillFromHash();
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', activatePillFromHash);
 
             // Handle tab clicks
             pills.forEach(pill => {
@@ -603,6 +655,14 @@
                     if (targetId) {
                          showTargetSection(targetId);
                      }
+                });
+                
+                // Update URL hash when tab is clicked (without page reload)
+                pill.addEventListener('click', function(e) {
+                    const hash = this.getAttribute('href');
+                    if (hash && hash.startsWith('#')) {
+                        history.pushState(null, null, hash);
+                    }
                 });
             });
         });
