@@ -90,7 +90,7 @@
                     </a>
                 </li>
             </ul>
-            
+
             <div class="admin-sidebar-nav-heading">Hệ thống</div>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -210,7 +210,7 @@
                                         <th style="min-width: 120px;">Ngày sinh</th>
                                         <th style="min-width: 100px;">Giới tính</th>
                                         <th style="min-width: 130px;">Lớp đại cương</th>
-                                        <th style="min-width: 130px;">Lớp chuyên ngành</th>
+                                        <th style="min-width: 150px;">Lớp chuyên ngành</th>
                                         <th style="min-width: 100px; width: 100px;">Trạng thái</th>
                                         <th style="min-width: 130px; width: 130px;">Hành động</th>
                                     </tr>
@@ -824,6 +824,18 @@
                 });
             }
 
+            // Xử lý khi click nút "Thêm đoàn viên"
+            $('button[data-bs-target="#addStudentModal"]').on('click', function() {
+                // Reset form
+                $('#studentForm')[0].reset();
+                $('#studentForm').removeClass('was-validated');
+                $('#studentForm').removeData('action');
+                $('#studentForm').removeData('student-id');
+                
+                // Đặt lại tiêu đề modal
+                $('#addStudentModalLabel').text('Thông tin đoàn viên');
+            });
+
             // Xử lý xem chi tiết đoàn viên
             $('.btn-view').on('click', function() {
                 var studentId = $(this).data('student-id');
@@ -867,6 +879,60 @@
                 $('.edit-from-view').data('student-id', studentId);
             });
 
+            // Thêm xử lý khi người dùng nhấn nút chỉnh sửa từ modal xem chi tiết
+            $('.edit-from-view').on('click', function() {
+                var studentId = $(this).data('student-id');
+                
+                // Cập nhật tiêu đề modal
+                $('#addStudentModalLabel').text('Chỉnh sửa thông tin đoàn viên');
+                
+                // Lấy dữ liệu từ modal xem chi tiết để điền vào form chỉnh sửa
+                if (studentId === 1) {
+                    $('#studentId').val('030333000333');
+                    $('#studentEmail').val('a.nguyenvan@hub.edu.vn');
+                    $('#studentFirstName').val('Nguyễn Văn');
+                    $('#studentLastName').val('A');
+                    $('#studentBirthdate').val('2000-05-01');
+                    $('#genderMale').prop('checked', true);
+                    $('#studentClass').val('CLCK6');
+                    $('#studentMajorClass').val('CLCK6');
+                    $('#studentPhone').val('0909123456');
+                    $('#studentStatus').val('conhoc');
+                    $('#studentAddress').val('36 Tôn Thất Đạm, Phường Nguyễn Thái Bình, Quận 1, TP.HCM');
+                    $('#studentNote').val('Sinh viên xuất sắc, tham gia nhiều hoạt động đoàn thể.');
+                } else if (studentId === 5) {
+                    $('#studentId').val('06021420013');
+                    $('#studentEmail').val('thanh.phamhoai@hub.edu.vn');
+                    $('#studentFirstName').val('Phạm Thị Hoài');
+                    $('#studentLastName').val('Thanh');
+                    $('#studentBirthdate').val('2002-04-05');
+                    $('#genderFemale').prop('checked', true);
+                    $('#studentClass').val('CLCK5');
+                    $('#studentMajorClass').val('CLCK5');
+                    $('#studentPhone').val('0903654789');
+                    $('#studentStatus').val('totnghiep');
+                    $('#studentAddress').val('10 Lý Tự Trọng, Phường Bến Nghé, Quận 1, TP.HCM');
+                    $('#studentNote').val('Đã tốt nghiệp loại xuất sắc.');
+                } else if (studentId === 4) {
+                    $('#studentId').val('21342520001');
+                    $('#studentEmail').val('minh.tranhoang@hub.edu.vn');
+                    $('#studentFirstName').val('Trần Hoàng');
+                    $('#studentLastName').val('Minh');
+                    $('#studentBirthdate').val('2003-08-12');
+                    $('#genderMale').prop('checked', true);
+                    $('#studentClass').val('DH38QT02');
+                    $('#studentMajorClass').val('DH38QT02');
+                    $('#studentPhone').val('0931248567');
+                    $('#studentStatus').val('thoihoc');
+                    $('#studentAddress').val('45 Điện Biên Phủ, Phường Đa Kao, Quận 1, TP.HCM');
+                    $('#studentNote').val('Đã thôi học do chuyển trường.');
+                }
+                
+                // Cập nhật action của form
+                $('#studentForm').data('action', 'edit');
+                $('#studentForm').data('student-id', studentId);
+            });
+
             // Xử lý chỉnh sửa đoàn viên
             $('.btn-edit').on('click', function() {
                 var studentId = $(this).data('student-id');
@@ -886,6 +952,8 @@
                     $('#studentMajorClass').val('CLCK6');
                     $('#studentPhone').val('0909123456');
                     $('#studentStatus').val('conhoc');
+                    $('#studentAddress').val('36 Tôn Thất Đạm, Phường Nguyễn Thái Bình, Quận 1, TP.HCM');
+                    $('#studentNote').val('Sinh viên xuất sắc, tham gia nhiều hoạt động đoàn thể.');
                 } else if (studentId === 5) {
                     $('#studentId').val('06021420013');
                     $('#studentEmail').val('thanh.phamhoai@hub.edu.vn');
@@ -897,6 +965,21 @@
                     $('#studentMajorClass').val('CLCK5');
                     $('#studentPhone').val('0903654789');
                     $('#studentStatus').val('totnghiep');
+                    $('#studentAddress').val('10 Lý Tự Trọng, Phường Bến Nghé, Quận 1, TP.HCM');
+                    $('#studentNote').val('Đã tốt nghiệp loại xuất sắc.');
+                } else if (studentId === 4) {
+                    $('#studentId').val('21342520001');
+                    $('#studentEmail').val('minh.tranhoang@hub.edu.vn');
+                    $('#studentFirstName').val('Trần Hoàng');
+                    $('#studentLastName').val('Minh');
+                    $('#studentBirthdate').val('2003-08-12');
+                    $('#genderMale').prop('checked', true);
+                    $('#studentClass').val('DH38QT02');
+                    $('#studentMajorClass').val('DH38QT02');
+                    $('#studentPhone').val('0931248567');
+                    $('#studentStatus').val('thoihoc');
+                    $('#studentAddress').val('45 Điện Biên Phủ, Phường Đa Kao, Quận 1, TP.HCM');
+                    $('#studentNote').val('Đã thôi học do chuyển trường.');
                 }
                 
                 // Cập nhật action của form
@@ -1123,3 +1206,4 @@
 </body>
 
 </html>
+

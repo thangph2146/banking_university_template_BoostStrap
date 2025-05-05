@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quản lý mẫu bảng điểm đánh giá - Hệ thống Quản lý Sự kiện của Đại học Ngân hàng TP.HCM.">
+    <title>Đại học Ngân hàng TP.HCM - Quản lý Mẫu Bảng Điểm Đánh Giá</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" href="../css/side-bar.css">
+    <link rel="stylesheet" href="../css/variable.css">
+    <style>
+        .admin-card {
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            border: none;
+        }
+
+        .filter-btn.active {
+            background-color: var(--bs-secondary);
+            color: white;
+        }
+
+        .status-badge {
+            padding: 0.35em 0.65em;
+            border-radius: 0.25rem;
+        }
+        
+        .status-active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-draft {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-archived {
+            background-color: #f8f9fa;
+            color: #6c757d;
+        }
+        
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .criteria-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .criteria-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .table .expandable-row {
+            cursor: pointer;
+        }
+
+        .tree-icon {
+            margin-right: 5px;
+        }
+        
+        .child-row {
+            background-color: rgba(0,0,0,0.03);
+        }
+        
+        .child-row td:first-child {
+            padding-left: 2rem;
+        }
+        
+        .sub-child-row td:first-child {
+            padding-left: 3.5rem;
+        }
+
+        /* Table Styling */
+        #templatesTable {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        #templatesTable thead th {
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 2px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        #templatesTable tbody tr:hover {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* Tree view styling */
+        .bi-plus-square, .bi-dash-square {
+            cursor: pointer;
+            color: var(--hub-red);
+        }
+
+        /* Tooltip styling */
+        .tooltip {
+            font-family: var(--font-family);
+        }
+        
+        .tooltip-inner {
+            background-color: rgba(0, 0, 0, 0.8);
+            max-width: 250px;
+            padding: 8px 12px;
+            text-align: left;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Icon styling */
+        .bi-card-text, .bi-list {
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .bi-card-text:hover, .bi-list:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .bi-list.text-primary {
+            color: #0d6efd !important;
+        }
+        
+        /* Dropdown customization */
+        .dropdown-menu {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+        }
+        
+        .dropdown-item:active {
+            background-color: var(--hub-red);
+        }
+        
+        /* Form controls customization */
+        .form-check-input:checked {
+            background-color: var(--hub-red);
+            border-color: var(--hub-red);
+        }
+        
+        /* Button customization */
+        .btn-danger {
+            background-color: var(--hub-red);
+            border-color: var(--hub-red);
+        }
+        
+        .btn-danger:hover {
+            background-color: var(--hub-red-darker);
+            border-color: var(--hub-red-darker);
+        }
+        
+        .btn-outline-danger {
+            color: var(--hub-red);
+            border-color: var(--hub-red);
+        }
+        
+        .btn-outline-danger:hover {
+            background-color: var(--hub-red);
+            border-color: var(--hub-red);
+        }
+        
+        /* Context menu */
+        .context-menu {
+            position: absolute;
+            display: none;
+            z-index: 1100;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            min-width: 10rem;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+            background-color: #fff;
+        }
+        
+        .context-menu .dropdown-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        
+        .context-menu .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .context-menu .dropdown-item.text-danger:hover {
+            background-color: #f8d7da;
+        }
+        
+        .context-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1090;
+        }
+       
+        
+        /* Không hiển thị dropdown-toggle khi không cần thiết */
+        .child-row .dropdown-toggle::after,
+        .sub-child-row .dropdown-toggle::after {
+            display: none;
+        }
+
+        /* Tab styling */
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--hub-red);
+            border-bottom-color: var(--hub-red);
+            background-color: transparent;
+        }
+
+        .nav-tabs .nav-link:hover:not(.active) {
+            border-bottom-color: #dee2e6;
+        }
+
+        /* Rich text editor toolbar styling */
+        .btn-toolbar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .btn-toolbar .btn-group {
+            margin-right: 0.5rem;
+        }
+
+        .btn-toolbar .btn {
+            padding: 0.25rem 0.5rem;
+        }
+
+        /* Form control focus styling */
+        .form-control:focus, 
+        .form-select:focus {
+            border-color: rgba(var(--hub-red-rgb), 0.5);
+            box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
+        }
+        
+        /* Toast notifications styling */
+        #notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .toast {
+            margin-bottom: 10px;
+        }
+        
+        /* Highlight row on right-click */
+        #templatesTable tbody tr.context-active {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        /* Modal transition animations */
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-out;
+            transform: translateY(-50px);
+        }
+        
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+        
+        /* Modal backdrop enhancement */
+        .modal-backdrop.show {
+            opacity: 0.6;
+        }
+
+        /* Đảm bảo click chỉ tác động lên tree-icon */
+        .tree-icon {
+            position: relative;
+            z-index: 5; 
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <div class="admin-sidebar-header d-flex align-items-center">
+            <a href="../index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="../public/images/logo/logo-white-vertical.png" alt="Logo" height="40" class="me-2">
+                <span class="fs-5 fw-bold text-white d-none d-sm-inline">HUB Admin</span>
+            </a>
+            <button class="btn-close btn-close-white ms-auto d-lg-none" id="closeSidebarBtn" aria-label="Close"></button>
+        </div>
+
+        <div class="pt-2">
+            <div class="admin-sidebar-nav-heading">Chính</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Quản lý nội dung</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html">
+                        <i class="bi bi-calendar-event"></i> Quản lý sự kiện
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registrations.html">
+                        <i class="bi bi-clipboard-check"></i> Đăng ký sự kiện
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Người dùng & Tương tác</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="doan-vien.html">
+                        <i class="bi bi-people"></i> Quản lý đoàn viên
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Đánh giá</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="member-scorecards/me.html">
+                        <i class="bi bi-table"></i> Bảng đánh giá của tôi
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="member-scorecards/youth-community-v2.html">
+                        <i class="bi bi-people"></i> Đánh giá đoàn viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="member-scorecards/students-behavior.html">
+                        <i class="bi bi-star"></i> Đánh giá điểm rèn luyện
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="scorecard-templates/monitor.html">
+                        <i class="bi bi-eye"></i> Giám sát quá trình đánh giá
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="scorecard-templates.html">
+                        <i class="bi bi-file-earmark-text"></i> Quản lý mẫu bảng điểm đánh giá
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="admin-sidebar-nav-heading">Hệ thống</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <i class="bi bi-gear"></i> Cài đặt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logs.html">
+                        <i class="bi bi-file-earmark-text"></i> Nhật ký hệ thống
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="../login.html">
+                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar admin-navbar shadow-sm">
+        <div class="container-fluid px-4">
+            <button class="btn d-lg-none" id="toggleSidebarBtn">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+            <div class="d-flex align-items-center ms-auto">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell position-relative fs-5">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">
+                                3
+                            </span>
+                        </i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="notificationDropdown" style="width: 300px;">
+                        <li><h6 class="dropdown-header">Thông báo</h6></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item d-flex align-items-center py-2" href="#">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-person-plus text-primary"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="small text-muted">Vừa cập nhật</div>
+                                <div>5 người dùng mới đã đăng ký</div>
+                            </div>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center py-2" href="#">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-file-earmark-text text-success"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="small text-muted">10 phút trước</div>
+                                <div>Mẫu đánh giá "Đánh giá đoàn viên" vừa được cập nhật</div>
+                            </div>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center py-2" href="#">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-chat-left-text text-warning"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="small text-muted">1 giờ trước</div>
+                                <div>3 tin nhắn mới cần phản hồi</div>
+                            </div>
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center small text-muted" href="#">Xem tất cả thông báo</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-3">
+                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../public/images/avatar-placeholder.png" alt="Admin" width="32" height="32" class="rounded-circle me-2">
+                        <span>Admin</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Cài đặt</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+        <div class="container-fluid px-4 py-4">
+            <!-- Page Heading -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Quản lý mẫu bảng điểm đánh giá</li>
+                        </ol>
+                    </nav>
+                    <h1 class="h3 mb-0 text-gray-800">Quản lý mẫu bảng điểm đánh giá</h1>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-primary" id="reloadBtn">
+                        <i class="bi bi-arrow-clockwise"></i> Tải lại
+                    </button>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addTemplateModal">
+                        <i class="bi bi-plus-circle"></i> Thêm mẫu
+                    </button>
+                    <button type="button" class="btn btn-outline-info" id="updateTemplateBtn">
+                        <i class="bi bi-pencil-square"></i> Cập nhật mẫu
+                    </button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#addCriteriaModal">
+                        <i class="bi bi-plus-circle"></i> Thêm mục
+                    </button>
+                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#addSubCriteriaModal">
+                        <i class="bi bi-plus-circle"></i> Thêm tiêu chí
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter and Category Buttons -->
+            <div class="d-flex mb-3 align-items-center">
+                <div class="btn-group me-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-folder me-1"></i> Quản lý lớp <i class="bi bi-chevron-down ms-1"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                        <li><a class="dropdown-item" href="#">K21 TCNH</a></li>
+                        <li><a class="dropdown-item" href="#">K22 CNTT</a></li>
+                        <li><a class="dropdown-item" href="#">K21 KT</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group me-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-calculator me-1"></i> Tính điểm và xếp loại <i class="bi bi-chevron-down ms-1"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Tính điểm tất cả</a></li>
+                        <li><a class="dropdown-item" href="#">Xếp loại tất cả</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Thiết lập quy tắc tính điểm</a></li>
+                    </ul>
+                </div>
+
+                <div class="ms-auto">
+                    <button id="expandAllBtn" class="btn btn-sm btn-outline-secondary me-2">
+                        <i class="bi bi-arrows-expand me-1"></i> Expand All
+                    </button>
+                    <button id="collapseAllBtn" class="btn btn-sm btn-outline-secondary me-2">
+                        <i class="bi bi-arrows-collapse me-1"></i> Collapse All
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-columns-gap me-1"></i> Columns <i class="bi bi-chevron-down ms-1"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">Hiển thị cột</h6></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showCodeColumn" checked>
+                                    <label class="form-check-label" for="showCodeColumn">Code</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showNameColumn" checked>
+                                    <label class="form-check-label" for="showNameColumn">Tên</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showActivitiesColumn" checked>
+                                    <label class="form-check-label" for="showActivitiesColumn">#Hoạt động</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showPointsColumn" checked>
+                                    <label class="form-check-label" for="showPointsColumn">Điểm</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showSelfEvalColumn" checked>
+                                    <label class="form-check-label" for="showSelfEvalColumn">Tự đánh</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showRankColumn" checked>
+                                    <label class="form-check-label" for="showRankColumn">Đúng xếp loại</label>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showTypeColumn" checked>
+                                    <label class="form-check-label" for="showTypeColumn">Loại</label>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <select class="form-select" id="templateTypeFilter">
+                        <option value="">Đánh giá đoàn viên năm học 2020-2021</option>
+                        <option value="2021-2022">Đánh giá đoàn viên năm học 2021-2022</option>
+                        <option value="2022-2023">Đánh giá đoàn viên năm học 2022-2023</option>
+                        <option value="2023-2024">Đánh giá đoàn viên năm học 2023-2024</option>
+                    </select>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm tiêu chí..." aria-label="Tìm kiếm tiêu chí">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template Table Card -->
+            <div class="card admin-card mb-4">
+                <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Danh sách mẫu bảng điểm đánh giá</h6>
+                    <div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="exportBtn">
+                            <i class="bi bi-download"></i> Xuất Excel
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="printBtn">
+                            <i class="bi bi-printer"></i> In
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="templatesTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">Code</th>
+                                    <th style="width: 45%">Tên</th>
+                                    <th style="width: 10%" class="text-center">#Hoạt động</th>
+                                    <th style="width: 10%" class="text-center">Điểm</th>
+                                    <th style="width: 10%" class="text-center">Tự đánh</th>
+                                    <th style="width: 10%" class="text-center">Đúng xếp loại</th>
+                                    <th style="width: 10%" class="text-center">Loại</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Group A -->
+                                <tr class="expandable-row parent-row" data-bs-toggle="collapse" data-bs-target=".group-a">
+                                    <td>
+                                        <i class="bi bi-dash-square tree-icon"></i> A
+                                    </td>
+                                    <td class="text-primary fw-bold">CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ NHẬN THỨC</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center"></td>
+                                </tr>
+
+                                <!-- A.1 -->
+                                <tr class="collapse show group-a">
+                                    <td>1</td>
+                                    <td>
+                                        Tham gia tìm hiểu về CN Mác – Lênin và tư tưởng HCM, thi đua, học tập và lý luận chính trị, chủ quyền biển đảo, 
+                                        dân ơn đáp nghĩa, kỷ niệm các ngày lễ, sự kiện chính trị của Trường ...
+                                    </td>
+                                    <td class="text-center">33</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-list text-primary" data-bs-toggle="tooltip" title="Danh sách hoạt động"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- A.2 -->
+                                <tr class="collapse show group-a">
+                                    <td>2</td>
+                                    <td>
+                                        Sống văn hóa, tuân thủ pháp luật, không vi phạm nội quy, kỷ luật của nhà trường, điều lệ Đoàn TNCS HCM. (5đ)
+                                    </td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 5 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- A.3 -->
+                                <tr class="collapse show group-a">
+                                    <td>3</td>
+                                    <td>
+                                        Tham gia các buổi sinh hoạt, hội thảo chuyên đề hoặc các buổi tập huấn rèn luyện kỹ năng để nâng cao tính tự 
+                                        tin, tự chủ trong mọi tình huống: tham gia tổ chức = 5đ/lượt; tham gia hoạt động = 3đ/lượt
+                                    </td>
+                                    <td class="text-center">27</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-list text-primary" data-bs-toggle="tooltip" title="Danh sách hoạt động"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- Group B -->
+                                <tr class="expandable-row parent-row" data-bs-toggle="collapse" data-bs-target=".group-b">
+                                    <td>
+                                        <i class="bi bi-dash-square tree-icon"></i> B
+                                    </td>
+                                    <td class="text-primary fw-bold">CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ HÀNH ĐỘNG</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center"></td>
+                                </tr>
+
+                                <!-- B.4 -->
+                                <tr class="expandable-row collapse show group-b child-row" data-bs-toggle="collapse" data-bs-target=".group-b-4">
+                                    <td>
+                                        <i class="bi bi-dash-square tree-icon"></i> 4
+                                    </td>
+                                    <td class="fw-semibold">Đoàn kết, thân ái, vì cộng đồng:</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="dropdown">
+                                            <a href="#" class="text-body" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Cập nhật</a></li>
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-card-list me-2"></i>Tính toán lại điểm đánh giá</a></li>
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Quy tắc đánh giá</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Xóa mục/Tiêu chí</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- B.4.1 -->
+                                <tr class="collapse show group-b-4 sub-child-row">
+                                    <td>4.1</td>
+                                    <td>- Hiến máu tình nguyện (5đ)</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 5 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.4.2 -->
+                                <tr class="collapse show group-b-4 sub-child-row">
+                                    <td>4.2</td>
+                                    <td>- Dạy học thường xuyên ở các lớp tình thương, phổ cập kiến thức (5đ)</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 5 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.4.3 -->
+                                <tr class="collapse show group-b-4 sub-child-row">
+                                    <td>4.3</td>
+                                    <td>- Tham gia chiến dịch Xuân tình nguyện (5đ)</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 5 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.4.4 -->
+                                <tr class="collapse show group-b-4 sub-child-row">
+                                    <td>4.4</td>
+                                    <td>- Tham gia chiến dịch Mùa hè xanh (10đ)</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 10 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.4.5 -->
+                                <tr class="collapse show group-b-4 sub-child-row" style="background-color: rgba(0,0,0,0.05);">
+                                    <td>4.5</td>
+                                    <td>- Tham gia Tiếp sức mùa thi, hỗ trợ công tác tuyển sinh (3đ/lượt)</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-list text-primary" data-bs-toggle="tooltip" title="Nhiều mức điểm, thường được tính tùy theo mức độ tham gia vào các hoạt động"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.5 -->
+                                <tr class="expandable-row collapse show group-b child-row" data-bs-toggle="collapse" data-bs-target=".group-b-5">
+                                    <td>
+                                        <i class="bi bi-dash-square tree-icon"></i> 5
+                                    </td>
+                                    <td class="fw-semibold">Thường xuyên rèn luyện thể chất:</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center"></td>
+                                </tr>
+
+                                <!-- B.5.1 -->
+                                <tr class="collapse show group-b-5 sub-child-row">
+                                    <td>5.1</td>
+                                    <td>- Tham gia ít nhất 1 câu lạc bộ về thể thao. (3đ)</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 3 điểm"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.5.2 -->
+                                <tr class="collapse show group-b-5 sub-child-row">
+                                    <td>5.2</td>
+                                    <td>- Tham gia Hội thao cấp Khoa, cấp Trường (3đ/hoạt động)</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-list text-primary" data-bs-toggle="tooltip" title="Nhiều mức điểm, thường được tính tùy theo mức độ tham gia vào các hoạt động"></i>
+                                    </td>
+                                </tr>
+
+                                <!-- B.5.3 -->
+                                <tr class="collapse show group-b-5 sub-child-row">
+                                    <td>5.3</td>
+                                    <td>- Đạt danh hiệu "Thanh niên khỏe" trong năm học 2020-2021 (3đ)</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">0</td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control" checked>
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="form-check-input checkbox-control">
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="bi bi-card-text" data-bs-toggle="tooltip" title="Chỉ lấy một mức điểm duy nhất. Ví dụ: chỉ được 0 hoặc 3 điểm"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Template Modal -->
+    <div class="modal fade" id="addTemplateModal" tabindex="-1" aria-labelledby="addTemplateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTemplateModalLabel">Thêm mẫu bảng điểm đánh giá mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tab Navigation -->
+                    <ul class="nav nav-tabs" id="templateModalTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab" aria-controls="info-content" aria-selected="true">THÔNG TIN CHÍNH</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="scoring-tab" data-bs-toggle="tab" data-bs-target="#scoring-content" type="button" role="tab" aria-controls="scoring-content" aria-selected="false">CẤP ĐÁNH GIÁ</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules-content" type="button" role="tab" aria-controls="rules-content" aria-selected="false">QUY TẮC XẾP LOẠI</button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content mt-3" id="templateModalTabContent">
+                        <!-- Thông tin chính -->
+                        <div class="tab-pane fade show active" id="info-content" role="tabpanel" aria-labelledby="info-tab">
+                            <form id="addTemplateForm">
+                                <div class="mb-3">
+                                    <label for="templateCode" class="form-label">Mã</label>
+                                    <input type="text" class="form-control" id="templateCode" placeholder="Mã mẫu đánh giá">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateName" class="form-label">Tên</label>
+                                    <input type="text" class="form-control" id="templateName" placeholder="Tên mẫu đánh giá">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateType" class="form-label">Loại</label>
+                                    <select class="form-select" id="templateType">
+                                        <option value="">Chọn một loại</option>
+                                        <option value="01-Đánh giá Đoàn viên">01-Đánh giá Đoàn viên</option>
+                                        <option value="02-Đánh giá điểm rèn luyện">02-Đánh giá điểm rèn luyện</option>
+                                        <option value="03-Đánh giá cán bộ">03-Đánh giá cán bộ</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="academicYear" class="form-label">Học kỳ/Năm học</label>
+                                    <select class="form-select" id="academicYear">
+                                        <option value="">Chọn học kỳ/năm học</option>
+                                        <option value="2020-2021">2020-2021</option>
+                                        <option value="2021-2022">2021-2022</option>
+                                        <option value="2022-2023">2022-2023</option>
+                                        <option value="2023-2024">2023-2024</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateSelfEval" class="form-label">Chế độ thẩm minh chứng</label>
+                                    <select class="form-select" id="templateSelfEval">
+                                        <option value="">Chọn chế độ</option>
+                                        <option value="01-Tự thẩm">01-Tự thẩm</option>
+                                        <option value="02-Ban quản lý thẩm">02-Ban quản lý thẩm</option>
+                                        <option value="03-Kết hợp">03-Kết hợp</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateApproval" class="form-label">Chế độ bổ phê duyệt minh chứng</label>
+                                    <select class="form-select" id="templateApproval">
+                                        <option value="">Chọn chế độ</option>
+                                        <option value="01-Tự động">01-Tự động</option>
+                                        <option value="02-Quản lý phê duyệt">02-Quản lý phê duyệt</option>
+                                        <option value="03-Cần quyền phê duyệt">03-Cần quyền phê duyệt</option>
+                                        <option value="04-Cho phép phê duyệt nếu có quyền phê duyệt">04-Cho phép phê duyệt nếu có quyền phê duyệt</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateStatus" class="form-label">Trạng thái</label>
+                                    <select class="form-select" id="templateStatus">
+                                        <option value="">Chọn trạng thái</option>
+                                        <option value="01-Đã hoàn tất">01-Đã hoàn tất</option>
+                                        <option value="02-Đang soạn thảo">02-Đang soạn thảo</option>
+                                        <option value="03-Đã lưu trữ">03-Đã lưu trữ</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-muted small">Ngày tạo: 05/05/2025, 2:47:08 CH GMT+7</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-muted small">Ngày cập nhật: 05/05/2025, 2:47:08 CH GMT+7</p>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="templateDescription" class="form-label">Mô tả</label>
+                                    <div class="border rounded">
+                                        <div class="btn-toolbar p-2 bg-light border-bottom" role="toolbar">
+                                            <div class="btn-group me-2">
+                                                <select class="form-select form-select-sm">
+                                                    <option>Normal</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group me-2">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ul"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ol"></i></button>
+                                            </div>
+                                            <div class="btn-group me-2">
+                                                <select class="form-select form-select-sm">
+                                                    <option>Normal</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group me-2">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-bold"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-italic"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-underline"></i></button>
+                                            </div>
+                                            <div class="btn-group me-2">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-link"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-code"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="p-2">
+                                            <p class="text-muted fst-italic">Insert text here...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="templatePause">
+                                    <label class="form-check-label" for="templatePause">
+                                        Tạm ngưng đánh giá
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="templateAllowComment" checked>
+                                    <label class="form-check-label" for="templateAllowComment">
+                                        Cho phép nhận tin nhắn từ người dùng
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Cấp đánh giá -->
+                        <div class="tab-pane fade" id="scoring-content" role="tabpanel" aria-labelledby="scoring-tab">
+                            <p>Nội dung cấp đánh giá sẽ được hiển thị ở đây.</p>
+                        </div>
+                        
+                        <!-- Quy tắc xếp loại -->
+                        <div class="tab-pane fade" id="rules-content" role="tabpanel" aria-labelledby="rules-tab">
+                            <p>Nội dung quy tắc xếp loại sẽ được hiển thị ở đây.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bỏ qua</button>
+                    <button type="button" class="btn btn-danger" id="saveTemplateBtn">Lưu lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Criteria Modal -->
+    <div class="modal fade" id="addCriteriaModal" tabindex="-1" aria-labelledby="addCriteriaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCriteriaModalLabel">Thêm mục đánh giá</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCriteriaForm">
+                        <div class="mb-3">
+                            <label for="criteriaMajorGroup" class="form-label">Thuộc nhóm</label>
+                            <select class="form-select" id="criteriaMajorGroup">
+                                <option value="">Chọn nhóm</option>
+                                <option value="A">A - CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ NHẬN THỨC</option>
+                                <option value="B">B - CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ HÀNH ĐỘNG</option>
+                                <option value="C">C - CÁC HOẠT ĐỘNG KHÁC</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="criteriaCode" class="form-label">Mã số</label>
+                            <input type="text" class="form-control" id="criteriaCode" placeholder="Mã số">
+                        </div>
+                        <div class="mb-3">
+                            <label for="criteriaName" class="form-label">Tên</label>
+                            <input type="text" class="form-control" id="criteriaName" placeholder="Tên">
+                        </div>
+                        <div class="mb-3">
+                            <label for="criteriaContent" class="form-label">Nội dung</label>
+                            <div class="border rounded">
+                                <div class="btn-toolbar p-2 bg-light border-bottom" role="toolbar">
+                                    <div class="btn-group me-2">
+                                        <select class="form-select form-select-sm">
+                                            <option>Normal</option>
+                                        </select>
+                                    </div>
+                                    <div class="btn-group me-2">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ul"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ol"></i></button>
+                                    </div>
+                                    <div class="btn-group me-2">
+                                        <select class="form-select form-select-sm">
+                                            <option>Normal</option>
+                                        </select>
+                                    </div>
+                                    <div class="btn-group me-2">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-bold"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-italic"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-underline"></i></button>
+                                    </div>
+                                    <div class="btn-group me-2">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-link"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-code"></i></button>
+                                    </div>
+                                </div>
+                                <div class="p-2">
+                                    <p class="text-muted fst-italic">Insert text here...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="criteriaReference" class="form-label">Mã tham chiếu</label>
+                                <input type="text" class="form-control" id="criteriaReference" placeholder="Ví dụ: A, B, I,...">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="criteriaMaxPoints" class="form-label">Điểm tối đa</label>
+                                <input type="number" class="form-control" id="criteriaMaxPoints" placeholder="Điểm tối đa">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="criteriaDisplayLevel" class="form-label">Mức hiển thị</label>
+                                <input type="number" class="form-control" id="criteriaDisplayLevel" placeholder="Mức hiển thị">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="criteriaDisplayOrder" class="form-label">Thứ tự hiển thị</label>
+                                <input type="number" class="form-control" id="criteriaDisplayOrder" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="criteriaAutoTotal">
+                            <label class="form-check-label" for="criteriaAutoTotal">
+                                Tự động tính tổng
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="criteriaHierarchy">
+                            <label class="form-check-label" for="criteriaHierarchy">
+                                Mục đánh giá chứa các tiêu chí con
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bỏ qua</button>
+                    <button type="button" class="btn btn-danger" id="saveCriteriaBtn">Lưu lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Sub-Criteria Modal -->
+    <div class="modal fade" id="addSubCriteriaModal" tabindex="-1" aria-labelledby="addSubCriteriaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSubCriteriaModalLabel">Thêm tiêu chí đánh giá</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tab Navigation -->
+                    <ul class="nav nav-tabs" id="criteriaModalTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="criteria-info-tab" data-bs-toggle="tab" data-bs-target="#criteria-info" type="button" role="tab" aria-controls="criteria-info" aria-selected="true">THÔNG TIN CHÍNH</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="criteria-content-tab" data-bs-toggle="tab" data-bs-target="#criteria-content" type="button" role="tab" aria-controls="criteria-content" aria-selected="false">NỘI DUNG</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="criteria-scoring-tab" data-bs-toggle="tab" data-bs-target="#criteria-scoring" type="button" role="tab" aria-controls="criteria-scoring" aria-selected="false">CẤU HÌNH ĐIỂM</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="criteria-desc-tab" data-bs-toggle="tab" data-bs-target="#criteria-desc" type="button" role="tab" aria-controls="criteria-desc" aria-selected="false">MÔ TẢ</button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content mt-3" id="criteriaModalTabContent">
+                        <!-- Thông tin chính -->
+                        <div class="tab-pane fade show active" id="criteria-info" role="tabpanel" aria-labelledby="criteria-info-tab">
+                            <form id="addSubCriteriaForm">
+                                <div class="mb-3">
+                                    <label for="criteriaGroup" class="form-label">Thuộc nhóm</label>
+                                    <select class="form-select" id="criteriaGroup">
+                                        <option value="">Chọn nhóm</option>
+                                        <option value="A">A - CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ NHẬN THỨC</option>
+                                        <option value="B">B - CÁC HOẠT ĐỘNG RÈN LUYỆN VỀ HÀNH ĐỘNG</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="criteriaCode" class="form-label">Mã tiêu chí</label>
+                                    <input type="text" class="form-control" id="criteriaCode" placeholder="Mã số">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="criteriaName" class="form-label">Tên</label>
+                                    <input type="text" class="form-control" id="criteriaName" placeholder="Tên">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="criteriaType" class="form-label">Loại hình tham chiếu</label>
+                                    <select class="form-select" id="criteriaType">
+                                        <option value="">Chọn một loại hình tham chiếu</option>
+                                        <option value="list">Danh sách hoạt động</option>
+                                        <option value="single">Một giá trị</option>
+                                        <option value="yesno">Có/Không</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="criteriaOrder" class="form-label">Thứ tự</label>
+                                            <input type="text" class="form-control" id="criteriaOrder" placeholder="Ví dụ: 1,2,3,...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="criteriaCodeIndex" class="form-label">Mã chỉ mục</label>
+                                            <input type="text" class="form-control" id="criteriaCodeIndex" placeholder="Mã chỉ mục">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="criteriaRefCode" class="form-label">Mã cơ sở</label>
+                                            <input type="text" class="form-control" id="criteriaRefCode" placeholder="Mã cơ sở">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="criteriaRanking">
+                                    <label class="form-check-label" for="criteriaRanking">
+                                        Điều kiện để xếp loại
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="criteriaAutoCalc">
+                                    <label class="form-check-label" for="criteriaAutoCalc">
+                                        Tính điểm tự động
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="criteriaAutoAssign">
+                                    <label class="form-check-label" for="criteriaAutoAssign">
+                                        Tự động đánh chỉ mục
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="criteriaAllowProof">
+                                    <label class="form-check-label" for="criteriaAllowProof">
+                                        Cho phép bổ sung minh chứng
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Nội dung -->
+                        <div class="tab-pane fade" id="criteria-content" role="tabpanel" aria-labelledby="criteria-content-tab">
+                            <div class="mb-3">
+                                <label for="criteriaContent" class="form-label">Nội dung</label>
+                                <div class="border rounded">
+                                    <div class="btn-toolbar p-2 bg-light border-bottom" role="toolbar">
+                                        <div class="btn-group me-2">
+                                            <select class="form-select form-select-sm">
+                                                <option>Normal</option>
+                                            </select>
+                                        </div>
+                                        <div class="btn-group me-2">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ul"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ol"></i></button>
+                                        </div>
+                                        <div class="btn-group me-2">
+                                            <select class="form-select form-select-sm">
+                                                <option>Normal</option>
+                                            </select>
+                                        </div>
+                                        <div class="btn-group me-2">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-bold"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-italic"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-underline"></i></button>
+                                        </div>
+                                        <div class="btn-group me-2">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-link"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-code"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="p-2">
+                                        <p class="text-muted fst-italic">Insert text here...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cấu hình điểm -->
+                        <div class="tab-pane fade" id="criteria-scoring" role="tabpanel" aria-labelledby="criteria-scoring-tab">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="criteriaRef" class="form-label">Mã tham chiếu</label>
+                                    <input type="text" class="form-control" id="criteriaRef" placeholder="Ví dụ: A, B, I,...">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="criteriaMinPoints" class="form-label">Điểm tối thiểu</label>
+                                    <input type="text" class="form-control" id="criteriaMinPoints" placeholder="Ví dụ: 0">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="criteriaMaxPoints" class="form-label">Điểm tối đa</label>
+                                    <input type="text" class="form-control" id="criteriaMaxPoints" placeholder="Ví dụ: 20">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="criteriaDisplayLevel" class="form-label">Mức hiển thị</label>
+                                    <input type="text" class="form-control" id="criteriaDisplayLevel" placeholder="Mức hiển thị">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="criteriaDisplayOrder" class="form-label">Thứ tự hiển thị</label>
+                                    <input type="text" class="form-control" id="criteriaDisplayOrder" placeholder="0">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="criteriaDisplayType" class="form-label">Kiểu danh sách hiển thị</label>
+                                    <select class="form-select" id="criteriaDisplayType">
+                                        <option value="">Chọn kiểu hiển thị</option>
+                                        <option value="list">Danh sách</option>
+                                        <option value="table">Bảng</option>
+                                        <option value="card">Thẻ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="criteriaAutoTotal">
+                                <label class="form-check-label" for="criteriaAutoTotal">
+                                    Tự động tính tổng
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Mô tả -->
+                        <div class="tab-pane fade" id="criteria-desc" role="tabpanel" aria-labelledby="criteria-desc-tab">
+                            <div class="mb-3">
+                                <label for="criteriaDescription" class="form-label">Mô tả chi tiết</label>
+                                <textarea class="form-control" id="criteriaDescription" rows="8" placeholder="Nhập mô tả chi tiết về tiêu chí đánh giá"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bỏ qua</button>
+                    <button type="button" class="btn btn-danger" id="saveSubCriteriaBtn">Lưu lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Detail Modal -->
+    <div class="modal fade" id="viewDetailModal" tabindex="-1" aria-labelledby="viewDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewDetailModalLabel">Chi tiết tiêu chí đánh giá</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6>Mã tiêu chí</h6>
+                            <p id="viewDetailCode">4.5</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Loại tiêu chí</h6>
+                            <p id="viewDetailType"><span class="badge bg-info">Danh sách hoạt động</span></p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Tên tiêu chí</h6>
+                        <p id="viewDetailName">Tham gia Tiếp sức mùa thi, hỗ trợ công tác tuyển sinh (3đ/lượt)</p>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Mô tả</h6>
+                        <p id="viewDetailDescription">Tham gia các hoạt động tiếp sức mùa thi hoặc hỗ trợ công tác tuyển sinh của nhà trường. Mỗi lượt tham gia được tính 3 điểm.</p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <h6>Điểm tối đa</h6>
+                            <p id="viewDetailMaxPoints">15 điểm</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Tự đánh giá</h6>
+                            <p id="viewDetailSelfEval"><span class="badge bg-success">Có</span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Đúng xếp loại</h6>
+                            <p id="viewDetailRanking"><span class="badge bg-secondary">Không</span></p>
+                        </div>
+                    </div>
+                    <div class="mb-3" id="viewDetailActivitiesSection">
+                        <h6>Danh sách hoạt động</h6>
+                        <ul class="list-group" id="viewDetailActivities">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Tiếp sức mùa thi đợt 1 (6/2021)
+                                <span class="badge bg-primary rounded-pill">3 điểm</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Tiếp sức mùa thi đợt 2 (7/2021)
+                                <span class="badge bg-primary rounded-pill">3 điểm</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hỗ trợ tuyển sinh đợt 1 (8/2021)
+                                <span class="badge bg-primary rounded-pill">3 điểm</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hỗ trợ tuyển sinh đợt 2 (9/2021)
+                                <span class="badge bg-primary rounded-pill">3 điểm</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addSubCriteriaModal">
+                        <i class="bi bi-pencil-square me-1"></i> Chỉnh sửa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa tiêu chí <strong id="deleteItemName">4.5 - Tham gia Tiếp sức mùa thi</strong>?</p>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i> Lưu ý: Hành động này không thể hoàn tác. Tất cả dữ liệu liên quan đến tiêu chí này sẽ bị xóa vĩnh viễn.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Menu for Row Actions -->
+    <div class="dropdown-menu context-menu" id="rowContextMenu">
+        <a class="dropdown-item" href="#" data-action="update">
+            <i class="bi bi-pencil-square me-2"></i>Cập nhật
+        </a>
+        <a class="dropdown-item" href="#" data-action="view">
+            <i class="bi bi-eye me-2"></i>Xem chi tiết
+        </a>
+        <a class="dropdown-item" href="#" data-action="calculate">
+            <i class="bi bi-calculator me-2"></i>Tính toán lại điểm đánh giá
+        </a>
+        <a class="dropdown-item" href="#" data-action="rules">
+            <i class="bi bi-gear me-2"></i>Quy tắc đánh giá
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item text-danger" href="#" data-action="delete">
+            <i class="bi bi-trash me-2"></i>Xóa mục/Tiêu chí
+        </a>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Toggle sidebar on mobile
+        document.getElementById('toggleSidebarBtn').addEventListener('click', function() {
+            document.getElementById('adminSidebar').classList.toggle('show');
+        });
+
+        document.getElementById('closeSidebarBtn').addEventListener('click', function() {
+            document.getElementById('adminSidebar').classList.remove('show');
+        });
+
+        // Initialize tooltips and context menu
+        $(document).ready(function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Ngăn sự kiện click trên checkbox lan truyền lên parent row
+            $('.checkbox-control').on('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Ngăn sự kiện click trên dropdown lan truyền lên parent row
+            $('.dropdown').on('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Expand All button 
+            $('#expandAllBtn').on('click', function() {
+                $('.collapse').addClass('show');
+                $('.tree-icon').removeClass('bi-plus-square').addClass('bi-dash-square');
+            });
+
+            // Collapse All button
+            $('#collapseAllBtn').on('click', function() {
+                $('.collapse').removeClass('show');
+                $('.tree-icon').removeClass('bi-dash-square').addClass('bi-plus-square');
+            });
+
+            // Cập nhật icon khi collapse/expand thay đổi trạng thái
+            $('.collapse').on('show.bs.collapse', function () {
+                let targetSelector = '[data-bs-target=".' + $(this).attr('class').split(' ').find(cls => cls.startsWith('group-')) + '"]';
+                $(targetSelector).find('.tree-icon').removeClass('bi-plus-square').addClass('bi-dash-square');
+            });
+
+            $('.collapse').on('hide.bs.collapse', function () {
+                let targetSelector = '[data-bs-target=".' + $(this).attr('class').split(' ').find(cls => cls.startsWith('group-')) + '"]';
+                $(targetSelector).find('.tree-icon').removeClass('bi-dash-square').addClass('bi-plus-square');
+            });
+
+            // Template dropdown change event
+            $('#templateTypeFilter').on('change', function() {
+                // In a real app, this would fetch the selected template data from the server
+                showNotification('Đã chọn mẫu: ' + $(this).val() || 'Đánh giá đoàn viên năm học 2020-2021', 'info');
+            });
+
+            // Reload button
+            $('#reloadBtn').on('click', function() {
+                showNotification('Đang tải lại dữ liệu...', 'info');
+                // Simulate loading
+                setTimeout(function() {
+                    showNotification('Tải dữ liệu thành công!', 'success');
+                }, 1000);
+            });
+
+            // Update template button
+            $('#updateTemplateBtn').on('click', function() {
+                $('#addTemplateModal').modal('show');
+                $('#addTemplateModalLabel').text('Cập nhật mẫu bảng điểm đánh giá');
+                // Pre-fill form with current template data
+                $('#templateCode').val('DOANVIEN2020-2021');
+                $('#templateName').val('Đánh giá đoàn viên năm học 2020-2021');
+                $('#templateType').val('01-Đánh giá Đoàn viên');
+                $('#academicYear').val('2020-2021');
+                $('#templateSelfEval').val('01-Tự thẩm');
+                $('#templateApproval').val('04-Cho phép phê duyệt nếu có quyền phê duyệt');
+                $('#templateStatus').val('01-Đã hoàn tất');
+                $('#templateAllowComment').prop('checked', true);
+            });
+            
+            // Xử lý lưu form thêm mẫu
+            $('#saveTemplateBtn').on('click', function() {
+                showNotification('Đang lưu mẫu bảng điểm đánh giá...', 'info');
+                setTimeout(() => {
+                    $('#addTemplateModal').modal('hide');
+                    showNotification('Lưu mẫu bảng điểm đánh giá thành công!', 'success');
+                }, 1000);
+            });
+            
+            // Xử lý lưu form thêm mục
+            $('#saveCriteriaBtn').on('click', function() {
+                showNotification('Đang lưu mục đánh giá...', 'info');
+                setTimeout(() => {
+                    $('#addCriteriaModal').modal('hide');
+                    showNotification('Lưu mục đánh giá thành công!', 'success');
+                }, 1000);
+            });
+            
+            // Xử lý lưu form thêm tiêu chí
+            $('#saveSubCriteriaBtn').on('click', function() {
+                showNotification('Đang lưu tiêu chí đánh giá...', 'info');
+                setTimeout(() => {
+                    $('#addSubCriteriaModal').modal('hide');
+                    showNotification('Lưu tiêu chí đánh giá thành công!', 'success');
+                }, 1000);
+            });
+            
+            // Context Menu for Right-Click
+            $(document).on("contextmenu", "#templatesTable tbody tr", function(e) {
+                e.preventDefault();
+                
+                const row = $(this);
+                
+                // Đóng menu nếu đã mở trước đó
+                closeContextMenu();
+                
+                // Position and show the context menu
+                $("#rowContextMenu")
+                    .data("row", row)
+                    .css({
+                        display: "block",
+                        left: e.pageX,
+                        top: e.pageY
+                    })
+                    .addClass("show");
+                
+                // Add backdrop to close menu when clicking elsewhere
+                $("body").append('<div class="context-menu-backdrop"></div>');
+                
+                // Xử lý đóng context menu khi click backdrop
+                $(document).on("mousedown.contextmenu", function(e) {
+                    if (!$(e.target).closest("#rowContextMenu").length) {
+                        closeContextMenu();
+                    }
+                });
+                
+                // Đóng context menu khi chọn một action
+                $("#rowContextMenu a").one("click.contextmenu", function() {
+                    closeContextMenu();
+                });
+                
+                // Đóng context menu khi nhấn phím Escape
+                $(document).on("keydown.contextmenu", function(e) {
+                    if (e.keyCode === 27) { // Escape key
+                        closeContextMenu();
+                    }
+                });
+            });
+            
+            // Context Menu Actions
+            $("#rowContextMenu a").on("click", function(e) {
+                e.preventDefault();
+                
+                const action = $(this).data("action");
+                const row = $("#rowContextMenu").data("row");
+                const rowId = row.find('td:first').text().trim();
+                const rowName = row.find('td:eq(1)').text().trim();
+                
+                // Perform action based on selected menu item
+                switch(action) {
+                    case 'view':
+                        $('#viewDetailModal').modal('show');
+                        $('#viewDetailCode').text(rowId);
+                        $('#viewDetailName').text(rowName);
+                        // Determine the type of criteria based on the icon in the last column
+                        if (row.find('.bi-list').length) {
+                            $('#viewDetailType').html('<span class="badge bg-info">Danh sách hoạt động</span>');
+                            $('#viewDetailActivitiesSection').show();
+                        } else if (row.find('.bi-card-text').length) {
+                            $('#viewDetailType').html('<span class="badge bg-warning">Một giá trị</span>');
+                            $('#viewDetailActivitiesSection').hide();
+                        } else {
+                            $('#viewDetailType').html('<span class="badge bg-secondary">Không xác định</span>');
+                            $('#viewDetailActivitiesSection').hide();
+                        }
+                        
+                        // Set other details
+                        const hasSelfEval = row.find('td:eq(4) input').prop('checked');
+                        const hasRanking = row.find('td:eq(5) input').prop('checked');
+                        
+                        $('#viewDetailSelfEval').html(hasSelfEval ? 
+                            '<span class="badge bg-success">Có</span>' : 
+                            '<span class="badge bg-secondary">Không</span>');
+                            
+                        $('#viewDetailRanking').html(hasRanking ? 
+                            '<span class="badge bg-success">Có</span>' : 
+                            '<span class="badge bg-secondary">Không</span>');
+                        break;
+                        
+                    case 'update':
+                        if (row.hasClass('parent-row')) {
+                            $('#addCriteriaModal').modal('show');
+                            $('#addCriteriaModalLabel').text('Cập nhật mục đánh giá');
+                            $('#criteriaMajorGroup').val(rowId);
+                            $('#criteriaName').val(rowName);
+                        } else if (row.hasClass('child-row')) {
+                            $('#addCriteriaModal').modal('show');
+                            $('#addCriteriaModalLabel').text('Cập nhật mục đánh giá');
+                            const parentId = row.prevAll('.parent-row:first').find('td:first').text().trim();
+                            $('#criteriaMajorGroup').val(parentId);
+                            $('#criteriaCode').val(rowId);
+                            $('#criteriaName').val(rowName);
+                        } else {
+                            $('#addSubCriteriaModal').modal('show');
+                            $('#addSubCriteriaModalLabel').text('Cập nhật tiêu chí đánh giá');
+                            const parentRow = row.prevAll('.child-row:first');
+                            const grandParentId = parentRow.prevAll('.parent-row:first').find('td:first').text().trim();
+                            $('#criteriaGroup').val(grandParentId);
+                            $('#criteriaCode').val(rowId);
+                            $('#criteriaName').val(rowName);
+                        }
+                        break;
+                        
+                    case 'delete':
+                        $('#deleteConfirmModal').modal('show');
+                        $('#deleteItemName').text(`${rowId} - ${rowName.substring(0, 30)}${rowName.length > 30 ? '...' : ''}`);
+                        $('#confirmDeleteBtn').data('row', row);
+                        break;
+                        
+                    case 'calculate':
+                        showNotification(`Đang tính toán lại điểm cho "${rowId} - ${rowName.substring(0, 30)}${rowName.length > 30 ? '...' : ''}"`, 'info');
+                        setTimeout(() => {
+                            showNotification('Tính toán hoàn tất!', 'success');
+                        }, 1500);
+                        break;
+                        
+                    case 'rules':
+                        showNotification('Đang mở cài đặt quy tắc đánh giá...', 'info');
+                        break;
+                }
+            });
+            
+            // Xử lý sự kiện cho confirm delete button
+            $('#confirmDeleteBtn').on('click', function() {
+                const row = $(this).data('row');
+                if (row) {
+                    // Thực hiện xóa (giả lập)
+                    showNotification('Đang xóa mục...', 'info');
+                    setTimeout(() => {
+                        if (row.hasClass('parent-row')) {
+                            // Nếu xóa parent row, xóa cả các row con
+                            const targetClass = row.attr('data-bs-target')?.substring(1);
+                            if (targetClass) {
+                                $(`.${targetClass}`).fadeOut(300);
+                            }
+                        }
+                        row.fadeOut(300);
+                        showNotification('Đã xóa thành công!', 'success');
+                    }, 1000);
+                }
+                $('#deleteConfirmModal').modal('hide');
+            });
+        });
+
+        // Helper function to show notifications
+        function showNotification(message, type = 'info') {
+            if (!$('#notification-container').length) {
+                $('body').append('<div id="notification-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>');
+            }
+            
+            const id = 'notification-' + Date.now();
+            const bgClass = type === 'success' ? 'bg-success' : type === 'warning' ? 'bg-warning' : type === 'danger' ? 'bg-danger' : 'bg-info';
+            
+            const notification = `
+                <div id="${id}" class="toast align-items-center ${bgClass} text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            `;
+            
+            $('#notification-container').append(notification);
+            
+            const toast = new bootstrap.Toast(document.getElementById(id), {
+                delay: 3000
+            });
+            
+            toast.show();
+        }
+
+        // Hàm đóng context menu
+        function closeContextMenu() {
+            $("#rowContextMenu").removeClass("show").css("display", "none");
+            $(".context-menu-backdrop").remove();
+            $(document).off("mousedown.contextmenu");
+            $(document).off("keydown.contextmenu");
+            $("#rowContextMenu a").off("click.contextmenu");
+        }
+    </script>
+</body>
+
+</html>
