@@ -1,0 +1,57 @@
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hub-hero-section-v2 {
+        height: 450px;
+    }
+
+    .hub-hero-section-v2 h1 {
+        font-size: 2rem;
+    }
+
+    .upcoming-events-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .how-it-works-col {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+     body {
+        padding-top: 70px; /* Giảm padding nếu navbar thu gọn */
+    }
+    .hub-hero-section-v2 {
+        height: auto; /* Chiều cao tự động */
+        padding: 60px 0; /* Thêm padding */
+        text-align: center;
+    }
+    .hub-hero-section-v2 .row {
+        justify-content: center;
+    }
+     .hub-hero-section-v2 .col-lg-7 {
+        width: 100%; /* Chiếm hết chiều rộng */
+    }
+
+    .hub-hero-section-v2 h1 {
+        font-size: 1.8rem;
+    }
+
+    .event-image-container {
+        height: 180px;
+    }
+     .event-card-v2, .upcoming-event-card {
+        margin-bottom: 20px;
+    }
+
+
+    .footer-heading {
+        margin-top: 30px;
+    }
+     .footer-heading:first-child {
+        margin-top: 0;
+    }
+     .footer-bottom .row > div {
+        text-align: center !important;
+        margin-bottom: 5px;
+    }
+} 

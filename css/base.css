@@ -1,0 +1,33 @@
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    padding-top: 62px; /* Adjust based on final navbar height */
+    background-color: var(--hub-gray); /* Slightly off-white background */
+}
+
+/* Add top padding to main content to prevent overlap with fixed navbar */
+main {
+    padding-top: 14px; /* Adjust this value if navbar height changes */
+} 
+
+/* --- Bootstrap Icons Styles --- */
+.bi {
+    vertical-align: -0.125em;
+    line-height: 1;
+}
+
+.social-link .bi {
+    font-size: 1.25rem;
+}
+
+i.icon-image { /* Đảm bảo kích thước cho icon how-it-works */
+    font-size: 2.5rem;
+}
+
+.bi-arrow-right { /* Style chung cho mũi tên */
+    transition: transform 0.3s ease;
+}
+
+a:hover .bi-arrow-right { /* Hiệu ứng chung cho mũi tên */
+    transform: translateX(3px);
+} 

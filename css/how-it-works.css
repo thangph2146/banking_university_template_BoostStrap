@@ -1,0 +1,81 @@
+/* --- How It Works Section --- */
+#how-it-works {
+    background-color: var(--hub-light); /* Nền trắng */
+    padding: 60px 0; /* Padding lớn hơn */
+}
+
+#how-it-works h2 {
+    font-weight: 700; /* Đậm */
+    margin-bottom: 15px;
+    color: var(--hub-text-dark);
+}
+#how-it-works .text-secondary { /* Subtitle */
+     color: var(--hub-text-secondary) !important;
+}
+
+
+.how-it-works-col {
+    padding: 30px 20px; /* Padding lớn hơn */
+    transition: all 0.3s ease;
+}
+.how-it-works-col:hover .icon-circle { /* Hiệu ứng cho cả cục icon */
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Thêm shadow khi hover */
+}
+
+
+.how-it-works-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px; /* Tăng margin dưới */
+}
+
+/* Style icon giống screenshot: Hình tròn lớn chứa icon, số nhỏ ở góc */
+.icon-circle {
+    width: 120px; /* Kích thước lớn */
+    height: 120px;
+    background-color: var(--hub-gray); /* Nền xám nhạt */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Căn giữa */
+    position: relative; /* Để định vị số */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Thêm shadow nhẹ */
+}
+
+.icon-number {
+    position: absolute;
+    top: 0; /* Góc trên phải */
+    right: 0;
+    background-color: var(--hub-red);
+    color: var(--hub-light);
+    width: 28px; /* Kích thước nhỏ */
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+.icon-image { /* Icon chính giữa hình tròn */
+    color: var(--hub-red); /* Màu đỏ */
+    font-size: 2.5rem; /* Kích thước icon */
+}
+
+.how-it-works-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--hub-text-dark);
+}
+
+.how-it-works-text {
+    color: var(--hub-text-secondary);
+    font-size: 0.95rem;
+} 

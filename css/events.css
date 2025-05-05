@@ -1,0 +1,294 @@
+/* --- Events Section V2 (Sự kiện nổi bật) --- */
+#events {
+    background-color: var(--hub-light); /* Nền trắng như screenshot */
+}
+
+#events h2 {
+    font-weight: 700; /* Đậm hơn */
+    margin-bottom: 15px;
+    color: var(--hub-text-dark);
+}
+
+#events .text-secondary { /* Subtitle */
+     color: var(--hub-text-secondary) !important;
+}
+
+/* Card style giống screenshot */
+.event-card-v2 {
+    border-radius: 8px; /* Bo góc nhẹ hơn */
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Shadow nhẹ hơn */
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--hub-light);
+}
+
+.event-card-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12); /* Shadow rõ hơn khi hover */
+}
+
+.event-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card-v2:hover .event-image {
+    transform: scale(1.05);
+}
+
+/* Date badge ở góc phải */
+.event-date-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px; /* Sang phải */
+    background-color: var(--hub-red);
+    color: var(--hub-light);
+    border-radius: 6px; /* Bo góc nhẹ */
+    padding: 8px 12px; /* Padding khác */
+    text-align: center;
+    font-weight: 700; /* Đậm hơn */
+    display: flex;
+    flex-direction: column;
+    line-height: 1; /* Sát nhau hơn */
+}
+
+.event-date-badge .day {
+    font-size: 1.5rem; /* To hơn */
+    font-weight: 700; /* Đã có */
+}
+
+.event-date-badge .month {
+    font-size: 0.85rem; /* To hơn chút */
+    text-transform: uppercase;
+}
+
+.event-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-category {
+    display: inline-block;
+    background-color: var(--hub-gray); /* Màu xám sáng */
+    color: var(--hub-dark);
+    padding: 4px 10px;
+    border-radius: 4px; /* Bo góc nhẹ */
+    font-size: 0.8rem;
+    font-weight: 600; /* Đậm hơn */
+    margin-bottom: 0.8rem;
+}
+
+.event-title {
+    font-size: 1.1rem; /* Nhỏ hơn chút */
+    font-weight: 600;
+    color: var(--hub-text-dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.event-description {
+    color: var(--hub-text-secondary);
+    font-size: 0.9rem; /* Nhỏ hơn */
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: var(--hub-text-secondary);
+    margin-bottom: 15px;
+}
+/* Icon location màu đỏ */
+.event-location i {
+    color: var(--hub-red);
+}
+
+/* Link "Xem chi tiết" */
+.event-link {
+    color: var(--hub-red);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem; /* Nhỏ hơn */
+    display: inline-flex; /* Để icon và text thẳng hàng */
+    align-items: center;
+    margin-top: auto; /* Đẩy xuống dưới cùng */
+    transition: all 0.3s ease;
+}
+
+.event-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.event-link:hover {
+    color: var(--hub-red-darker); /* Đỏ sẫm hơn */
+    /* text-decoration: underline; */ /* Bỏ gạch chân */
+}
+
+.event-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Link "Xem tất cả sự kiện" */
+.view-all-link {
+    color: var(--hub-red);
+    text-decoration: none;
+    font-weight: 600; /* Đậm hơn */
+    display: inline-flex;
+    align-items: center;
+    /* font-size: 1rem; */
+    transition: all 0.3s ease;
+}
+
+.view-all-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.view-all-link:hover {
+    /* color: #a52a33; */
+    color: var(--hub-red-darker); /* Đỏ sẫm hơn */
+}
+
+.view-all-link:hover i {
+    transform: translateX(3px);
+}
+
+/* --- Upcoming Events Section --- */
+#upcoming-events {
+    background-color: var(--hub-gray); /* Màu nền như body */
+    padding: 60px 0; /* Padding lớn */
+}
+
+#upcoming-events h2 {
+    font-weight: 700; /* Đậm */
+    margin-bottom: 15px;
+    color: var(--hub-text-dark);
+}
+#upcoming-events .text-secondary { /* Subtitle */
+     color: var(--hub-text-secondary) !important;
+}
+
+/* Layout card sự kiện sắp tới giống screenshot */
+.upcoming-events-container {
+    display: grid; /* Dùng grid để dễ căn chỉnh */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive */
+    gap: 30px; /* Khoảng cách giữa các card */
+    margin-top: 40px; /* Khoảng cách với heading */
+}
+
+.upcoming-event-card {
+    background-color: var(--hub-light);
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); /* Shadow nhẹ */
+    padding: 25px; /* Padding lớn hơn */
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex; /* Thêm flex để button xuống dưới */
+    flex-direction: column;
+}
+
+.upcoming-event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Shadow rõ hơn */
+}
+
+/* Date badge style giống screenshot */
+.event-date {
+    display: inline-flex; /* Để không chiếm cả dòng */
+    flex-direction: column;
+    background-color: var(--hub-red);
+    color: var(--hub-light);
+    padding: 8px 15px; /* Padding lớn hơn */
+    border-radius: 6px; /* Bo góc nhẹ */
+    text-align: center;
+    line-height: 1.2; /* Giảm khoảng cách dòng */
+}
+
+.event-day {
+    font-size: 1.5rem; /* To hơn */
+    font-weight: 700; /* Đậm */
+}
+
+.event-month, .event-year {
+    font-size: 0.8rem; /* To hơn chút */
+    text-transform: uppercase;
+}
+
+/* Event type ở góc phải trên */
+.event-type {
+    display: inline-block;
+    background-color: var(--hub-gray); /* Xám nhạt */
+    color: var(--hub-dark);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600; /* Đậm hơn */
+    text-transform: uppercase;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+/* Title của upcoming event */
+.upcoming-event-card .event-title {
+    font-size: 1.2rem; /* To hơn */
+    margin-bottom: 20px; /* Tăng khoảng cách */
+    font-weight: 600;
+    color: var(--hub-text-dark);
+}
+
+.event-info {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+    gap: 15px; /* Khoảng cách giữa time và location */
+    margin-bottom: 20px; /* Tăng khoảng cách */
+    color: var(--hub-text-secondary);
+    font-size: 0.9rem;
+}
+
+.event-time, .event-location {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Khoảng cách icon và text */
+}
+
+/* Icon đỏ */
+.event-time i, .event-location i {
+    color: var(--hub-red);
+}
+
+/* Nút đăng ký */
+.btn-register {
+    margin-top: auto; /* Đẩy nút xuống cuối card */
+    width: 100%; /* Chiếm hết chiều rộng */
+}
+
+/* --- CTA Section --- */
+#cta {
+    background-color: var(--hub-red);
+    color: var(--hub-light); /* Text màu trắng */
+}
+
+#cta h2 {
+    font-weight: 700; /* Đậm */
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+} 

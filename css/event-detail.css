@@ -1,0 +1,81 @@
+/* --- Event Detail Page Specific Styles --- */
+.event-detail-header {
+    padding: 4rem 0;
+    background-color: var(--hub-gray); /* Màu nền xám nhạt */
+}
+.event-detail-image-container {
+    position: relative; /* Needed for absolute positioning of fallback icon */
+    width: 100%;
+    max-height: 500px;
+    min-height: 300px; /* Ensure container has height even if image fails */
+    background-color: var(--hub-gray); /* Fallback background */
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex; /* For centering fallback content */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keep image/icon within bounds */
+}
+/* Fallback Icon using Bootstrap Icons font */
+.event-detail-image-container::before {
+    content: '\F4F3'; /* Bootstrap Icons code for bi-image-alt */
+    font-family: 'bootstrap-icons';
+    font-size: 4rem;
+    color: var(--hub-text-secondary);
+    opacity: 0.5;
+    position: absolute;
+    z-index: 0; /* Behind the image */
+}
+
+.event-detail-image {
+    display: block; /* Or inline-block if needed */
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    /* margin-bottom and box-shadow moved to container */
+    position: relative; /* Needed for z-index */
+    z-index: 1; /* Ensure image covers the ::before pseudo-element */
+    background-color: transparent; /* Ensure image background doesn't hide container */
+}
+.event-info-box {
+    background-color: var(--hub-light);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+.event-info-item {
+    display: flex;
+    align-items: flex-start; /* Căn lề trên cho icon và text */
+    margin-bottom: 1rem;
+    color: var(--hub-text-secondary);
+}
+.event-info-item i {
+    color: var(--hub-red);
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-top: 2px; /* Chỉnh nhẹ vị trí icon */
+    width: 20px; /* Đảm bảo icon chiếm không gian cố định */
+}
+ .event-info-item strong {
+    color: var(--hub-text-dark);
+    margin-right: 5px;
+}
+.event-description h3 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--hub-text-dark);
+}
+.event-description p {
+    line-height: 1.7;
+    color: var(--hub-text-secondary);
+}
+.register-button-section {
+     margin-top: 2rem;
+     padding-top: 2rem;
+     border-top: 1px solid #eee;
+     text-align: center;
+} 

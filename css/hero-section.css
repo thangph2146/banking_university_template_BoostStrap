@@ -1,0 +1,66 @@
+/* --- Hero Section V2 --- */
+.hub-hero-section-v2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/hero-background-placeholder.jpg'); /* Thêm lớp phủ đen mờ */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 550px; /* Giảm chiều cao 1 chút */
+    position: relative;
+    color: var(--hub-light);
+    display: flex;
+    align-items: center;
+}
+
+.hero-content-box {
+    background-color: rgba(var(--hub-dark-rgb), 0.5); /* Nền xám đậm mờ */
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: var(--hub-light); /* Chữ màu trắng */
+}
+
+.hero-content-box h1 {
+     font-size: 2.5rem; /* Cỡ chữ lớn hơn */
+     font-weight: 700;
+     margin-bottom: 1rem;
+}
+
+.hero-content-box p {
+    color: var(--hub-light); /* Chữ màu trắng */
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Carousel Indicators Styling - Đổi thành dạng nút */
+.carousel-indicators-container {
+    position: absolute;
+    bottom: 30px; /* Dịch xuống dưới 1 chút */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Khoảng cách giữa các nút indicators */
+    z-index: 15;
+}
+
+.carousel-indicators-container button {
+    width: 30px; /* Chiều rộng nút */
+    height: 8px;  /* Chiều cao nút */
+    background-color: var(--hub-light);
+    border-radius: 4px; /* Bo góc nhẹ */
+    border: none; /* Bỏ border */
+    margin: 0; /* Reset margin */
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7; /* Độ mờ mặc định */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-indicators-container button.active {
+    width: 30px; /* Giữ nguyên kích thước khi active */
+    height: 8px;
+    background-color: var(--hub-light);
+    opacity: 1; /* Rõ hoàn toàn */
+    transform: none; /* Bỏ hiệu ứng scale nếu có */
+} 

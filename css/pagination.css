@@ -1,0 +1,20 @@
+/* --- Pagination Customization --- */
+.pagination {
+    --bs-pagination-color: var(--hub-red); /* Màu chữ số trang */
+    --bs-pagination-hover-color: var(--hub-red-darker); /* Màu chữ khi hover */
+    --bs-pagination-active-bg: var(--hub-red); /* Màu nền trang active */
+    --bs-pagination-active-border-color: var(--hub-red); /* Màu viền trang active */
+    --bs-pagination-disabled-color: var(--hub-text-secondary); /* Màu chữ trang disabled */
+    --bs-pagination-disabled-bg: var(--hub-gray); /* Màu nền trang disabled */
+    --bs-pagination-disabled-border-color: #dee2e6; /* Màu viền trang disabled */
+}
+
+/* Đảm bảo màu chữ trang active là trắng */
+.pagination .page-item.active .page-link {
+    color: var(--hub-light);
+}
+
+/* Thêm hiệu ứng nhẹ khi hover các page-link không active/disabled */
+.pagination .page-item:not(.active):not(.disabled) .page-link:hover {
+    background-color: rgba(var(--hub-red-rgb), 0.1); /* Nền đỏ nhạt khi hover */
+} 

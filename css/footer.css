@@ -1,0 +1,111 @@
+/* --- Footer --- */
+.hub-footer-bg {
+    background-color: var(--hub-red); /* Màu đỏ nâu như screenshot */
+    color: var(--hub-light); /* Chữ màu trắng */
+}
+
+.footer-heading {
+    font-size: 1.1rem; /* Giảm cỡ chữ heading */
+    font-weight: 600;
+    margin-bottom: 1.5rem; /* Tăng khoảng cách dưới */
+    color: var(--hub-light); /* Đảm bảo màu trắng */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem; /* Tăng khoảng cách */
+}
+
+.footer-links a {
+    color: rgba(var(--hub-light), 0.75); /* Màu trắng mờ hơn */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--hub-light);
+    padding-left: 5px; /* Hiệu ứng thụt vào */
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    color: rgba(var(--hub-light), 0.75); /* Màu trắng mờ hơn */
+    margin-bottom: 1rem; /* Tăng khoảng cách */
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact li i {
+    color: rgba(var(--hub-light), 0.75);
+    margin-right: 10px; /* Khoảng cách icon và text */
+    margin-top: 4px; /* Chỉnh vị trí icon */
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-link {
+    color: rgba(var(--hub-light), 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--hub-light);
+    transform: translateY(-3px); /* Hiệu ứng nhấc lên */
+}
+
+/* Newsletter style giống screenshot */
+.newsletter input {
+    border-radius: 4px 0 0 4px; /* Góc vuông hơn */
+    border: 1px solid var(--hub-light);
+    background-color: rgba(var(--hub-light), 0.1); /* Nền tối hơn */
+    color: var(--hub-light);
+    padding: 10px 15px;
+}
+.newsletter input::placeholder {
+    color: rgba(var(--hub-light), 0.5);
+}
+
+.newsletter button {
+    border-radius: 0 4px 4px 0; /* Góc vuông hơn */
+    background-color: var(--hub-light); /* Nút màu trắng */
+    color: var(--hub-red); /* Chữ/Icon màu đỏ */
+    border: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* Điều chỉnh padding cho nút icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newsletter button i {
+     line-height: 1; /* Đảm bảo icon căn giữa */
+}
+
+.newsletter button:hover {
+    background-color: var(--hub-gray);
+}
+
+
+.footer-bottom {
+    border-top: 1px solid rgba(var(--hub-light), 0.1);
+    color: rgba(var(--hub-light), 0.6); /* Chữ mờ hơn */
+}
+.footer-bottom a {
+    color: var(--hub-light); /* Link màu trắng rõ hơn */
+    text-decoration: none;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+} 

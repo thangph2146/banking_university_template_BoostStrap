@@ -1,0 +1,49 @@
+/* --- Navbar --- */
+.hub-navbar-bg {
+    background-color: var(--hub-red);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.7rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--hub-light);
+}
+
+/* Style cho nút Navbar giống screenshot */
+.navbar .btn {
+    border-radius: 4px; /* Góc vuông hơn */
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Nút Đăng nhập (Secondary) - Viền trắng chữ trắng */
+.navbar .btn-hub-secondary {
+    background-color: transparent;
+    border: 2px solid var(--hub-light);
+    color: var(--hub-light);
+    /* Kế thừa từ .navbar .btn */
+}
+.navbar .btn-hub-secondary:hover {
+    background-color: rgba(var(--hub-light), 0.1); /* Hiệu ứng sáng nhẹ */
+    color: var(--hub-light);
+}
+
+/* Nút Đăng ký (Primary) - Nền trắng chữ đỏ */
+.navbar .btn-hub-primary {
+    background-color: var(--hub-light);
+    border: 2px solid var(--hub-light); /* Border trắng để giữ kích thước */
+    color: var(--hub-red);
+}
+
+.navbar .btn-hub-primary:hover {
+    background-color: var(--hub-gray); /* Sáng hơn chút khi hover */
+    border-color: var(--hub-gray);
+    color: var(--hub-red);
+} 

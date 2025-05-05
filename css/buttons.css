@@ -1,0 +1,90 @@
+/* --- Định nghĩa lại các kiểu nút trong content --- */
+/* Nút Primary trong content (Nền đỏ chữ trắng) */
+.btn-hub-primary {
+    background-color: var(--hub-red);
+    border: 2px solid var(--hub-red);
+    color: var(--hub-light);
+    border-radius: 4px; /* Góc vuông hơn */
+    padding: 0.6rem 1.5rem; /* To hơn một chút */
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-hub-primary:hover {
+    /* background-color: transparent; */
+    /* color: var(--hub-red); */
+    background-color: var(--hub-red-darker); /* Sử dụng biến đỏ sẫm hơn */
+    border-color: var(--hub-red-darker);
+    color: var(--hub-light);
+    transform: translateY(-2px); /* Hiệu ứng nhấc lên */
+    box-shadow: 0 4px 8px rgba(var(--hub-red-rgb), 0.2); /* Sử dụng biến RGB */
+}
+
+/* Nút Secondary trong content (Viền đỏ chữ đỏ) */
+/* Áp dụng chung cho các nút secondary không phải trong navbar hoặc hero */
+main .btn-hub-secondary, 
+footer .btn-hub-secondary {
+    background-color: transparent;
+    color: var(--hub-red);
+    border: 2px solid var(--hub-red);
+    border-radius: 4px; /* Góc vuông hơn */
+    padding: 0.6rem 1.5rem; /* To hơn một chút */
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+main .btn-hub-secondary:hover, 
+footer .btn-hub-secondary:hover {
+    background-color: var(--hub-red);
+    color: var(--hub-light);
+    transform: translateY(-2px); /* Hiệu ứng nhấc lên */
+}
+
+/* Riêng nút Secondary trong Hero (Viền trắng chữ trắng) */
+.hub-hero-section-v2 .btn-hub-secondary {
+    background-color: transparent;
+    color: var(--hub-light);
+    border: 2px solid var(--hub-light);
+    /* Kế thừa padding, font-weight, transition từ .btn-hub-secondary chung nếu có */
+    border-radius: 4px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hub-hero-section-v2 .btn-hub-secondary:hover {
+    background-color: rgba(var(--hub-light), 0.1); /* Hiệu ứng nền đỏ rất nhạt */
+    color: var(--hub-light);
+    transform: translateY(-2px);
+}
+
+/* Style cho btn-light trong CTA */
+#cta .btn-light {
+    color: var(--hub-red);
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+    background-color: var(--hub-light);
+    border: 2px solid var(--hub-light);
+}
+
+#cta .btn-light:hover {
+    background-color: var(--hub-gray);
+    border-color: var(--hub-gray);
+    transform: translateY(-2px);
+}
+
+#cta .btn-outline-light { /* Nút Tìm hiểu thêm */
+    border: 2px solid var(--hub-light);
+    color: var(--hub-light);
+    transition: all 0.3s ease;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+#cta .btn-outline-light:hover {
+    background-color: rgba(var(--hub-light), 0.1);
+    transform: translateY(-2px);
+} 
