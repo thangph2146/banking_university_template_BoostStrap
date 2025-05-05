@@ -1,28 +1,17 @@
-/* --- How It Works Section --- */
-#how-it-works {
-    background-color: var(--hub-light); /* Nền trắng */
-    padding: 60px 0; /* Padding lớn hơn */
-}
+/* Styles specific to the How It Works page */
 
-#how-it-works h2 {
-    font-weight: 700; /* Đậm */
-    margin-bottom: 15px;
-    color: var(--hub-text-dark);
-}
-#how-it-works .text-secondary { /* Subtitle */
-     color: var(--hub-text-secondary) !important;
-}
-
-
+/* How it works steps */
 .how-it-works-col {
     position: relative;
     margin-bottom: 2rem; 
 }
+
 .how-it-works-icon {
     position: relative;
     display: inline-block; 
     margin-bottom: 1.5rem;
 }
+
 .icon-circle {
     width: 80px;
     height: 80px;
@@ -34,10 +23,12 @@
     margin: 0 auto; 
     transition: background-color 0.3s ease;
 }
+
 .icon-image {
     font-size: 2.5rem;
     color: var(--hub-red); 
 }
+
 .icon-number {
     position: absolute;
     top: -10px;
@@ -54,34 +45,55 @@
     font-size: 0.9rem;
     border: 2px solid white;
 }
+
 .how-it-works-title {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--hub-text-primary);
 }
+
 .how-it-works-text {
     color: var(--hub-text-secondary);
     padding: 0 0.5rem; 
     text-align: left; 
     font-size: 0.95rem;
 }
+
 .how-it-works-text ul {
     padding-left: 1.2rem; 
     margin-top: 0.5rem;
 }
+
 .how-it-works-text li {
     margin-bottom: 0.25rem;
 }
 
+/* Page Header */
+.page-header {
+    background-color: var(--hub-red);
+    padding: 3rem 0; /* Increased padding */
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 2.5rem; /* Larger title */
+    margin-bottom: 0.5rem; /* Add margin below title */
+}
+
+/* Accordion */
 .accordion-button:not(.collapsed) {
     color: var(--hub-red); 
     background-color: var(--hub-red-light);
 }
+
 .accordion-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
     border-color: rgba(var(--hub-red-rgb), 0.5);
 }
+
+/* Visual elements */
 .visual-placeholder {
     border: 2px dashed #ccc;
     background-color: #f8f9fa;
@@ -93,6 +105,8 @@
     font-size: 0.9rem;
     border-radius: 0.25rem;
 }
+
+/* Tips section */
 .tip-card {
     border-left: 4px solid var(--hub-red);
     padding: 1rem;
@@ -102,12 +116,14 @@
     display: flex; /* Use flexbox */
     align-items: flex-start; /* Align icon top */
 }
+
 .tip-card .tip-icon {
     color: var(--hub-red);
     font-size: 1.2rem;
     margin-right: 0.75rem; /* Increased margin */
     margin-top: 0.1rem; /* Adjust icon top alignment */
 }
+
 .tip-card p {
     margin-bottom: 0;
     flex-grow: 1; /* Allow text to take remaining space */

@@ -10,26 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/register.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* Center the register form vertically and horizontally */
-        main {
-            display: flex;
-            min-height: calc(100vh - 120px); /* Adjust based on navbar+footer height */
-            align-items: center;
-            padding-top: 60px; /* Add padding top because main display flex conflicts with body padding */
-        }
-        .register-form-container {
-             max-width: 500px; /* Slightly wider for more fields */
-             width: 100%;
-        }
-        .password-toggle-icon {
-            cursor: pointer;
-        }
-    </style>
+  
 </head>
 
 <body class="bg-light"> 
@@ -164,100 +150,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 600, 
-            once: true, 
-        });
-
-        // Function to toggle password visibility
-        function setupPasswordToggle(toggleId, inputId) {
-            const toggleElement = document.getElementById(toggleId);
-            const inputElement = document.getElementById(inputId);
-            if (toggleElement && inputElement) {
-                toggleElement.addEventListener('click', function () {
-                    const type = inputElement.getAttribute('type') === 'password' ? 'text' : 'password';
-                    inputElement.setAttribute('type', type);
-                    const icon = this.querySelector('i');
-                    icon.classList.toggle('bi-eye');
-                    icon.classList.toggle('bi-eye-slash');
-                });
-            }
-        }
-
-        setupPasswordToggle('toggleRegisterPassword', 'registerPassword');
-        setupPasswordToggle('toggleConfirmPassword', 'confirmPassword');
-
-        // Registration Form Simulation
-        const registerForm = document.getElementById('registerForm');
-        const registerFeedback = document.getElementById('register-feedback');
-        const passwordInput = document.getElementById('registerPassword');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
-
-
-        if (registerForm && registerFeedback && passwordInput && confirmPasswordInput && confirmPasswordFeedback) {
-            registerForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                let isValid = true;
-                 registerFeedback.innerHTML = ''; // Clear previous feedback
-                 confirmPasswordInput.setCustomValidity(""); // Clear custom validity
-
-                // Check if passwords match
-                if (passwordInput.value !== confirmPasswordInput.value) {
-                    confirmPasswordInput.setCustomValidity("Mật khẩu không khớp.");
-                     confirmPasswordFeedback.textContent = "Mật khẩu không khớp.";
-                    isValid = false;
-                } else {
-                    confirmPasswordInput.setCustomValidity("");
-                    confirmPasswordFeedback.textContent = "Vui lòng nhập lại mật khẩu."; // Reset feedback text
-                }
-                
-                // Trigger Bootstrap validation
-                if (!registerForm.checkValidity() || !isValid) {
-                    registerForm.classList.add('was-validated');
-                     if(!isValid && registerForm.checkValidity()) { // Only show general message if other fields are valid but passwords don't match
-                        // Optionally show a general feedback message if only password mismatch
-                     } else if (!registerForm.checkValidity()) {
-                        // Optionally show a general message for other invalid fields
-                         registerFeedback.innerHTML = `<div class="alert alert-danger alert-sm p-2">Vui lòng kiểm tra lại các thông tin đã nhập.</div>`;
-                     }
-                    return;
-                }
-                
-                 registerForm.classList.remove('was-validated'); // Remove validation classes if all is good before simulation
-
-                // Simulate registration process
-                const submitButton = registerForm.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang xử lý...';
-
-                setTimeout(() => {
-                    // Simulate success
-                    registerFeedback.innerHTML = `<div class="alert alert-success">Đăng ký thành công! Chào mừng bạn đến với hệ thống sự kiện HUB. Bạn có thể đăng nhập ngay bây giờ.</div>`;
-                    registerForm.reset(); 
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = 'Đăng ký';
-
-                    // Optional: Redirect to login after a delay
-                    // setTimeout(() => { window.location.href = 'login.html'; }, 3000);
-
-                }, 1500); // Simulate 1.5 second delay
-            });
-            
-            // Reset custom validity message when user types in confirm password
-            confirmPasswordInput.addEventListener('input', () => {
-                 confirmPasswordInput.setCustomValidity("");
-                 registerForm.classList.remove('was-validated'); // Remove validation state on type
-            });
-             passwordInput.addEventListener('input', () => {
-                 registerForm.classList.remove('was-validated'); // Remove validation state on type
-            });
-        }
-
-    </script>
+    <!-- Custom JS -->
+    <script src="js/register.js"></script>
 </body>
 
 </html>

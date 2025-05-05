@@ -1,0 +1,34 @@
+/* Styles for FAQ Page */
+
+/* Page Header */
+.page-header {
+    background-color: var(--hub-red);
+    padding: 3rem 0; 
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 0.5rem; 
+}
+
+/* Accordion Styles */
+.accordion-button:not(.collapsed) {
+    color: var(--hub-red); 
+    background-color: var(--hub-red-light);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
+    border-color: rgba(var(--hub-red-rgb), 0.5);
+}
+
+.accordion-item {
+    margin-bottom: 0.5rem; /* Add space between accordion items */
+}
+
+.faq-icon {
+    width: 20px; /* Ensure consistent icon width */
+    text-align: center;
+} 

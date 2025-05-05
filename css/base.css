@@ -7,8 +7,21 @@ body {
 
 /* Add top padding to main content to prevent overlap with fixed navbar */
 main {
-    padding-top: 14px; /* Adjust this value if navbar height changes */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100%;
 } 
+nav {
+    min-width: 100%;
+}
+section {
+    min-width: 100%;
+
+}
+footer {
+    min-width: 100%;
+}
 
 /* --- Bootstrap Icons Styles --- */
 .bi {

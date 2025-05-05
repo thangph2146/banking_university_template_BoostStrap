@@ -1,0 +1,7 @@
+.register-form-container {
+     max-width: 500px; /* Slightly wider for more fields */
+     width: 100%;
+}
+.password-toggle-icon {
+    cursor: pointer;
+} 

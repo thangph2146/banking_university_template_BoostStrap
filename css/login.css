@@ -1,0 +1,17 @@
+/* Styles for Login Page */
+
+/* Center the login form vertically and horizontally */
+main {
+    display: flex;
+    min-height: calc(100vh - 120px); /* Adjust 120px based on approx navbar+footer height */
+    align-items: center;
+}
+
+.login-form-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.password-toggle-icon {
+    cursor: pointer;
+} 

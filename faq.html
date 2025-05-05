@@ -10,38 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/page-header.css">
+    <link rel="stylesheet" href="css/faq.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-     <style>
-         /* Styles needed for Accordion and Page Header (can be moved to custom.css) */
-         .page-header {
-            background-color: var(--hub-red);
-            padding: 3rem 0; 
-            margin-bottom: 3rem;
-            color: white;
-        }
-        .page-header h1 {
-            font-size: 2.5rem; 
-             margin-bottom: 0.5rem; 
-        }
-         .accordion-button:not(.collapsed) {
-            color: var(--hub-red); 
-            background-color: var(--hub-red-light);
-         }
-         .accordion-button:focus {
-             box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
-             border-color: rgba(var(--hub-red-rgb), 0.5);
-         }
-          .accordion-item {
-             margin-bottom: 0.5rem; /* Add space between accordion items */
-          }
-          .faq-icon {
-              width: 20px; /* Ensure consistent icon width */
-              text-align: center;
-          }
-    </style>
 </head>
 
 <body>
@@ -322,12 +296,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800, 
-            once: true, 
-        });
-    </script>
+    <!-- Core JS -->
+    <script src="js/core.js"></script>
 </body>
 
 </html>

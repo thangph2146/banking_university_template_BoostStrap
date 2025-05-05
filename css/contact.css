@@ -1,0 +1,41 @@
+/* Styles for Contact Page */
+/* Map Container */
+#map-section {
+    width: 100%;
+    border-radius: 0.5rem;
+    min-height: 400px;
+}
+#map-section iframe{
+    width: 100%;
+    border-radius: 0.5rem;
+    min-height: 400px;
+}
+/* Contact Info Cards */
+.contact-info-card .card-body {
+    display: flex;
+    align-items: flex-start; /* Align icon top */
+}
+
+.contact-info-card .icon {
+    font-size: 1.5rem;
+    color: var(--hub-red);
+    margin-right: 1rem;
+    min-width: 30px; /* Ensure consistent spacing */
+}
+
+.contact-info-card .card-title {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.contact-info-card p {
+    margin-bottom: 0;
+    color: var(--hub-text-secondary);
+}
+
+/* Page Header */
+.page-header {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    margin-bottom: 3rem;
+} 
