@@ -500,10 +500,9 @@
                         <i class="bi bi-folder me-1"></i> Quản lý lớp <i class="bi bi-chevron-down ms-1"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tất cả</a></li>
-                        <li><a class="dropdown-item" href="#">K21 TCNH</a></li>
-                        <li><a class="dropdown-item" href="#">K22 CNTT</a></li>
-                        <li><a class="dropdown-item" href="#">K21 KT</a></li>
+                        <li><a class="dropdown-item" href="#">Danh sách lớp đánh giá</a></li>
+                        <li><a class="dropdown-item" href="#">Dánh sách bảng đánh giá</a></li>
+                        <li><a class="dropdown-item" href="#">Cập nhật bảng điểm không đánh giá</a></li>
                     </ul>
                 </div>
 
@@ -512,10 +511,8 @@
                         <i class="bi bi-calculator me-1"></i> Tính điểm và xếp loại <i class="bi bi-chevron-down ms-1"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tính điểm tất cả</a></li>
-                        <li><a class="dropdown-item" href="#">Xếp loại tất cả</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Thiết lập quy tắc tính điểm</a></li>
+                        <li><a class="dropdown-item" href="#">Tính lại điểm cho tất cả tiêu chí tự động</a></li>
+                        <li><a class="dropdown-item" href="#">Tính lại điểm tổng và xếp loại</a></li>
                     </ul>
                 </div>
 
@@ -601,28 +598,12 @@
                         <option value="2023-2024">Đánh giá đoàn viên năm học 2023-2024</option>
                     </select>
                 </div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm tiêu chí..." aria-label="Tìm kiếm tiêu chí">
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </div>
-                </div>
             </div>
 
             <!-- Template Table Card -->
             <div class="card admin-card mb-4">
                 <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
                     <h6 class="m-0 font-weight-bold">Danh sách mẫu bảng điểm đánh giá</h6>
-                    <div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" id="exportBtn">
-                            <i class="bi bi-download"></i> Xuất Excel
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" id="printBtn">
-                            <i class="bi bi-printer"></i> In
-                        </button>
-                    </div>
                 </div>
 
                 <div class="card-body">
@@ -746,20 +727,6 @@
                                     </td>
                                     <td class="text-center">
                                         <input type="checkbox" class="form-check-input checkbox-control">
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="dropdown">
-                                            <a href="#" class="text-body" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Cập nhật</a></li>
-                                                <li><a class="dropdown-item" href="#"><i class="bi bi-card-list me-2"></i>Tính toán lại điểm đánh giá</a></li>
-                                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Quy tắc đánh giá</a></li>
-                                                <li><hr class="dropdown-divider"></li>
-                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Xóa mục/Tiêu chí</a></li>
-                                            </ul>
-                                        </div>
                                     </td>
                                 </tr>
 
