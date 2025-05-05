@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang quản lý đoàn viên - Hệ thống Quản lý Sự kiện của Đại học Ngân hàng TP.HCM.">
+    <title>Đại học Ngân hàng TP.HCM - Quản lý Đoàn viên</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" href="../css/side-bar.css">
+    <link rel="stylesheet" href="../css/variable.css">
+</head>
+
+<body class="bg-light">
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <div class="admin-sidebar-header d-flex align-items-center">
+            <a href="../index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="../public/images/logo/logo-white-vertical.png" alt="Logo" height="40" class="me-2">
+                <span class="fs-5 fw-bold text-white d-none d-sm-inline">HUB Admin</span>
+            </a>
+            <button class="btn-close btn-close-white ms-auto d-lg-none" id="closeSidebarBtn" aria-label="Close"></button>
+        </div>
+
+        <div class="pt-2">
+            <div class="admin-sidebar-nav-heading">Chính</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Quản lý nội dung</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html">
+                        <i class="bi bi-calendar-event"></i> Quản lý sự kiện
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        <i class="bi bi-tag"></i> Danh mục
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registrations.html">
+                        <i class="bi bi-clipboard-check"></i> Đăng ký sự kiện
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Người dùng & Tương tác</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="doan-vien.html">
+                        <i class="bi bi-people"></i> Quản lý đoàn viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">
+                        <i class="bi bi-chat-left-text"></i> Tin nhắn liên hệ
+                    </a>
+                </li>
+            </ul>
+
+            <div class="admin-sidebar-nav-heading">Hệ thống</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <i class="bi bi-gear"></i> Cài đặt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logs.html">
+                        <i class="bi bi-file-earmark-text"></i> Nhật ký hệ thống
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="../login.html">
+                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar admin-navbar shadow-sm">
+        <div class="container-fluid px-4">
+            <button class="btn d-lg-none" id="toggleSidebarBtn">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+            <div class="d-flex align-items-center ms-auto">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell position-relative fs-5">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">
+                                3
+                            </span>
+                        </i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="notificationDropdown" style="width: 300px;">
+                        <li><h6 class="dropdown-header">Thông báo</h6></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item d-flex align-items-center py-2" href="#">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-person-plus text-primary"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="small text-muted">Vừa cập nhật</div>
+                                <div>10 sinh viên mới đã được thêm vào hệ thống</div>
+                            </div>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center py-2" href="#">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-file-earmark-text text-success"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="small text-muted">2 giờ trước</div>
+                                <div>Báo cáo hoạt động tháng 5 đã sẵn sàng</div>
+                            </div>
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center small text-muted" href="#">Xem tất cả thông báo</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-3">
+                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../public/images/avatar-placeholder.png" alt="Admin" width="32" height="32" class="rounded-circle me-2">
+                        <span>Admin</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Cài đặt</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+        <div class="container-fluid px-4 py-4">
+            <!-- Page Heading -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="h3 mb-0 text-gray-800">Quản lý đoàn viên</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Quản lý đoàn viên</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#importStudentModal">
+                        <i class="bi bi-file-earmark-excel me-1"></i> Nhập Excel
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+                        <i class="bi bi-plus-circle me-1"></i> Thêm đoàn viên
+                    </button>
+                </div>
+            </div>
+
+            <!-- Students Filter Tabs -->
+            <div class="card mb-4">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 fw-bold">Danh sách đoàn viên</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-xl">
+                        <div class="overflow-x-auto" style="min-width: 100%;">
+                            <table id="studentsTable" class="table table-hover table-striped table-bordered w-100" style="min-width: 1000px;">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="min-width: 50px; width: 50px;">#</th>
+                                        <th style="min-width: 120px; width: 120px;">MSSV</th>
+                                        <th style="min-width: 180px;">Họ tên</th>
+                                        <th style="min-width: 200px;">Email</th>
+                                        <th style="min-width: 120px;">Ngày sinh</th>
+                                        <th style="min-width: 100px;">Giới tính</th>
+                                        <th style="min-width: 130px;">Lớp đại cương</th>
+                                        <th style="min-width: 130px;">Lớp chuyên ngành</th>
+                                        <th style="min-width: 100px; width: 100px;">Trạng thái</th>
+                                        <th style="min-width: 130px; width: 130px;">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>030333000333</td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>a.nguyenvan@hub.edu.vn</td>
+                                        <td>01-05-2000</td>
+                                        <td>Nam</td>
+                                        <td>CLCK6</td>
+                                        <td>CLCK6</td>
+                                        <td>
+                                            <span class="badge bg-success">Còn học</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="1" data-student-name="Nguyễn Văn A">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="1">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="1" data-student-name="Nguyễn Văn A">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>050606180001</td>
+                                        <td>Dương Thị Ly A</td>
+                                        <td>a.duongly@hub.edu.vn</td>
+                                        <td>25-02-2000</td>
+                                        <td>Nữ</td>
+                                        <td>CLCK6</td>
+                                        <td>HQG-EG11</td>
+                                        <td>
+                                            <span class="badge bg-success">Còn học</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="2" data-student-name="Dương Thị Ly A">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="2">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="2" data-student-name="Dương Thị Ly A">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>03033820001</td>
+                                        <td>Lê Nguyễn Xuân Ái</td>
+                                        <td>ai.lenguyen@hub.edu.vn</td>
+                                        <td>27-09-2004</td>
+                                        <td>Nữ</td>
+                                        <td>DH38QT01</td>
+                                        <td>DH38QT01</td>
+                                        <td>
+                                            <span class="badge bg-success">Còn học</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="3" data-student-name="Lê Nguyễn Xuân Ái">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="3">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="3" data-student-name="Lê Nguyễn Xuân Ái">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>21342520001</td>
+                                        <td>Trần Hoàng Minh</td>
+                                        <td>minh.tranhoang@hub.edu.vn</td>
+                                        <td>12-08-2003</td>
+                                        <td>Nam</td>
+                                        <td>DH38QT02</td>
+                                        <td>DH38QT02</td>
+                                        <td>
+                                            <span class="badge bg-danger">Đã thôi học</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="4" data-student-name="Trần Hoàng Minh">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="4">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="4" data-student-name="Trần Hoàng Minh">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>06021420013</td>
+                                        <td>Phạm Thị Hoài Thanh</td>
+                                        <td>thanh.phamhoai@hub.edu.vn</td>
+                                        <td>05-04-2002</td>
+                                        <td>Nữ</td>
+                                        <td>CLCK5</td>
+                                        <td>CLCK5</td>
+                                        <td>
+                                            <span class="badge bg-primary">Đã tốt nghiệp</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="5" data-student-name="Phạm Thị Hoài Thanh">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="5">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="5" data-student-name="Phạm Thị Hoài Thanh">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>06023120039</td>
+                                        <td>Ngô Thành Đạt</td>
+                                        <td>dat.ngothanh@hub.edu.vn</td>
+                                        <td>17-11-2003</td>
+                                        <td>Nam</td>
+                                        <td>DH37TC02</td>
+                                        <td>DH37TC02</td>
+                                        <td>
+                                            <span class="badge bg-success">Còn học</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-outline-info btn-view" data-bs-toggle="modal" data-bs-target="#viewStudentModal" data-student-id="6" data-student-name="Ngô Thành Đạt">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary btn-edit" data-bs-toggle="modal" data-bs-target="#addStudentModal" data-student-id="6">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" data-student-id="6" data-student-name="Ngô Thành Đạt">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Responsive Layout for Mobile -->
+    <div class="d-lg-none position-fixed bottom-0 start-0 w-100 bg-white border-top py-2 px-3 text-center">
+        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+            <i class="bi bi-plus-circle"></i> Thêm đoàn viên
+        </button>
+    </div>
+
+    <!-- Add/Edit Student Modal -->
+    <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addStudentModalLabel">Thông tin đoàn viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="studentForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="studentId" class="form-label">Mã số sinh viên <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="studentId" placeholder="Nhập MSSV" required pattern="^[0-9]{10,12}$">
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập mã số sinh viên hợp lệ (10-12 chữ số).
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentEmail" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="studentEmail" placeholder="Nhập email" required pattern=".+@hub\.edu\.vn$">
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập email hợp lệ có đuôi @hub.edu.vn.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentFirstName" class="form-label">Họ và tên đệm <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="studentFirstName" placeholder="Nhập họ và tên đệm" required>
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập họ và tên đệm.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentLastName" class="form-label">Tên <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="studentLastName" placeholder="Nhập tên" required>
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập tên.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label d-block">Giới tính <span class="text-danger">*</span></label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Nam" checked required>
+                                    <label class="form-check-label" for="genderMale">Nam</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Nữ" required>
+                                    <label class="form-check-label" for="genderFemale">Nữ</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentBirthdate" class="form-label">Ngày sinh <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="studentBirthdate" required>
+                                <div class="invalid-feedback">
+                                    Vui lòng chọn ngày sinh.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentClass" class="form-label">Lớp đại cương <span class="text-danger">*</span></label>
+                                <select class="form-select" id="studentClass" required>
+                                    <option value="">Chọn lớp đại cương</option>
+                                    <option value="CLCK6">CLCK6</option>
+                                    <option value="DH38QT01">DH38QT01</option>
+                                    <option value="DH38QT02">DH38QT02</option>
+                                    <option value="DH37TC02">DH37TC02</option>
+                                    <option value="CLCK5">CLCK5</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng chọn lớp đại cương.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentMajorClass" class="form-label">Lớp chuyên ngành <span class="text-danger">*</span></label>
+                                <select class="form-select" id="studentMajorClass" required>
+                                    <option value="">Chọn lớp chuyên ngành</option>
+                                    <option value="CLCK6">CLCK6</option>
+                                    <option value="HQG-EG11">HQG-EG11</option>
+                                    <option value="DH38QT01">DH38QT01</option>
+                                    <option value="DH38QT02">DH38QT02</option>
+                                    <option value="DH37TC02">DH37TC02</option>
+                                    <option value="CLCK5">CLCK5</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng chọn lớp chuyên ngành.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentPhone" class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="studentPhone" placeholder="Nhập số điện thoại">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="studentStatus" class="form-label">Trạng thái <span class="text-danger">*</span></label>
+                                <select class="form-select" id="studentStatus" required>
+                                    <option value="conhoc">Còn học</option>
+                                    <option value="totnghiep">Đã tốt nghiệp</option>
+                                    <option value="thoihoc">Đã thôi học</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng chọn trạng thái.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="studentAddress" class="form-label">Địa chỉ</label>
+                                <textarea class="form-control" id="studentAddress" rows="2" placeholder="Nhập địa chỉ"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="studentNote" class="form-label">Ghi chú</label>
+                                <textarea class="form-control" id="studentNote" rows="2" placeholder="Nhập ghi chú"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button type="button" class="btn btn-danger" id="saveStudentBtn">Lưu đoàn viên</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Excel Modal -->
+    <div class="modal fade" id="importStudentModal" tabindex="-1" aria-labelledby="importStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importStudentModalLabel">Nhập dữ liệu từ Excel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="importFile" class="form-label">Chọn file Excel</label>
+                                <input class="form-control" type="file" id="importFile" accept=".xlsx, .xls">
+                                <div class="form-text">Chỉ chấp nhận file Excel (.xlsx, .xls)</div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="updateExisting" checked>
+                                    <label class="form-check-label" for="updateExisting">
+                                        Cập nhật nếu đoàn viên đã tồn tại
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="skipErrors">
+                                    <label class="form-check-label" for="skipErrors">
+                                        Bỏ qua các dòng lỗi
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-download me-1"></i> Tải file mẫu
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-info">
+                                <div class="fw-bold mb-2">Hướng dẫn nhập liệu:</div>
+                                <ol class="mb-0 small">
+                                    <li>Tải file mẫu Excel</li>
+                                    <li>Điền thông tin đoàn viên theo mẫu có sẵn</li>
+                                    <li>Tải file Excel đã điền thông tin lên hệ thống</li>
+                                    <li>Kiểm tra dữ liệu và nhấn "Tiến hành nhập liệu"</li>
+                                </ol>
+                            </div>
+                            <div class="alert alert-warning small">
+                                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                Vui lòng không thay đổi cấu trúc của file mẫu. Các cột bắt buộc: MSSV, Họ tên, Email, Ngày sinh, Giới tính, Lớp đại cương.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hiển thị dữ liệu đã tải lên -->
+                    <div class="mt-4">
+                        <h6 class="border-bottom pb-2">Dữ liệu đoàn viên hiện tại</h6>
+                        <div class="table-responsive mt-3">
+                            <table class="table table-sm table-bordered table-hover" id="previewTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">MSSV</th>
+                                        <th scope="col">Họ tên</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Ngày sinh</th>
+                                        <th scope="col">Lớp</th>
+                                        <th scope="col">Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="previewData">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>030333000333</td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>a.nguyenvan@hub.edu.vn</td>
+                                        <td>01-05-2000</td>
+                                        <td>CLCK6</td>
+                                        <td><span class="badge bg-success">Còn học</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>050606180001</td>
+                                        <td>Dương Thị Ly A</td>
+                                        <td>a.duongly@hub.edu.vn</td>
+                                        <td>25-02-2000</td>
+                                        <td>CLCK6</td>
+                                        <td><span class="badge bg-success">Còn học</span></td>
+                                    </tr>
+                                    <!-- Khi chọn file, dữ liệu sẽ thay đổi thành dữ liệu từ file -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="importFileInfo" class="alert alert-secondary d-flex align-items-center" role="alert">
+                            <div class="text-center w-100">
+                                <i class="bi bi-file-earmark-excel fs-3 mb-2"></i>
+                                <p class="mb-0">Chưa có file nào được chọn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        <span class="text-muted small" id="fileStatus"></span>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-success" id="uploadExcelBtn" disabled>
+                            <i class="bi bi-check-circle me-1"></i> Tiến hành nhập liệu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteStudentModal" tabindex="-1" aria-labelledby="deleteStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteStudentModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 3rem;"></i>
+                    </div>
+                    <p id="confirmDeleteText" class="text-center fs-5">Bạn có chắc chắn muốn xóa đoàn viên này?</p>
+                    <p class="text-center text-muted small">Hành động này không thể hoàn tác.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                        <i class="bi bi-trash-fill me-1"></i> Xác nhận xóa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMessage">
+                    Thao tác thành công!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Student Modal -->
+    <div class="modal fade" id="viewStudentModal" tabindex="-1" aria-labelledby="viewStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="viewStudentModalLabel">Thông tin chi tiết đoàn viên</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-12 text-center mb-3">
+                            <img src="../public/images/avatar-placeholder.png" alt="Ảnh đoàn viên" class="rounded-circle" width="100" height="100">
+                            <h4 class="mt-2" id="student-name">Nguyễn Văn A</h4>
+                            <p class="badge bg-success" id="student-status">Còn học</p>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Mã số sinh viên</label>
+                                <p class="border-bottom pb-2" id="student-id">030333000333</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email</label>
+                                <p class="border-bottom pb-2" id="student-email">a.nguyenvan@hub.edu.vn</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Ngày sinh</label>
+                                <p class="border-bottom pb-2" id="student-birthdate">01-05-2000</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Giới tính</label>
+                                <p class="border-bottom pb-2" id="student-gender">Nam</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Số điện thoại</label>
+                                <p class="border-bottom pb-2" id="student-phone">0909123456</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Lớp đại cương</label>
+                                <p class="border-bottom pb-2" id="student-class">CLCK6</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Lớp chuyên ngành</label>
+                                <p class="border-bottom pb-2" id="student-major-class">CLCK6</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Địa chỉ</label>
+                                <p class="border-bottom pb-2" id="student-address">36 Tôn Thất Đạm, Phường Nguyễn Thái Bình, Quận 1, TP.HCM</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Ghi chú</label>
+                                <p class="border-bottom pb-2" id="student-note">Sinh viên xuất sắc, tham gia nhiều hoạt động đoàn thể.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hoạt động tham gia -->
+                    <div class="mt-4">
+                        <h5 class="border-bottom pb-2 text-primary">Hoạt động tham gia gần đây</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên sự kiện</th>
+                                        <th>Ngày diễn ra</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Hội thảo Ngân hàng số và Tương lai Thanh toán</td>
+                                        <td>15/04/2025</td>
+                                        <td><span class="badge bg-primary">Đã tham gia</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025</td>
+                                        <td>20/04/2025</td>
+                                        <td><span class="badge bg-warning text-dark">Đã đăng ký</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-info edit-from-view" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+                        <i class="bi bi-pencil-square me-1"></i> Chỉnh sửa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khởi tạo DataTables
+            var studentsTable = $('#studentsTable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json',
+                },
+                dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                     "<'row'<'col-sm-12'tr>>" +
+                     "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                columnDefs: [
+                    { orderable: false, targets: [9] }, // Cột hành động không sắp xếp
+                    { searchable: false, targets: [0, 9] } // Cột STT và Hành động không tìm kiếm
+                ],
+                order: [[1, 'asc']] // Sắp xếp theo MSSV mặc định
+            });
+
+            // Tìm kiếm trong bảng
+            $('#searchInput').on('keyup', function() {
+                studentsTable.search(this.value).draw();
+            });
+
+            // Tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Toggle sidebar trên thiết bị di động
+            if (document.getElementById('toggleSidebarBtn')) {
+                document.getElementById('toggleSidebarBtn').addEventListener('click', function() {
+                    document.getElementById('adminSidebar').classList.toggle('show');
+                });
+            }
+
+            if (document.getElementById('closeSidebarBtn')) {
+                document.getElementById('closeSidebarBtn').addEventListener('click', function() {
+                    document.getElementById('adminSidebar').classList.remove('show');
+                });
+            }
+
+            // Xử lý xem chi tiết đoàn viên
+            $('.btn-view').on('click', function() {
+                var studentId = $(this).data('student-id');
+                var studentName = $(this).data('student-name');
+                
+                // Trong thực tế, ta sẽ gọi API để lấy dữ liệu đoàn viên
+                // Ở đây chỉ mô phỏng bằng cách cập nhật dữ liệu cố định
+                $('#student-name').text(studentName);
+                
+                // Cập nhật dữ liệu trong modal
+                if (studentId === 1) {
+                    $('#student-id').text('030333000333');
+                    $('#student-email').text('a.nguyenvan@hub.edu.vn');
+                    $('#student-birthdate').text('01-05-2000');
+                    $('#student-gender').text('Nam');
+                    $('#student-phone').text('0909123456');
+                    $('#student-class').text('CLCK6');
+                    $('#student-major-class').text('CLCK6');
+                    $('#student-status').text('Còn học').removeClass().addClass('badge bg-success');
+                } else if (studentId === 5) {
+                    $('#student-id').text('06021420013');
+                    $('#student-email').text('thanh.phamhoai@hub.edu.vn');
+                    $('#student-birthdate').text('05-04-2002');
+                    $('#student-gender').text('Nữ');
+                    $('#student-phone').text('0903654789');
+                    $('#student-class').text('CLCK5');
+                    $('#student-major-class').text('CLCK5');
+                    $('#student-status').text('Đã tốt nghiệp').removeClass().addClass('badge bg-primary');
+                } else if (studentId === 4) {
+                    $('#student-id').text('21342520001');
+                    $('#student-email').text('minh.tranhoang@hub.edu.vn');
+                    $('#student-birthdate').text('12-08-2003');
+                    $('#student-gender').text('Nam');
+                    $('#student-phone').text('0931248567');
+                    $('#student-class').text('DH38QT02');
+                    $('#student-major-class').text('DH38QT02');
+                    $('#student-status').text('Đã thôi học').removeClass().addClass('badge bg-danger');
+                }
+                
+                // Set dữ liệu vào nút edit để biết đang chỉnh sửa đoàn viên nào
+                $('.edit-from-view').data('student-id', studentId);
+            });
+
+            // Xử lý chỉnh sửa đoàn viên
+            $('.btn-edit').on('click', function() {
+                var studentId = $(this).data('student-id');
+                
+                // Cập nhật tiêu đề modal
+                $('#addStudentModalLabel').text('Chỉnh sửa thông tin đoàn viên');
+                
+                // Điền thông tin đoàn viên vào form
+                if (studentId === 1) {
+                    $('#studentId').val('030333000333');
+                    $('#studentEmail').val('a.nguyenvan@hub.edu.vn');
+                    $('#studentFirstName').val('Nguyễn Văn');
+                    $('#studentLastName').val('A');
+                    $('#studentBirthdate').val('2000-05-01');
+                    $('#genderMale').prop('checked', true);
+                    $('#studentClass').val('CLCK6');
+                    $('#studentMajorClass').val('CLCK6');
+                    $('#studentPhone').val('0909123456');
+                    $('#studentStatus').val('conhoc');
+                } else if (studentId === 5) {
+                    $('#studentId').val('06021420013');
+                    $('#studentEmail').val('thanh.phamhoai@hub.edu.vn');
+                    $('#studentFirstName').val('Phạm Thị Hoài');
+                    $('#studentLastName').val('Thanh');
+                    $('#studentBirthdate').val('2002-04-05');
+                    $('#genderFemale').prop('checked', true);
+                    $('#studentClass').val('CLCK5');
+                    $('#studentMajorClass').val('CLCK5');
+                    $('#studentPhone').val('0903654789');
+                    $('#studentStatus').val('totnghiep');
+                }
+                
+                // Cập nhật action của form
+                $('#studentForm').data('action', 'edit');
+                $('#studentForm').data('student-id', studentId);
+            });
+
+            // Xử lý xóa đoàn viên
+            $('.btn-delete').on('click', function() {
+                var studentId = $(this).data('student-id');
+                var studentName = $(this).data('student-name');
+                
+                // Cập nhật text xác nhận xóa
+                $('#confirmDeleteText').text(`Bạn có chắc chắn muốn xóa đoàn viên "${studentName}" không?`);
+                
+                // Lưu ID đoàn viên để xử lý khi người dùng xác nhận xóa
+                $('#confirmDeleteBtn').data('student-id', studentId);
+                $('#confirmDeleteBtn').data('student-name', studentName);
+            });
+
+            // Xử lý nút xác nhận xóa
+            $('#confirmDeleteBtn').on('click', function() {
+                var studentId = $(this).data('student-id');
+                var studentName = $(this).data('student-name');
+                
+                // Đóng modal
+                var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteStudentModal'));
+                deleteModal.hide();
+                
+                // Xóa dòng tương ứng trong bảng
+                studentsTable.row('#row-' + studentId).remove().draw();
+                
+                // Hiển thị thông báo thành công
+                showToast(`Đã xóa đoàn viên "${studentName}" thành công`, 'success');
+            });
+
+            // Xử lý form thêm/sửa đoàn viên
+            $('#saveStudentBtn').on('click', function() {
+                var form = document.getElementById('studentForm');
+                
+                if (form.checkValidity()) {
+                    // Đóng modal
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('addStudentModal'));
+                    modal.hide();
+                    
+                    // Xác định hành động (thêm mới hoặc chỉnh sửa)
+                    var action = $('#studentForm').data('action') || 'add';
+                    var studentId = $('#studentForm').data('student-id');
+                    
+                    // Hiển thị thông báo thành công
+                    if (action === 'edit') {
+                        showToast(`Đã cập nhật thông tin đoàn viên thành công`, 'success');
+                    } else {
+                        showToast(`Đã thêm đoàn viên mới thành công`, 'success');
+                    }
+                    
+                    // Reset form
+                    form.reset();
+                    $('#studentForm').removeData('action');
+                    $('#studentForm').removeData('student-id');
+                    $('#addStudentModalLabel').text('Thông tin đoàn viên');
+                } else {
+                    // Hiển thị validation
+                    form.classList.add('was-validated');
+                }
+            });
+
+            // Xử lý import Excel
+            $('#importFile').on('change', function(e) {
+                var fileName = e.target.files[0] ? e.target.files[0].name : '';
+                
+                if (fileName) {
+                    // Hiển thị thông tin file
+                    $('#fileStatus').text(`Đã chọn file: ${fileName}`);
+                    $('#importFileInfo').html(`
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 text-success">
+                                <i class="bi bi-file-earmark-excel fs-1"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">${fileName}</h6>
+                                <p class="mb-0 text-muted">File hợp lệ, sẵn sàng nhập liệu.</p>
+                            </div>
+                        </div>
+                    `);
+                    
+                    // Hiển thị dữ liệu mới (mô phỏng dữ liệu từ file Excel)
+                    var newData = `
+                        <tr class="table-success">
+                            <td>1</td>
+                            <td>030333000333</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>a.nguyenvan@hub.edu.vn</td>
+                            <td>01-05-2000</td>
+                            <td>CLCK6</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>2</td>
+                            <td>050606180001</td>
+                            <td>Dương Thị Ly A</td>
+                            <td>a.duongly@hub.edu.vn</td>
+                            <td>25-02-2000</td>
+                            <td>CLCK6</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>3</td>
+                            <td>12345678901</td>
+                            <td>Lê Thị Mỹ Hạnh</td>
+                            <td>hanh.lemy@hub.edu.vn</td>
+                            <td>15-08-2001</td>
+                            <td>DH37TC01</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>4</td>
+                            <td>09876543210</td>
+                            <td>Trần Quốc Bảo</td>
+                            <td>bao.tranquoc@hub.edu.vn</td>
+                            <td>22-04-2002</td>
+                            <td>DH38QT03</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                    `;
+                    
+                    $('#previewData').html(newData);
+                    
+                    // Kích hoạt nút nhập liệu
+                    $('#uploadExcelBtn').prop('disabled', false);
+                } else {
+                    // Reset
+                    $('#fileStatus').text('');
+                    $('#importFileInfo').html(`
+                        <div class="text-center w-100">
+                            <i class="bi bi-file-earmark-excel fs-3 mb-2"></i>
+                            <p class="mb-0">Chưa có file nào được chọn</p>
+                        </div>
+                    `);
+                    
+                    // Reset dữ liệu về ban đầu
+                    var originalData = `
+                        <tr>
+                            <td>1</td>
+                            <td>030333000333</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>a.nguyenvan@hub.edu.vn</td>
+                            <td>01-05-2000</td>
+                            <td>CLCK6</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>050606180001</td>
+                            <td>Dương Thị Ly A</td>
+                            <td>a.duongly@hub.edu.vn</td>
+                            <td>25-02-2000</td>
+                            <td>CLCK6</td>
+                            <td><span class="badge bg-success">Còn học</span></td>
+                        </tr>
+                    `;
+                    
+                    $('#previewData').html(originalData);
+                    
+                    // Vô hiệu hóa nút nhập liệu
+                    $('#uploadExcelBtn').prop('disabled', true);
+                }
+            });
+
+            // Xử lý nhấn nút nhập liệu Excel
+            $('#uploadExcelBtn').on('click', function() {
+                // Đóng modal
+                var modal = bootstrap.Modal.getInstance(document.getElementById('importStudentModal'));
+                modal.hide();
+                
+                // Hiển thị thông báo thành công
+                showToast('Đã nhập dữ liệu đoàn viên từ Excel thành công', 'success');
+                
+                // Reset form và dữ liệu
+                $('#importFile').val('');
+                $('#fileStatus').text('');
+                $('#uploadExcelBtn').prop('disabled', true);
+                
+                // Reset dữ liệu về ban đầu
+                var originalData = `
+                    <tr>
+                        <td>1</td>
+                        <td>030333000333</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>a.nguyenvan@hub.edu.vn</td>
+                        <td>01-05-2000</td>
+                        <td>CLCK6</td>
+                        <td><span class="badge bg-success">Còn học</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>050606180001</td>
+                        <td>Dương Thị Ly A</td>
+                        <td>a.duongly@hub.edu.vn</td>
+                        <td>25-02-2000</td>
+                        <td>CLCK6</td>
+                        <td><span class="badge bg-success">Còn học</span></td>
+                    </tr>
+                `;
+                
+                $('#previewData').html(originalData);
+            });
+
+            // Hiển thị toast message
+            function showToast(message, type = 'info') {
+                var toastEl = document.getElementById('liveToast');
+                var toast = new bootstrap.Toast(toastEl);
+                
+                // Cập nhật nội dung và kiểu
+                document.getElementById('toastMessage').textContent = message;
+                toastEl.className = toastEl.className.replace(/bg-\w+/, '');
+                toastEl.classList.add('bg-' + type);
+                
+                // Hiển thị toast
+                toast.show();
+            }
+        });
+    </script>
+</body>
+
+</html>

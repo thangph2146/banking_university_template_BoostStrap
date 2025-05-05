@@ -1,0 +1,21 @@
+/* Định nghĩa các biến màu từ logo */
+:root {
+    --hub-red: #A52A2A; /* Màu đỏ nâu như trong screenshot */
+    --hub-dark: #343a40; /* Màu tối chuẩn Bootstrap */
+    --hub-gray: #f8f9fa; /* Màu xám sáng chuẩn Bootstrap */
+    --hub-light: #ffffff; /* Màu trắng */
+    --hub-text-dark: #333;
+    --hub-text-light: #ffffff;
+    --hub-text-secondary: #6c757d; /* Màu text phụ chuẩn Bootstrap */
+    --hub-red-darker: #8B0000; /* Đỏ sẫm hơn cho hover */
+    --hub-red-rgb: 165, 42, 42; /* Giá trị RGB của --hub-red */
+    --hub-dark-rgb: 52, 58, 64; /* Giá trị RGB của --hub-dark */
+    --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Font giống hệ thống hơn */
+
+    /* Sidebar */
+    --hub-sidebar-width: 280px;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
