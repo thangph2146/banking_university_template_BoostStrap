@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Check-in | BUH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    <div class="container">
+        <header class="university-header">
+            <div class="logo-container">
+                <img src="images/buh-logo.png" alt="BUH Logo" class="buh-logo">
+            </div>
+            <div class="name-container">
+                <h1 class="uni-name-vi">TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</h1>
+                <h2 class="uni-name-en">Banking University Ho Chi Minh City</h2>
+            </div>
+        </header>
+        
+        <main class="developer-card">
+            
+            <div class="card-body">
+              
+                
+                <div class="developer-profile">
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <img id="avatar" src="" alt="Developer Avatar" class="developer-avatar">
+                            <div class="avatar-corner top-left"></div>
+                            <div class="avatar-corner top-right"></div>
+                            <div class="avatar-corner bottom-left"></div>
+                            <div class="avatar-corner bottom-right"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="dev-info">
+                        <div class="dev-badge">
+                            <i class="fas fa-code"></i>
+                            <span id="titleBadge">DEVELOPER</span>
+                        </div>
+                        <h2 class="dev-name" id="personNameDisplay">Nguyen Van A</h2>
+                        
+                        <div class="console-output">
+                            <div class="output-header">
+                                <i class="fas fa-terminal"></i>
+                                <span>console.log(welcomeDeveloper());</span>
+                            </div>
+                            <div class="output-result" id="text1Output">Hello Developer! Welcome to the event</div>
+                            <div class="output-subtext" id="text2">console.log('Happy coding!');</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-data">
+                <div class="data-blocks">
+                    <div class="data-block">
+                        <i class="fas fa-calendar-day"></i>
+                        <span id="dateBlock">31/03/2025</span>
+                    </div>
+                    <div class="data-block">
+                        <i class="fas fa-clock"></i>
+                        <span id="timeBlock">08:30</span>
+                    </div>
+                    <div class="data-block">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="placeBlock">HUB - 56 Hoàng Diệu 2</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-footer">
+                <div class="event-title">SỰ KIỆN TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</div>
+                <div class="current-time" id="current-time"></div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>

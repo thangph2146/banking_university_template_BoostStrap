@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUH Event Check-in</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    <div class="container">
+        <div class="university-logo">
+            <img src="images/buh-logo.png" alt="BUH Logo">
+            <div class="university-name">
+                <span class="name-vi">TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</span>
+                <span class="name-en">Banking University Ho Chi Minh City</span>
+            </div>
+        </div>
+        
+        <div class="check-in-card">
+            <div class="card-header">
+                <div class="event-badge"><i class="fas fa-star-of-life"></i> CHECK-IN <i class="fas fa-star-of-life"></i></div>
+                <div class="header-details">
+                    <div class="date-time">
+                        <div class="date-wrapper">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="date">31/03/2025</span>
+                        </div>
+                        <div class="time-wrapper">
+                            <i class="fas fa-clock"></i>
+                            <span id="time">08:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <div class="square-avatar-container">
+                    <div class="avatar-frame"></div>
+                    <img id="avatar" src="" alt="Guest Avatar" class="square-avatar">
+                    <div class="corner-accent top-left"></div>
+                    <div class="corner-accent top-right"></div>
+                    <div class="corner-accent bottom-left"></div>
+                    <div class="corner-accent bottom-right"></div>
+                </div>
+                
+                <div class="guest-info">
+                    <div class="guest-title" id="title">KHÁCH MỜI</div>
+                    <h1 id="personName" class="guest-name">Nguyen Van A</h1>
+                    <div class="location-info">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt pulse"></i>
+                        </div>
+                        <div class="location-text">
+                            <div id="place" class="venue">HUB - 56 Hoàng Diệu 2</div>
+                            <div id="placeID" class="room">Hoi truong A</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="welcome-banner">
+                <div class="banner-decoration left"></div>
+                <div class="welcome-message">
+                    <h2 id="text1" class="message-text">Chào mừng đến với sự kiện</h2>
+                    <p id="text2" class="message-subtext">Welcome to Banking University Ho Chi Minh City</p>
+                </div>
+                <div class="banner-decoration right"></div>
+            </div>
+            
+            <div class="footer">
+                <div class="event-info">SỰ KIỆN TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</div>
+                <div class="current-timestamp" id="current-time"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

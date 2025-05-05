@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Check-in | BUH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    <div class="container">
+        <header class="university-header">
+            <div class="logo-container">
+                <img src="images/buh-logo.png" alt="BUH Logo" class="buh-logo">
+            </div>
+            <div class="name-container">
+                <h1 class="uni-name-vi">TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</h1>
+                <h2 class="uni-name-en">Banking University Ho Chi Minh City</h2>
+            </div>
+        </header>
+        
+        <main class="professor-card">
+            <div class="professor-ribbon">
+                <div class="ribbon-content">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>GIẢNG VIÊN - PROFESSOR</span>
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="profile-section">
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <img id="avatar" src="" alt="Professor Avatar" class="professor-avatar">
+                            <div class="avatar-corner top-left"></div>
+                            <div class="avatar-corner top-right"></div>
+                            <div class="avatar-corner bottom-left"></div>
+                            <div class="avatar-corner bottom-right"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="professor-info">
+                        <div class="academic-title" id="title">PGS.TS</div>
+                        <h2 id="personName" class="professor-name">Nguyen Van A</h2>
+                        
+                        <div class="location-info">
+                            <div class="location-icon">
+                                <i class="fas fa-map-marker-alt pulse"></i>
+                            </div>
+                            <div class="location-text">
+                                <div id="place" class="venue">HUB - 56 Hoàng Diệu 2</div>
+                                <div id="placeID" class="room">Hoi truong A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="welcome-section">
+                    <div class="decoration-line left"></div>
+                    <div class="welcome-content">
+                        <h3 id="text1" class="welcome-message">Kính chào Phó Giáo sư đến với sự kiện</h3>
+                        <p id="text2" class="welcome-submessage">We welcome you to our event</p>
+                    </div>
+                    <div class="decoration-line right"></div>
+                </div>
+                
+                <div class="event-data">
+                    <div class="data-block">
+                        <i class="fas fa-calendar-day"></i>
+                        <span id="date">31/03/2025</span>
+                    </div>
+                    <div class="data-block">
+                        <i class="fas fa-clock"></i>
+                        <span id="time">08:30</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-footer">
+                <div class="event-title">SỰ KIỆN TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</div>
+                <div class="current-time" id="current-time"></div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
