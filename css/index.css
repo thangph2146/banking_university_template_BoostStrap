@@ -1,0 +1,132 @@
+/* Index-specific CSS */
+
+/* Gradient background cho CTA section */
+.hub-cta-gradient {
+    background: linear-gradient(135deg, var(--hub-red) 0%, #9c0f0f 100%);
+    color: var(--hub-light);
+    position: relative;
+}
+
+.hub-cta-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../public/images/pattern-light.png');
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.hub-cta-gradient .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card overlay cho event cards */
+.event-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-card-v2:hover .event-overlay {
+    opacity: 1;
+}
+
+.event-card-v2:hover .event-image {
+    transform: scale(1.05);
+}
+
+/* Style cho các card trong how-it-works */
+.how-it-works-col .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-it-works-col .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.how-it-works-col .icon-circle {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.how-it-works-col .card:hover .icon-circle {
+    transform: scale(1.1);
+    background-color: rgba(var(--hub-red-rgb), 0.2);
+}
+
+/* Style cho upcoming events */
+.upcoming-event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upcoming-event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Back to top button */
+#backToTop {
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#backToTop:hover {
+    background-color: var(--hub-light);
+    color: var(--hub-red);
+    transform: translateY(-3px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .upcoming-events-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-overlay {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .how-it-works-col {
+        margin-bottom: 15px;
+    }
+}
+
+/* Carousel indicators styling */
+.carousel-indicators {
+    bottom: 20px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--hub-light);
+}
+
+/* Stats section */
+#stats h3 {
+    font-size: 2.5rem;
+} 

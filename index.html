@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trường Đại học Ngân hàng TP.HCM - Trung tâm sự kiện và hoạt động sinh viên">
     <title>Đại học Ngân hàng TP.HCM - Sự kiện</title>
+    <!-- Favicon -->
+    <link rel="icon" href="public/images/logo/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Index CSS -->
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -58,13 +64,13 @@
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-start">
                             <div class="col-lg-7">
-                                <div class="hero-content-box">
+                                <div class="hero-content-box" data-aos="fade-right">
                                     <p class="text-uppercase small fw-bold mb-2">Chào mừng sinh viên</p>
                                     <h1 class="fw-bold mb-4">Khám Phá và Tham Gia Sự Kiện Sinh Viên</h1>
                                     <p class="mb-4">Trải nghiệm đa dạng các hoạt động học thuật, văn hóa và hướng nghiệp. Kết nối cùng cộng đồng sinh viên Đại học Ngân hàng TP.HCM.</p>
                                     <div class="d-flex flex-wrap gap-2">
-                                        <a href="events.html" class="btn btn-hub-primary me-2">Khám phá sự kiện</a>
-                                        <a href="how-it-works.html" class="btn btn-hub-secondary">Tìm hiểu thêm</a>
+                                        <a href="events.html" class="btn btn-hub-primary me-2"><i class="bi bi-calendar-event me-2"></i>Khám phá sự kiện</a>
+                                        <a href="how-it-works.html" class="btn btn-hub-secondary"><i class="bi bi-info-circle me-2"></i>Tìm hiểu thêm</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,10 +82,10 @@
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-center text-center">
                             <div class="col-lg-8">
-                                <div class="hero-content-box">
+                                <div class="hero-content-box" data-aos="fade-up">
                                     <h1 class="fw-bold mb-4">Kết nối Cộng đồng & Mở rộng Mạng lưới</h1>
                                     <p class="mb-4">Gặp gỡ bạn bè, giảng viên, chuyên gia và nhà tuyển dụng qua các hội thảo, workshop và ngày hội việc làm đa dạng của trường.</p>
-                                    <a href="events.html#upcoming-events" class="btn btn-hub-primary">Xem sự kiện sắp tới</a>
+                                    <a href="events.html#upcoming-events" class="btn btn-hub-primary"><i class="bi bi-calendar-check me-2"></i>Xem sự kiện sắp tới</a>
                                 </div>
                             </div>
                         </div>
@@ -90,10 +96,10 @@
                     <div class="container h-100 d-flex align-items-center">
                         <div class="row justify-content-end text-end">
                             <div class="col-lg-7">
-                                <div class="hero-content-box">
+                                <div class="hero-content-box" data-aos="fade-left">
                                     <h1 class="fw-bold mb-4">Phát triển Kỹ năng & Thể hiện Tài năng</h1>
                                     <p class="mb-4">Nâng cao kỹ năng mềm, chuyên môn và thể hiện bản thân qua các cuộc thi học thuật, hoạt động CLB - Đội - Nhóm và sự kiện văn hóa sôi động.</p>
-                                    <a href="contact.html" class="btn btn-hub-primary">Liên hệ Ban Tổ chức</a>
+                                    <a href="contact.html" class="btn btn-hub-primary"><i class="bi bi-chat-dots me-2"></i>Liên hệ Ban Tổ chức</a>
                                 </div>
                             </div>
                         </div>
@@ -108,26 +114,37 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+            
+            <!-- Thêm indicators để người dùng biết đang ở slide nào -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
         </section>
 
         <!-- Sự kiện nổi bật -->
-        <section id="events" class="py-5">
+        <section id="events" class="py-5 bg-light">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="fw-bold mb-3">Sự kiện nổi bật</h2>
-                        <p class="text-secondary">Khám phá những sự kiện đang được cộng đồng sinh viên và giảng viên của chúng tôi quan tâm. Các sự kiện học thuật và ngoại khóa được tổ chức thường xuyên.</p>
+                        <span class="badge bg-danger text-white mb-2" data-aos="fade-up">SỰ KIỆN</span>
+                        <h2 class="fw-bold mb-3" data-aos="fade-up" data-aos-delay="100">Sự kiện nổi bật</h2>
+                        <p class="text-secondary" data-aos="fade-up" data-aos-delay="200">Khám phá những sự kiện đang được cộng đồng sinh viên và giảng viên của chúng tôi quan tâm. Các sự kiện học thuật và ngoại khóa được tổ chức thường xuyên.</p>
                     </div>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     <!-- Event 1 -->
                     <div class="col" data-aos="fade-up">
-                        <div class="event-card-v2">
+                        <div class="event-card-v2 shadow-sm">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-1.jpg" alt="Hội thảo Ngân hàng số và Tương lai Thanh toán" class="event-image img-fluid" loading="lazy">
                                 <div class="event-date-badge">
                                     <span class="day">15</span>
                                     <span class="month">Th4</span>
+                                </div>
+                                <div class="event-overlay">
+                                    <a href="event-detail.html" class="btn btn-sm btn-light rounded-pill">Xem chi tiết</a>
                                 </div>
                             </div>
                             <div class="event-content">
@@ -143,12 +160,15 @@
                     </div>
                     <!-- Event 2 -->
                     <div class="col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="event-card-v2">
+                        <div class="event-card-v2 shadow-sm">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-2.jpg" alt="Ngày hội Việc làm Ngành Tài chính - Ngân hàng 2025" class="event-image img-fluid" loading="lazy">
                                 <div class="event-date-badge">
                                     <span class="day">20</span>
                                     <span class="month">Th4</span>
+                                </div>
+                                <div class="event-overlay">
+                                    <a href="event-detail.html" class="btn btn-sm btn-light rounded-pill">Xem chi tiết</a>
                                 </div>
                             </div>
                             <div class="event-content">
@@ -164,12 +184,15 @@
                     </div>
                     <!-- Event 3 -->
                     <div class="col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="event-card-v2">
+                        <div class="event-card-v2 shadow-sm">
                             <div class="event-image-container">
                                 <img src="public/images/event-placeholder-3.jpg" alt="Ngày hội Văn hóa Sinh viên Đại học Ngân hàng" class="event-image img-fluid" loading="lazy">
                                 <div class="event-date-badge">
                                     <span class="day">05</span>
                                     <span class="month">Th5</span>
+                                </div>
+                                <div class="event-overlay">
+                                    <a href="event-detail.html" class="btn btn-sm btn-light rounded-pill">Xem chi tiết</a>
                                 </div>
                             </div>
                             <div class="event-content">
@@ -184,8 +207,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-5">
-                    <a href="events.html" class="view-all-link">Xem tất cả sự kiện <i class="bi bi-arrow-right"></i></a>
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <a href="events.html" class="btn btn-outline-danger rounded-pill px-4 py-2">
+                        <i class="bi bi-calendar2-week me-2"></i>Xem tất cả sự kiện
+                    </a>
                 </div>
             </div>
         </section>
@@ -195,63 +220,79 @@
             <div class="container">
                 <div class="row text-center mb-5">
                     <div class="col-lg-8 mx-auto">
-                        <h2 class="fw-bold mb-3">Cách thức hoạt động</h2>
-                        <p class="text-secondary">Chỉ với vài bước đơn giản, bạn có thể đăng ký tham gia các sự kiện tại trường.</p>
+                        <span class="badge bg-primary text-white mb-2" data-aos="fade-up">HƯỚNG DẪN</span>
+                        <h2 class="fw-bold mb-3" data-aos="fade-up" data-aos-delay="100">Cách thức hoạt động</h2>
+                        <p class="text-secondary" data-aos="fade-up" data-aos-delay="200">Chỉ với vài bước đơn giản, bạn có thể đăng ký tham gia các sự kiện tại trường.</p>
                     </div>
                 </div>
-                <div class="row justify-content-center text-center">
+                <div class="row justify-content-center">
                     <!-- Step 1 -->
-                    <div class="col-md-4 how-it-works-col" data-aos="fade-up">
-                        <div class="how-it-works-icon">
-                            <div class="icon-circle">
-                                <i class="bi bi-person-plus-fill icon-image"></i>
+                    <div class="col-md-4 how-it-works-col mb-4" data-aos="fade-up">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <div class="how-it-works-icon mx-auto">
+                                <div class="icon-circle">
+                                    <i class="bi bi-person-plus-fill icon-image"></i>
+                                </div>
+                                <span class="icon-number">1</span>
                             </div>
-                            <span class="icon-number">1</span>
+                            <div class="card-body">
+                                <h3 class="how-it-works-title">Đăng ký tài khoản</h3>
+                                <p class="how-it-works-text">Tạo tài khoản với email trường học của bạn để bắt đầu sử dụng hệ thống.</p>
+                            </div>
                         </div>
-                        <h3 class="how-it-works-title">Đăng ký tài khoản</h3>
-                        <p class="how-it-works-text">Tạo tài khoản với email trường học của bạn để bắt đầu sử dụng hệ thống.</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="col-md-4 how-it-works-col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="how-it-works-icon">
-                            <div class="icon-circle">
-                                <i class="bi bi-search icon-image"></i>
+                    <div class="col-md-4 how-it-works-col mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <div class="how-it-works-icon mx-auto">
+                                <div class="icon-circle">
+                                    <i class="bi bi-search icon-image"></i>
+                                </div>
+                                <span class="icon-number">2</span>
                             </div>
-                            <span class="icon-number">2</span>
+                            <div class="card-body">
+                                <h3 class="how-it-works-title">Tìm kiếm sự kiện</h3>
+                                <p class="how-it-works-text">Dễ dàng tìm kiếm và khám phá các sự kiện phù hợp với sở thích và lịch trình của bạn.</p>
+                            </div>
                         </div>
-                        <h3 class="how-it-works-title">Tìm kiếm sự kiện</h3>
-                        <p class="how-it-works-text">Dễ dàng tìm kiếm và khám phá các sự kiện phù hợp với sở thích và lịch trình của bạn.</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="col-md-4 how-it-works-col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="how-it-works-icon">
-                            <div class="icon-circle">
-                                <i class="bi bi-calendar2-check-fill icon-image"></i>
+                    <div class="col-md-4 how-it-works-col mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <div class="how-it-works-icon mx-auto">
+                                <div class="icon-circle">
+                                    <i class="bi bi-calendar2-check-fill icon-image"></i>
+                                </div>
+                                <span class="icon-number">3</span>
                             </div>
-                            <span class="icon-number">3</span>
+                            <div class="card-body">
+                                <h3 class="how-it-works-title">Đăng ký tham gia</h3>
+                                <p class="how-it-works-text">Đăng ký tham gia sự kiện và nhận thông báo và quản lý lịch trình của bạn.</p>
+                            </div>
                         </div>
-                        <h3 class="how-it-works-title">Đăng ký tham gia</h3>
-                        <p class="how-it-works-text">Đăng ký tham gia sự kiện và nhận thông báo và quản lý lịch trình của bạn.</p>
                     </div>
                 </div>
-                <div class="text-center mt-4">
-                    <a href="register.html" class="btn btn-hub-primary">Bắt đầu ngay</a>
+                <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="register.html" class="btn btn-hub-primary btn-lg">
+                        <i class="bi bi-arrow-right-circle me-2"></i>Bắt đầu ngay
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Sự kiện sắp diễn ra -->
-        <section id="upcoming-events" class="py-5">
+        <section id="upcoming-events" class="py-5 bg-light">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="fw-bold mb-3">Sự kiện sắp diễn ra</h2>
-                        <p class="text-secondary">Đừng bỏ lỡ những sự kiện hấp dẫn sắp diễn ra tại trường</p>
+                        <span class="badge bg-success text-white mb-2" data-aos="fade-up">LỊCH TRÌNH</span>
+                        <h2 class="fw-bold mb-3" data-aos="fade-up" data-aos-delay="100">Sự kiện sắp diễn ra</h2>
+                        <p class="text-secondary" data-aos="fade-up" data-aos-delay="200">Đừng bỏ lỡ những sự kiện hấp dẫn sắp diễn ra tại trường</p>
                     </div>
                 </div>
                 <div class="upcoming-events-container">
                     <!-- Upcoming Event 1 -->
-                    <div class="upcoming-event-card" data-aos="fade-up">
+                    <div class="upcoming-event-card shadow-sm" data-aos="fade-up">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <time class="event-date" datetime="2025-04-25">
                                 <span class="event-day">25</span>
@@ -269,16 +310,25 @@
                                 <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Hội trường A
                             </div>
                         </div>
-                        <a href="event-detail.html" class="btn btn-hub-primary btn-register mt-auto">Đăng ký ngay</a>
+                        <div class="d-grid">
+                            <a href="event-detail.html" class="btn btn-hub-primary btn-register mt-auto">
+                                <i class="bi bi-calendar-plus me-2"></i>Đăng ký ngay
+                            </a>
+                        </div>
                     </div>
                     <!-- Upcoming Event 2 -->
-                    <div class="upcoming-event-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="upcoming-event-card shadow-sm" data-aos="fade-up" data-aos-delay="100">
                         <div class="d-flex justify-content-between align-items-start mb-3">
-                            <time class="event-date" datetime="2025-05-06">
-                                <span class="event-day">06</span>
-                                <span class="event-month">Th5</span>
-                                <span class="event-year">2025</span>
-                            </time>
+                            <div class="position-relative">
+                                <time class="event-date" datetime="2025-05-06">
+                                    <span class="event-day">06</span>
+                                    <span class="event-month">Th5</span>
+                                    <span class="event-year">2025</span>
+                                </time>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ms-2">
+                                    Hot!
+                                </span>
+                            </div>
                             <span class="event-type">Cuộc thi</span>
                         </div>
                         <h3 class="event-title">Cuộc thi Ý tưởng Fintech Innovation 2025</h3>
@@ -290,25 +340,68 @@
                                 <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Khu công nghệ cao
                             </div>
                         </div>
-                        <a href="event-detail.html" class="btn btn-hub-primary btn-register mt-auto">Đăng ký ngay</a>
+                        <div class="d-grid">
+                            <a href="event-detail.html" class="btn btn-hub-primary btn-register mt-auto">
+                                <i class="bi bi-calendar-plus me-2"></i>Đăng ký ngay
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="text-center mt-5">
-                    <a href="events.html" class="view-all-link">Xem tất cả sự kiện sắp diễn ra <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <a href="events.html" class="btn btn-outline-success rounded-pill px-4 py-2">
+                        <i class="bi bi-calendar-check me-2"></i>Xem tất cả sự kiện sắp diễn ra
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section id="cta" class="py-5">
+        <section id="cta" class="py-5 hub-cta-gradient">
             <div class="container">
-                <div class="row text-center py-3">
-                    <div class="col-lg-8 mx-auto">
+                <div class="row text-center py-4">
+                    <div class="col-lg-8 mx-auto" data-aos="zoom-in">
+                        <i class="bi bi-people-fill display-4 text-white mb-3"></i>
                         <h2 class="fw-bold mb-3">Chào mừng bạn tham gia cùng cộng đồng sinh viên!</h2>
                         <p class="mb-4">Đăng ký tài khoản ngay hôm nay để trải nghiệm các sự kiện đặc sắc, tham gia hoạt động thú vị và kết nối với cộng đồng tại Đại học Ngân hàng TP.HCM.</p>
-                        <div class="cta-buttons">
-                            <a href="register.html" class="btn btn-light me-2">Đăng ký ngay</a>
-                            <a href="how-it-works.html" class="btn btn-outline-light">Tìm hiểu thêm</a>
+                        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                            <a href="register.html" class="btn btn-light btn-lg me-2">
+                                <i class="bi bi-person-plus me-2"></i>Đăng ký ngay
+                            </a>
+                            <a href="how-it-works.html" class="btn btn-outline-light btn-lg">
+                                <i class="bi bi-info-circle me-2"></i>Tìm hiểu thêm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thống kê nhỏ -->
+        <section id="stats" class="py-4 bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up">
+                        <div class="border-0 py-3">
+                            <h3 class="fw-bold text-hub-red mb-0">500+</h3>
+                            <p class="mb-0 text-secondary">Sự kiện đã tổ chức</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                        <div class="border-0 py-3">
+                            <h3 class="fw-bold text-hub-red mb-0">20.000+</h3>
+                            <p class="mb-0 text-secondary">Sinh viên tham gia</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="border-0 py-3">
+                            <h3 class="fw-bold text-hub-red mb-0">50+</h3>
+                            <p class="mb-0 text-secondary">Đối tác doanh nghiệp</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="border-0 py-3">
+                            <h3 class="fw-bold text-hub-red mb-0">12+</h3>
+                            <p class="mb-0 text-secondary">Năm kinh nghiệm</p>
                         </div>
                     </div>
                 </div>
@@ -321,7 +414,7 @@
                 <div class="row text-center text-md-start">
                     <!-- Column 1 - Logo and Info -->
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="200" class="mb-4" loading="lazy">
+                        <img src="public/images/logo/logo-white-vertical.png" alt="Đại học Ngân hàng TP.HCM Logo" height="180" class="mb-4" loading="lazy">
                         <p>Hệ thống Quản lý Sự kiện Đại học Ngân hàng TP.HCM - Nơi kết nối, chia sẻ và tham gia các hoạt động ngoại khóa và học thuật.</p>
                         <div class="social-links d-inline-flex gap-2 mt-3">
                             <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
@@ -335,10 +428,10 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Liên kết nhanh</h4>
                         <ul class="footer-links list-unstyled">
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="events.html">Sự kiện</a></li>
-                            <li><a href="how-it-works.html">Hướng dẫn</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="index.html"><i class="bi bi-house-door me-2"></i>Trang chủ</a></li>
+                            <li><a href="events.html"><i class="bi bi-calendar-event me-2"></i>Sự kiện</a></li>
+                            <li><a href="how-it-works.html"><i class="bi bi-info-circle me-2"></i>Hướng dẫn</a></li>
+                            <li><a href="contact.html"><i class="bi bi-chat-dots me-2"></i>Liên hệ</a></li>
                         </ul>
                     </div>
 
@@ -346,11 +439,11 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h4 class="footer-heading text-uppercase mb-4 font-weight-bold">Hỗ trợ</h4>
                         <ul class="footer-links list-unstyled">
-                            <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                            <li><a href="how-it-works.html">Cách tham gia</a></li>
-                            <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
-                            <li><a href="terms-of-service.html">Điều khoản sử dụng</a></li>
-                            <li><a href="contact.html">Hỗ trợ kỹ thuật</a></li>
+                            <li><a href="faq.html"><i class="bi bi-question-circle me-2"></i>Câu hỏi thường gặp</a></li>
+                            <li><a href="how-it-works.html"><i class="bi bi-book me-2"></i>Cách tham gia</a></li>
+                            <li><a href="privacy-policy.html"><i class="bi bi-shield-check me-2"></i>Chính sách bảo mật</a></li>
+                            <li><a href="terms-of-service.html"><i class="bi bi-file-text me-2"></i>Điều khoản sử dụng</a></li>
+                            <li><a href="contact.html"><i class="bi bi-headset me-2"></i>Hỗ trợ kỹ thuật</a></li>
                         </ul>
                     </div>
 
@@ -380,7 +473,10 @@
                     </div>
                     <div class="col-md-5 col-lg-4">
                         <div class="text-center text-md-end">
-                            <!-- Optional: Add payment icons or other info here -->
+                            <!-- Back to top button -->
+                            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" id="backToTop" aria-label="Lên đầu trang">
+                                <i class="bi bi-arrow-up"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -394,6 +490,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Index JS -->
     <script src="js/index.js"></script>
+    <script>
+        // Khởi tạo AOS với độ trễ tăng dần
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            delay: 100,
+        });
+        
+        // Back to top button
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>
 </body>
 
 </html>
