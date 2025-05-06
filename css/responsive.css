@@ -22,7 +22,7 @@
     }
     .hub-hero-section-v2 {
         height: auto; /* Chiều cao tự động */
-        padding: 60px 0; /* Thêm padding */
+        padding: 5px 0; /* Thêm padding */
         text-align: center;
     }
     .hub-hero-section-v2 .row {

@@ -44,3 +44,6 @@ i.icon-image { /* Đảm bảo kích thước cho icon how-it-works */
 a:hover .bi-arrow-right { /* Hiệu ứng chung cho mũi tên */
     transform: translateX(3px);
 } 
+.carousel-item{
+    padding: 25px 15px;
+}
