@@ -1,6 +1,6 @@
 /* --- Hero Section V2 --- */
 .hub-hero-section-v2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/hero-background-placeholder.jpg'); /* Thêm lớp phủ đen mờ */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Thêm lớp phủ đen mờ */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
