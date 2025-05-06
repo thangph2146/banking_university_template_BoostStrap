@@ -16,116 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-     <style>
-        /* Replicate styles from index.html if needed */
-        .how-it-works-col {
-            position: relative;
-            margin-bottom: 2rem; 
-        }
-        .how-it-works-icon {
-            position: relative;
-            display: inline-block; 
-            margin-bottom: 1.5rem;
-        }
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--hub-red-light); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto; 
-            transition: background-color 0.3s ease;
-        }
-        .icon-image {
-            font-size: 2.5rem;
-            color: var(--hub-red); 
-        }
-        .icon-number {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--hub-red);
-            color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border: 2px solid white;
-        }
-        .how-it-works-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-             color: var(--hub-text-primary);
-        }
-        .how-it-works-text {
-            color: var(--hub-text-secondary);
-            padding: 0 0.5rem; 
-            text-align: left; 
-            font-size: 0.95rem;
-        }
-        .how-it-works-text ul {
-            padding-left: 1.2rem; 
-            margin-top: 0.5rem;
-        }
-        .how-it-works-text li {
-             margin-bottom: 0.25rem;
-        }
-         .page-header {
-            background-color: var(--hub-red);
-            padding: 3rem 0; /* Increased padding */
-            margin-bottom: 3rem;
-            color: white;
-        }
-        .page-header h1 {
-            font-size: 2.5rem; /* Larger title */
-             margin-bottom: 0.5rem; /* Add margin below title */
-        }
-         .accordion-button:not(.collapsed) {
-            color: var(--hub-red); 
-            background-color: var(--hub-red-light);
-         }
-         .accordion-button:focus {
-             box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
-             border-color: rgba(var(--hub-red-rgb), 0.5);
-         }
-         .visual-placeholder {
-             border: 2px dashed #ccc;
-             background-color: #f8f9fa;
-             padding: 1rem;
-             margin-top: 1rem;
-             font-style: italic;
-             color: #6c757d;
-             text-align: center;
-             font-size: 0.9rem;
-             border-radius: 0.25rem;
-         }
-         .tip-card {
-             border-left: 4px solid var(--hub-red);
-             padding: 1rem;
-             background-color: #fff;
-             margin-bottom: 1rem;
-             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-             display: flex; /* Use flexbox */
-             align-items: flex-start; /* Align icon top */
-         }
-         .tip-card .tip-icon {
-             color: var(--hub-red);
-             font-size: 1.2rem;
-             margin-right: 0.75rem; /* Increased margin */
-             margin-top: 0.1rem; /* Adjust icon top alignment */
-         }
-         .tip-card p {
-             margin-bottom: 0;
-             flex-grow: 1; /* Allow text to take remaining space */
-         }
-    </style>
 </head>
 
 <body>
@@ -153,8 +43,8 @@
                         <a class="nav-link" href="contact.html">Liên hệ</a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <a href="login.html" class="btn btn-hub-secondary me-2">Đăng nhập</a>
+                <div class="d-flex flex-column flex-lg-row">
+                    <a href="login.html" class="btn btn-hub-secondary me-lg-2 mb-2 mb-lg-0">Đăng nhập</a>
                     <a href="register.html" class="btn btn-hub-primary">Đăng ký</a>
                 </div>
             </div>
@@ -177,15 +67,15 @@
          <!-- How It Works Section -->
         <section id="how-it-works-steps" class="py-5">
             <div class="container">
-                <div class="row text-center mb-5">
+                <div class="row text-center mb-4">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="fw-bold mb-3">Quy trình 3 bước đơn giản</h2>
                         <p class="text-secondary">Từ việc tạo tài khoản đến khi tham gia sự kiện, hãy làm theo các bước sau:</p>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row">
                     <!-- Step 1 -->
-                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-4" data-aos="fade-up">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
                                 <i class="bi bi-person-vcard-fill icon-image"></i> 
@@ -217,13 +107,13 @@
                                 <i class="bi bi-input-cursor-text me-1"></i> Minh họa Form Đăng ký & Đăng nhập.
                             </div>
                         </div>
-                         <div class="mt-3 d-flex justify-content-center gap-2">
-                            <a href="register.html" class="btn btn-sm btn-hub-primary">Đi đến Đăng ký</a>
+                         <div class="mt-3 d-flex flex-column flex-sm-row justify-content-center gap-2">
+                            <a href="register.html" class="btn btn-sm btn-hub-primary mb-2 mb-sm-0">Đi đến Đăng ký</a>
                             <a href="login.html" class="btn btn-sm btn-hub-secondary">Đi đến Đăng nhập</a>
                         </div>
                     </div>
                     <!-- Step 2 -->
-                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
                                 <i class="bi bi-binoculars-fill icon-image"></i> 
@@ -258,7 +148,7 @@
                         </div>
                     </div>
                     <!-- Step 3 -->
-                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-4 col-md-6 how-it-works-col text-center mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="how-it-works-icon">
                             <div class="icon-circle">
                                 <i class="bi bi-clipboard-check-fill icon-image"></i> 
@@ -303,7 +193,7 @@
           <!-- Tips Section -->
         <section id="tips" class="py-5 bg-white"> 
              <div class="container">
-                 <div class="row text-center mb-5">
+                 <div class="row text-center mb-4">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="fw-bold mb-3">Mẹo sử dụng hiệu quả</h2>
                         <p class="text-secondary">Tận dụng tối đa hệ thống với những gợi ý sau:</p>
@@ -341,12 +231,14 @@
         </section>
 
          <!-- FAQ Section - Simplified -->
-        <section id="faq-link" class="py-5 bg-light">            <div class="container">
+        <section id="faq-link" class="py-5 bg-light">            
+            <div class="container">
                 <div class="row text-center">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="fw-bold mb-3">Giải đáp thắc mắc</h2>
                         <p class="text-secondary mb-4">Bạn có những câu hỏi khác về cách sử dụng hệ thống? Hãy xem trang Câu hỏi thường gặp (FAQ) của chúng tôi để tìm câu trả lời chi tiết.</p>
-                        <a href="faq.html" class="btn btn-outline-hub-red"><i class="bi bi-question-circle-fill me-2"></i> Xem FAQ chi tiết</a>                    </div>
+                        <a href="faq.html" class="btn btn-outline-hub-red"><i class="bi bi-question-circle-fill me-2"></i> Xem FAQ chi tiết</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -447,6 +339,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Core JS -->
     <script src="js/core.js"></script>
+    <!-- Page specific JS -->
+    <script src="js/how-it-works.js"></script>
 </body>
 
 </html>

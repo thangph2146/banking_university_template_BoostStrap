@@ -1,28 +1,32 @@
-/* --- How It Works Section --- */
+/* --- How It Works Section for Homepage --- */
 #how-it-works {
-    background-color: var(--hub-light); /* Nền trắng */
-    padding: 60px 0; /* Padding lớn hơn */
+    background-color: var(--hub-light); 
+    padding: 60px 0;
 }
 
 #how-it-works h2 {
-    font-weight: 700; /* Đậm */
+    font-weight: 700;
     margin-bottom: 15px;
     color: var(--hub-text-dark);
 }
-#how-it-works .text-secondary { /* Subtitle */
+
+#how-it-works .text-secondary {
      color: var(--hub-text-secondary) !important;
 }
+/* Styles specific to the How It Works page */
 
-
+/* How it works steps */
 .how-it-works-col {
     position: relative;
     margin-bottom: 2rem; 
 }
+
 .how-it-works-icon {
     position: relative;
     display: inline-block; 
     margin-bottom: 1.5rem;
 }
+
 .icon-circle {
     width: 80px;
     height: 80px;
@@ -32,12 +36,14 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto; 
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
+
 .icon-image {
     font-size: 2.5rem;
     color: var(--hub-red); 
 }
+
 .icon-number {
     position: absolute;
     top: -10px;
@@ -54,34 +60,55 @@
     font-size: 0.9rem;
     border: 2px solid white;
 }
+
 .how-it-works-title {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--hub-text-primary);
 }
+
 .how-it-works-text {
     color: var(--hub-text-secondary);
     padding: 0 0.5rem; 
     text-align: left; 
     font-size: 0.95rem;
 }
+
 .how-it-works-text ul {
     padding-left: 1.2rem; 
     margin-top: 0.5rem;
 }
+
 .how-it-works-text li {
     margin-bottom: 0.25rem;
 }
 
+/* Page Header */
+.page-header {
+    background-color: var(--hub-red);
+    padding: 3rem 0; /* Increased padding */
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 2.5rem; /* Larger title */
+    margin-bottom: 0.5rem; /* Add margin below title */
+}
+
+/* Accordion */
 .accordion-button:not(.collapsed) {
     color: var(--hub-red); 
     background-color: var(--hub-red-light);
 }
+
 .accordion-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(var(--hub-red-rgb), 0.25);
     border-color: rgba(var(--hub-red-rgb), 0.5);
 }
+
+/* Visual elements */
 .visual-placeholder {
     border: 2px dashed #ccc;
     background-color: #f8f9fa;
@@ -93,6 +120,8 @@
     font-size: 0.9rem;
     border-radius: 0.25rem;
 }
+
+/* Tips section */
 .tip-card {
     border-left: 4px solid var(--hub-red);
     padding: 1rem;
@@ -102,13 +131,80 @@
     display: flex; /* Use flexbox */
     align-items: flex-start; /* Align icon top */
 }
+
 .tip-card .tip-icon {
     color: var(--hub-red);
     font-size: 1.2rem;
     margin-right: 0.75rem; /* Increased margin */
     margin-top: 0.1rem; /* Adjust icon top alignment */
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
+
 .tip-card p {
     margin-bottom: 0;
     flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Responsive media queries */
+@media (max-width: 992px) {
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .page-header .lead {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .how-it-works-text {
+        font-size: 0.9rem;
+        padding: 0;
+    }
+    
+    .how-it-works-title {
+        font-size: 1.2rem;
+    }
+    
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon-image {
+        font-size: 2rem;
+    }
+    
+    .tip-card {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .tip-card {
+        display: block;
+    }
+    
+    .tip-card .tip-icon {
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+    
+    .how-it-works-text ul.small {
+        padding-left: 0.8rem;
+    }
+    
+    .visual-placeholder {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
 } 

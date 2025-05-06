@@ -19,3 +19,34 @@
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+.text-hub-red {
+    color: var(--hub-red);
+}
+
+.text-hub-red-darker {
+    color: var(--hub-red-darker);
+}
+
+.text-hub-dark {
+    color: var(--hub-dark);
+}
+
+.text-hub-gray {
+    color: var(--hub-gray);
+}
+
+.text-hub-light {
+    color: var(--hub-light);
+}
+
+.text-hub-text-dark {
+    color: var(--hub-text-dark);
+}
+
+.text-hub-text-light {
+    color: var(--hub-text-light);
+}
+
+
+

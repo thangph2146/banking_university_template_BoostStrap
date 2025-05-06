@@ -54,4 +54,86 @@
         text-align: center !important;
         margin-bottom: 5px;
     }
+    
+    /* How it works page responsive styles */
+    #how-it-works-steps .row {
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+    
+    #how-it-works-steps .col-md-6 {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    /* Contact page responsive styles */
+    #contact-details .card-body {
+        padding: 1rem;
+    }
+    
+    .contact-info-card {
+        margin-bottom: 1rem;
+    }
+    
+    #contact-details h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    #map-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile styles for how-it-works page */
+    .visual-placeholder {
+        margin-top: 0.5rem;
+    }
+    
+    .how-it-works-text {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    .how-it-works-text ul {
+        padding-left: 1rem;
+    }
+    
+    /* Fix nested list spacing */
+    .how-it-works-text ul ul {
+        padding-left: 0.8rem;
+    }
+    
+    /* Mobile styles for contact page */
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .page-header p {
+        font-size: 0.875rem;
+    }
+    
+    #contactForm .row {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+    
+    #contactForm .col-md-6 {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    .map-container {
+        margin-top: 1rem;
+    }
+    
+    .contact-info-card .card-title {
+        font-size: 1rem;
+    }
+    
+    .contact-info-card p {
+        font-size: 0.875rem;
+    }
 } 

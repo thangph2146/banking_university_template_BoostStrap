@@ -11,9 +11,21 @@
     min-height: 400px;
 }
 /* Contact Info Cards */
+.contact-info-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
 .contact-info-card .card-body {
     display: flex;
-    align-items: flex-start; /* Align icon top */
+    align-items: flex-start;
+    padding: 1.25rem;
 }
 
 .contact-info-card .icon {
@@ -26,6 +38,7 @@
 .contact-info-card .card-title {
     margin-bottom: 0.25rem;
     font-weight: 600;
+    color: var(--hub-text-dark);
 }
 
 .contact-info-card p {
@@ -33,9 +46,98 @@
     color: var(--hub-text-secondary);
 }
 
+/* Map Container */
+.map-container {
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+#map-section iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    display: block;
+}
+
+/* Social Media Links */
+.social-media-links .btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-media-links .btn:hover {
+    background-color: var(--hub-red);
+    color: white;
+    border-color: var(--hub-red);
+}
+
+.social-media-links .btn i {
+    font-size: 1.25rem;
+}
+
+/* Contact Form */
+#contactForm .form-control {
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+}
+
+#contactForm .form-control:focus {
+    border-color: var(--hub-red-light);
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 /* Page Header */
 .page-header {
     background-color: #f8f9fa;
-    padding: 2rem 0;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .contact-info-card .card-body {
+        flex-direction: column;
+    }
+    
+    .contact-info-card .icon {
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+    
+    #map-section iframe {
+        height: 350px;
+    }
+    
+    #contactForm .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #map-section iframe {
+        height: 300px;
+    }
+    
+    .page-header {
+        padding: 1.5rem 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .social-media-links {
+        justify-content: center;
+    }
 } 
